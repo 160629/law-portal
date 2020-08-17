@@ -1,0 +1,35 @@
+.titles{
+    background-color:#FFFFFF;
+}
+.center-div {
+    width: 100%;
+}
+.card{
+    margin: 0px;
+    border: 0px;
+    border-top: 1px #eaeaea dashed;
+}
+#toerTime{
+    color: #cbcbcb;
+    margin: 0 auto;
+    float: none;
+    width: 300px;
+    text-align: center;
+    display: block;
+}
+.link-span{
+    color: #0000FF;
+    cursor: pointer;
+}
+.Container {
+    width: 760px;
+    padding-bottom: 0px;
+}
+.layui-input-block{
+    margin:0px  80px;
+    min-height: 80px;
+}
+.last{
+    padding-top:10px;
+    padding-bottom:10px;
+}

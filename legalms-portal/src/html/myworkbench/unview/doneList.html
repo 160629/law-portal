@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>已阅</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/tabList.css">
+    <link rel="stylesheet" href="../../../css/commonality.css">
+    <link rel="stylesheet" href="../../../css/listBase.css">
+</head>
+
+<body>
+<div class="wp">
+    <!-- tab切换 已阅 -->
+    <div class="tab_div">
+        <!-- 查询条件区域 -->
+
+        <div class="queryBorder selfQueryBorderHeight">
+            <!-- form表单 -->
+            <form id="queryForm" class="query-card">
+                <div class="info-card">
+                    <ul>
+                        <li>
+                            <div class="span-input">
+                                <span>标题</span>
+                                <input type="text" maxlength='80' name="viewTitle" placeholder="请输入">
+                            </div>
+                            <div class="span-input">
+                                <span>阅览日期</span>
+                                <input type="text" maxlength='80'  id="start_date2" class="start_date row-two-input" name="startTime"
+                                       placeholder="开始时间">
+                                至
+                                <input type="text" maxlength='80' id="end_date2" class="end_date row-two-input" name="endTime"
+                                       placeholder="结束时间">
+                            </div>
+                        </li>
+                 		<li>
+                            <div class="span-input">
+                                <span>类别</span>
+                                <select name="viewType"  title='类别' lay-verify="required" class="must-select"> </select>
+                            </div>
+                       </li>
+                    </ul>
+                </div>
+                <div class="btn-card">
+                    <input type="button" class="querybtn" value="查询" />
+                    <input type="button" class="resetbtn" value="重置" />
+                </div>
+            </form>
+        </div>
+        <!-- table 已阅列表-->
+        <div class="div-table">
+            <table id="bus-table" class="layui-table" lay-size="sm">
+                <thead>
+                <tr>
+                    <th class="th-index">序号</th>
+                    <th>标题</th>
+                    <th class="Tr-12">类别</th>
+                    <th class="Tr-12">发送人</th>
+                    <th class="Tr-12">阅览时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 分页 -->
+        <div id="pageContainer" class="pageContainer"></div>
+    </div>
+
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/listBase.js?v=fw1.6"></script>
+<script src="../../../js/myworkbench/unview/doneList.js?v=fw1.6"></script>
+</body>
+
+</html>

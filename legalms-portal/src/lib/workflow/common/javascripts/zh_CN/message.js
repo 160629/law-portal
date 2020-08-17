@@ -1,0 +1,155 @@
+var CN_ZERO = "\u96f6";
+var CN_ONE = "\u58f9";
+var CN_TWO = "\u8d30";
+var CN_THREE = "\u53c1";
+var CN_FOUR = "\u8086";
+var CN_FIVE = "\u4f0d";
+var CN_SIX = "\u9646";
+var CN_SEVEN = "\u67d2";
+var CN_EIGHT = "\u634c";
+var CN_NINE = "\u7396";
+var CN_TEN = "\u62fe";
+var CN_HUNDRED = "\u4f70";
+var CN_THOUSAND = "\u4edf";
+var CN_TEN_THOUSAND = "\u4e07 ";
+var CN_HUNDRED_MILLION = "\u4ebf";
+var CN_SYMBOL = "\u4eba\u6c11\u5e01";
+var CN_DOLLAR = "\u5706";
+var CN_TEN_CENT = "\u89d2";
+var CN_CENT = "\u5206";
+var CN_INTEGER = "\u6574";
+var CN_MINUS = "\u8d1f";
+var NUMBER_MONEY_PREFIX = "\uffe5";
+var NUMBER_CHINESE_ERROR_NULL = "\u8f93\u5165\u8d27\u5e01\u4e0d\u80fd\u4e3a\u7a7a!";
+var NUMBER_CHINESE_ERROR_CHARATER = "\u8f93\u5165\u683c\u5f0f\u4e0d\u4e3a\u8d27\u5e01!";
+var NUMBER_CHINESE_ERROR_LARGE = "\u8f93\u5165\u6570\u5b57\u592a\u5927!";
+
+var CALENDAR_TODAY = "\u4eca\u5929";
+var CALENDAR_DEFAULT_FORMAT = "yyyy\u5e74MM\u6708dd\u65e5";
+var CALENDAR_PRE_YEAR = "\u4e0a\u4e00\u5e74";
+var CALENDAR_PRE_MONTH = "\u4e0a\u4e00\u6708";
+var CALENDAR_NEXT_MONTH = "\u4e0b\u4e00\u6708";
+var CALENDAR_NEXT_YEAR = "\u4e0b\u4e00\u5e74";
+var CALENDAR_SUNDAY = "\u65e5";
+var CALENDAR_MONDAY = "\u4e00";
+var CALENDAR_TUESDAY = "\u4e8c";
+var CALENDAR_WEDNESDAY = "\u4e09";
+var CALENDAR_THURSDAY = "\u56db";
+var CALENDAR_FRIDAY = "\u4e94";
+var CALENDAR_SATURDAY = "\u516d";
+var CALENDAR_YEAR = "\u5e74";
+var CALENDAR_MONTH = "\u6708";
+var CALENDAR_DAY = "\u65e5";
+var CALENDAR_YEAR_OVERFLOW = "\u5e74\u4efd\u8d85\u51fa\u8303\u56f4\uff081000-9999\uff09!";
+var CALENDAR_TIME = "\u65f6\u95f4";
+
+var EOSLOG_ERROR_TYPE=" \u9519\u8bef\u7c7b\u578b:";
+var EOSLOG_ERROR_CODE=" \u9519\u8bef\u7f16\u53f7:";
+var EOSLOG_ERROR_INFO=" \u9519\u8bef\u4fe1\u606f:";
+var EOSLOG_ERROR_URL=" \u9519\u8bef\u5730\u5740:";
+var EOSLOG_ERROR_LINE=" \u9519\u8bef\u884c\u6570:";
+var EOSLOG_ERROR_STACK=" \u8c03\u7528\u5806\u6808:";
+var EOSLOG_ERROR_DETAIL=" \u9519\u8bef\u8be6\u60c5:";
+var EOSLOG_ERROR_FUNCTION=" \u8c03\u7528\u51fd\u6570:";
+var EOSLOG_EVAL_ERROR = " \u547d\u4ee4\u51fa\u9519,\u8bf7\u68c0\u67e5\u547d\u4ee4. ";
+
+
+var DATACELL_MODIFY_CONFIRM = "\u6570\u636e\u5df2\u4fee\u6539\uff0c\u4f46\u672a\u63d0\u4ea4\uff0c\u8981\u63d0\u4ea4\u6570\u636e\u5417?";
+var DATACELL_MODIFY_NO = "\u6570\u636e\u672a\u4fee\u6539!";
+var DATACELL_SAVE_ERR = "\u6570\u636e\u4fdd\u5b58\u64cd\u4f5c\u53d1\u751f\u9519\u8bef!";
+var DATACELL_PAGENUM_ERR = "\u8bf7\u8f93\u5165\u4e00\u4e2a\u6b63\u6574\u6570!";
+
+var CHECK_MUST_INPUT=" \u8be5\u9879\u4e3a\u5fc5\u586b\u9879.";
+var CHECK_INPUT_LENGTH_CANNOT_MORE_THAN="\u8f93\u5165\u6700\u5927\u957f\u5ea6\u4e0d\u80fd\u8d85\u8fc7";
+var CHECK_INPUT_LENGTH_CANNOT_LESS_THAN="\u8f93\u5165\u6700\u5c0f\u957f\u5ea6\u4e0d\u80fd\u5c0f\u4e8e";
+var CHECK_NOT_MORE_THAN="\u8f93\u5165\u6700\u5927\u503c\u4e0d\u80fd\u8d85\u8fc7";
+var CHECK_NOT_LESS_THAN="\u8f93\u5165\u6700\u5c0f\u503c\u4e0d\u80fd\u5c0f\u4e8e";
+var CHECK_INPUT_NUMBER="\u8bf7\u8f93\u5165\u6570\u5b57";
+var CHECK_INPUT_NATURALNUMBER="\u8bf7\u8f93\u5165\u81ea\u7136\u6570";
+var CHECK_IUPUT_INT="\u8bf7\u8f93\u5165\u6574\u6570";
+var CHECK_INPUT_FLOAT="\u8bf7\u8f93\u5165\u5b9e\u6570";
+var CHECK_INPUT_ZH="\u8bf7\u8f93\u5165\u6c49\u5b57";
+var CHECK_INPUT_LLETTER="\u8bf7\u8f93\u5165\u5c0f\u5199\u82f1\u6587\u5b57\u6bcd";
+var CHECK_INPUT_ULETTER="\u8bf7\u8f93\u5165\u5927\u5199\u82f1\u6587\u5b57\u6bcd";
+var CHECK_INPUT_LETTER="\u8bf7\u8f93\u5165\u82f1\u6587\u5b57\u6bcd";
+var CHECK_INPUT_LLETTER_NUMBER="\u8bf7\u8f93\u5165\u5c0f\u5199\u5b57\u6bcd\u6216\u6570\u5b57";
+var CHECK_INPUT_ULETTER_NUMBER="\u8bf7\u8f93\u5165\u5927\u5199\u5b57\u6bcd\u6216\u6570\u5b57";
+var CHECK_INPUT_LETTER_NUMBER="\u8bf7\u8f93\u5165\u5b57\u6bcd\u6216\u6570\u5b57";
+var CHECK_INPUT_ZH_LETTER_NUMBER="\u8bf7\u8f93\u5165\u6c49\u5b57\u3001\u5b57\u6bcd\u6216\u6570\u5b57";
+var CHECK_INVALID_IP="\u8bf7\u8f93\u5165\u5408\u6cd5\u7684\u8ba1\u7b97\u673aIP\u5730\u5740";
+var CHECK_INVALID_PORT="\u8bf7\u8f93\u5165\u5408\u6cd5\u7684\u8ba1\u7b97\u673aIP\u5730\u5740\u7aef\u53e3\u53f7";
+var CHECK_INVALID_WEBSITE="\u8bf7\u8f93\u5165\u5408\u6cd5\u7684\u7f51\u9875\u5730\u5740";
+var CHECK_INVALID_EMAIL="\u8bf7\u8f93\u5165\u5408\u6cd5\u7684\u7535\u5b50\u90ae\u4ef6\u5730\u5740";
+var CHECK_INVALID_FOLDER="\u8bf7\u8f93\u5165\u5408\u6cd5\u7684\u6587\u4ef6\u5939\u540d\u79f0";
+var CHECK_INVALD_HANDPHONE="\u8bf7\u8f93\u5165\u6b63\u786e\u7684\u624b\u673a\u53f7\u7801";
+var CHECK_INVALID_PHONE="\u8bf7\u8f93\u5165\u6b63\u786e\u7684\u7535\u8bdd\u53f7\u7801";
+var CHECK_POSTALCODE_MUST_NUMBER="\u90ae\u653f\u7f16\u7801\u5fc5\u987b\u4e3a\u6570\u5b57";
+var CHECK_INVAILID_POSTALCODE_LENGTH="\u90ae\u653f\u7f16\u7801\u957f\u5ea6\u5fc5\u987b\u662f6\u4f4d";
+var CHECK_INVALID_ID="\u8bf7\u8f93\u5165\u5408\u6cd5\u7684\u8eab\u4efd\u8bc1\u53f7\u7801";
+var CHECK_INVALID_EXP="\u4e0d\u7b26\u5408\u6307\u5b9a\u7684\u6b63\u5219\u8868\u8fbe\u5f0f\u8981\u6c42";
+var CHECK_LEGNT_NOT_THAN=",\u603b\u4f4d\u6570\u4e0d\u8d85\u8fc7";
+var CHECK_WEI="\u4f4d";
+var CHECK_FRACTION_LENGTH_NOT_THAN=",\u5c0f\u6570\u4f4d\u4e0d\u8d85\u8fc7";
+var CHECK_ERROROCCUR="\u6709\u9519\u8bef\u53d1\u751f"
+var STREE_ENTITY_NOT_EXIST="\u5b9e\u4f53\u4e0d\u5b58\u5728!";
+
+var RTREE_CANNOT_MOVE_NODE1= "\u65e0\u6cd5\u79fb\u52a8\u8282\u70b9: \u76ee\u6807\u8282\u70b9\u548c\u88ab\u79fb\u52a8\u8282\u70b9\u7684\u7236\u8282\u70b9\u76f8\u540c\u3002";
+var RTREE_CANNOT_MOVE_NODE2= "\u65e0\u6cd5\u79fb\u52a8\u8282\u70b9: \u76ee\u6807\u8282\u70b9\u662f\u88ab\u79fb\u52a8\u8282\u70b9\u7684\u5b50\u8282\u70b9\u3002";
+var STREE_MOT_FOUND="\u672a\u627e\u5230\u65b9\u6cd5";
+var PAGE_INFO = "\u5171{0}\u9875";
+var PAGE_RECORDINFO = "\u663e\u793a{0}-{1}\u6761,\u5171{2}\u6761";
+var PAGE_INFO_NOCOUNT = "\u7b2c{0}\u9875";
+var PAGE_RECORDINFO_NOCOUNT = "\u663e\u793a{0}-{1}\u6761";
+
+var TOOLTIP_ADD = "\u6dfb\u52a0";
+var TOOLTIP_DELETE = "\u5220\u9664";
+var TOOLTIP_SAVE = "\u4fdd\u5b58";
+var TOOLTIP_RELOAD = "\u5237\u65b0";
+var TOOLTIP_GOTO = "\u8f6c\u5230";
+var TOOLTIP_FIRST_PAGE = "\u7b2c\u4e00\u9875";
+var TOOLTIP_PRIVOUS_PAGE = "\u4e0a\u4e00\u9875";
+var TOOLTIP_NEXT_PAGE = "\u4e0b\u4e00\u9875";
+var TOOLTIP_LAST_PAGE = "\u6700\u540e\u4e00\u9875";
+
+var AJAX_EXCEPTION = "Ajax\u64cd\u4f5c\u53d1\u751f\u5f02\u5e38,\u5f02\u5e38\u4fe1\u606f\u5982\u4e0b:";
+var AJAX_EXCEPTION_INVALID = "\u60a8\u6ca1\u6709\u767b\u5f55\u6216\u65e0\u6743\u8bbf\u95ee\u60a8\u6240\u8bf7\u6c42\u7684\u8d44\u6e90.";
+var GOTO_LOGIN_PAGE = "\u60a8\u6ca1\u6709\u767b\u5f55\u6216\u65e0\u6743\u8bbf\u95ee\u60a8\u6240\u8bf7\u6c42\u7684\u8d44\u6e90.\n\u7cfb\u7edf\u5c06\u8df3\u8f6c\u5230\u767b\u5f55\u9875\u9762,\u8bf7\u60a8\u91cd\u65b0\u767b\u5f55.";
+var CLEAR = "\u6e05\u7a7a";
+var VERIFYCODETITLE="\u770b\u4e0d\u6e05,\u6362\u4e00\u5f20."
+var CALENDAR_ERROR_RORMAT = "\u65e5\u671f {0} \u5fc5\u987b\u7b26\u5408 {1} \u683c\u5f0f";
+var CALENDAR_ERROR_BETWEEN = "\u65e5\u671f {0} \u5fc5\u987b\u7b26\u5408 {1} \u683c\u5f0f\uff0c\u5e76\u4e14\u5728 {2} \u548c {3} \u4e4b\u95f4\uff01";
+var CALENDAR_ERROR_MIN = "\u65e5\u671f {0} \u5fc5\u987b\u5c0f\u4e8e {1}\uff01";
+var CALENDAR_ERROR_MAX = "\u65e5\u671f {0} \u5fc5\u987b\u5927\u4e8e {1}\uff01";
+var CALENDAR_BUTTON_OK = "\u786e\u5b9a";
+
+var EOSCANNOTINCLUDE="EOS RichWeb \u7c7b\u5e93\u4e0d\u5141\u8bb8\u5f15\u7528\u591a\u6b21!";
+var EOS_BASE_NOT_SUPPORT_SELECTNODES = "dom\u5143\u7D20\u4E0D\u652F\u6301selectNodes\u65B9\u6CD5";
+var EOS_BASE_NOT_SUPPORT_SELECTSINGLENODE = "dom\u5143\u7D20\u4E0D\u652F\u6301selectSingleNode\u65B9\u6CD5";
+var EOS_DATASET_NOT_SUPPORT_XPATH = "\u6682\u65F6\u4E0D\u652F\u6301\u66F4\u591A\u7EA7\u7684xpath";
+var EVENTMANAGER_CONTIANS_ERROR = "Element \u7684 tontains\u8BBE\u7F6E\u5931\u8D25";
+var EOS_UTIL_MESSAGE = "\u63D0\u793A\u4FE1\u606F";
+
+
+var EOS_CITY_LIST={11:"\u5317\u4eac",12:"\u5929\u6d25",13:"\u6cb3\u5317",14:"\u5c71\u897f",15:"\u5185\u8499\u53e4",21:"\u8fbd\u5b81",22:"\u5409\u6797",23:"\u9ed1\u9f99\u6c5f",31:"\u4e0a\u6d77",32:"\u6c5f\u82cf",33:"\u6d59\u6c5f",34:"\u5b89\u5fbd",35:"\u798f\u5efa",36:"\u6c5f\u897f",37:"\u5c71\u4e1c",41:"\u6cb3\u5357",42:"\u6e56\u5317",43:"\u6e56\u5357",44:"\u5e7f\u4e1c",45:"\u5e7f\u897f",46:"\u6d77\u5357",50:"\u91cd\u5e86",51:"\u56db\u5ddd",52:"\u8d35\u5dde",53:"\u4e91\u5357",54:"\u897f\u85cf",61:"\u9655\u897f",62:"\u7518\u8083",63:"\u9752\u6d77",64:"\u5b81\u590f",65:"\u65b0\u7586",71:"\u53f0\u6e7e",81:"\u9999\u6e2f",82:"\u6fb3\u95e8",91:"\u56fd\u5916"};
+var DATE_FORMAT_ERROR = "\u65e5\u671f\u683c\u5f0f\u9519\u8bef!";
+var TIME_FORMAT_ERROR = "\u65f6\u95f4\u683c\u5f0f\u9519\u8bef!";
+var TIME_INPUTTIME="\u8f93\u5165\u65f6\u95f4";
+var TIME_FORMATERROR="\u4e0d\u7b26\u5408\u683c\u5f0fHH:mm:ss";
+var TIME_LESSTHAN="\u5fc5\u987b\u5c0f\u4e8e\u7b49\u4e8e";
+var TIME_MORETHAN="\u5fc5\u987b\u5927\u4e8e\u7b49\u4e8e"
+
+var ADD = "\u6dfb\u52a0";
+var DELETE = "\u5220\u9664";
+var SAVE = "\u4fdd\u5b58";
+var REFRESH = "\u5237\u65b0";
+var GOTO = "\u8f6c\u5230";
+var FIRST_PAGE = "\u7b2c\u4e00\u9875";
+var PRIVOUS_PAGE = "\u4e0a\u4e00\u9875";
+var NEXT_PAGE = "\u4e0b\u4e00\u9875";
+var LAST_PAGE = "\u6700\u540e\u4e00\u9875";
+
+
+var DATACELL_CELL_ADVANCED = "\u9ad8\u7ea7\u63a7\u4ef6";
+var SELECT_EDITOR_FILTER_BUTTON = "\u8fc7\u6ee4";
+var SELECT_EDITOR_FILTER_LABEL = "\u6309";
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>移交案件卷宗选择</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/commonality.css">
+    <link rel="stylesheet" href="../../../css/listBase.css">
+</head>
+<body>
+<div class="wp">
+    <!-- 查询框 -->
+    <div style="position: relative;">
+        <div class="queryBorder ">
+            <!-- form表单 -->
+            <form id="queryForm" class="query-card">
+                <div class="info-card">
+                    <ul>
+                        <li>
+                            <div class="span-input">
+                                <span>卷宗标题</span><input type="text" maxlength='80' placeholder="请输入" name="title">
+                            </div>
+                            <div class="span-input">
+                                <span>卷宗编号</span><input type="text" maxlength='80' placeholder="请输入" name="caseCode">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="span-input relative">
+                                <span>负责人</span><input type="text" maxlength='80' name="creatorAccountName"
+                                                       placeholder="请输入">
+                            </div>
+                            <div class="span-input relative">
+                                <i class="layui-icon layui-icon-search icon-inputSearch belongToCompanyPage" title="选择公司"></i>
+                                <i class="layui-icon layui-icon-close icon-inputDel delBelongToCompanyPage hide" title="取消选择"></i>
+                                <span>负责公司</span><input type="text" maxlength='80' name="belongToCompany" readonly
+                                                        placeholder="请选择" class="belongToCompanyPage">
+                                <input type="hidden" name="orgCodeStr">
+                                <input type="hidden" name="typeStr">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-card">
+                    <input type="button" class="querybtn" id="querybtn" value="查询"/>
+                    <input type="button" class="resetbtn" id="resetbtn" value="重置"/>
+                </div>
+            </form>
+        </div>
+        <!-- 展开按钮 -->
+        <!--<div class="toggleHeightBtn">-->
+            <!--<span>展开</span>-->
+            <!--<img src="../../../css/images/down.png">-->
+        <!--</div>-->
+        <!-- 按钮组 -->
+        <div class="tableBtnGroup">
+            <div class="right-card">
+                <button class="declarationBtn" id="selectCase">下一步</button>
+            </div>
+            <div class="right-card">
+                <button class="waring-btn" id="waring-btn">取消</button>
+            </div>
+        </div>
+
+        <!-- 表格 -->
+        <div class="div-table">
+            <table id="bus-table" class="layui-table" lay-size="sm">
+                <thead>
+                <tr>
+                    <th class="th-index"><span><input type="checkbox" class="allBtn"></span><span>序号</span></th>
+                    <th>卷宗标题</th>
+                    <th class="Trcode">卷宗编号</th>
+                    <th>对方诉讼主体</th>
+                    <th class="TrMy">我方诉讼主体</th>
+                    <th class="Tr-8">案件类型</th>
+                    <th>争议金额（元）</th>
+                    <th>负责人</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <!-- 分页 超时了什么鬼-->
+        <div id="pageContainer" class="pageContainer"></div>
+    </div>
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/listBase.js?v=fw1.6"></script>
+<script src="../../../../src/js/legaldispute/casetransfer/casefilemanageSelect.js?v=fw1.6"></script>
+</body>
+
+</html>

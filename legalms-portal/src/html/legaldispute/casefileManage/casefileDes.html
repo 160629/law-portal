@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>卷宗详情</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/form.css?v=fw1.6">
+    <link rel="stylesheet" href="../../../css/commonality.css?v=fw1.6">
+    <link rel="stylesheet" href="../../../css/legaldispute/casefileManage/casefilemanage.css?v=fw1.6">
+    <style>
+        .upload-btn {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="casefileDes">
+<div class='bg'></div>
+<div class="Container div-float">
+    <div class="head">
+        <!-- 进度条 -->
+        <div class='progress' id='progress'></div>
+        <!-- tab 标签 -->
+        <div class='tabs of' id='tabs'>
+        </div>
+    </div>
+    <div class="body">
+        <!-- step1 start -->
+        <div class='step-panel'>
+            <!-- 基本信息 -->
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>基本信息</span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span></span>卷宗标题</div>
+                    <div class="inputdiv len" name='caseTitle'></div>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span></span>卷宗编号</div>
+                    <div class="inputdiv" name='caseCode'></div>
+                </div>
+                <div class='input fl'>
+                    <div class='label'>涉案负责人</div>
+                    <div class="inputdiv" name='involvedAccountName'></div>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span></span>涉案单位</div>
+                    <div class="inputdiv" name='involvedOrgName'></div>
+                </div>
+
+                <div class='input fl'>
+                    <div class='label'><span></span>涉案部门</div>
+                    <div class="inputdiv" name='involvedDeptName'></div>
+                </div>
+            </div>
+
+            <!-- 案件信息 -->
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>案件信息</span>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span style="display: none;">*</span>立案日期</div>
+                    <div class="inputdiv" readonly="readonly" name='caseRecordTime'></div>
+                </div>
+
+                <div class='input fl'>
+                    <div class='label'><span style="display: none;">*</span>审理机关案件编号</div>
+                    <div class="inputdiv len" name='institutionCaseCode'></div>
+                </div>
+                <br class='cls'/>
+                <div class='input fl'>
+                    <div class='label'><span style="display: none;">*</span>我方诉讼地位</div>
+                    <div class='selectdiv' name='ourLawsuitIdentity'>
+                    </div>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span style="display: none;">*</span>案件审级</div>
+                    <div class='selectdiv' name='caseReviewGrade'>
+                    </div>
+                </div>
+                <br class='cls'/>
+                <div class='input'>
+                    <div class='label'>我方诉讼主体</div>
+                    <div class="inputdiv len" name='ourLawsuitBodyName'></div>
+                </div>
+
+                <div class='input'>
+                    <div class='label'>对方诉讼主体</div>
+                    <div class="inputdiv len" name='otherLawsuitBody' placeholder='填入多个关键字时请用“,”分割'></div>
+                </div>
+                <div class='sanx sanxrdoy'>
+                    <!-- 其他涉案方 -->
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>争议金额</div>
+                    <div class="inputdiv" type='text' maxlength='80' name='caseDeputeMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span style="display: none;">*</span>重要程度</div>
+                    <div class='selectdiv' name='largeLawsuitMark'>
+                    </div>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span style="display: none;">*</span>案由</div>
+                    <div class='selectdiv' name='caseReason'></div>
+                </div>
+                <br class='cls'/>
+                <div class='input fl'>
+                    <div class='label'><span style="display: none;">*</span>案件所属专业线</div>
+                    <div class='selectdiv' name='caseSpecialLine'></div>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span style="display: none;">*</span>案件类型</div>
+                    <div class='selectdiv' name='deputeType'></div>
+                </div>
+                <br class='cls'/>
+                <div class='input'>
+                    <div class='label'>案件关键字</div>
+                    <div class="inputdiv len" name='caseKeyword'></div>
+                </div>
+
+                <div class='input'>
+                    <div class='label'>案件基本事实<span></span></div>
+                    <div class="textareadiv" name='caseTruth'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'>原告诉讼请求<span></span></div>
+                    <div class="textareadiv" name='plaintiffLawsuitRequest'></div>
+                </div>
+                <!-- 上传附件 -->
+                <div class="duilie input" id="thelist_casemain">
+                    <input type='hidden' class='upfileinput' name='caseFile'/>
+                    <div class='label'>案件材料<span></span></div>
+                    <div class="layui-input-block">
+                        <ul class="uploadlist">
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 关联表单 -->
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>关联表单</span>
+                </div>
+                <div class="input">
+                    <div class="label"><span></span></div>
+                    <div class="relevanceTable" name="">
+                        <table class="layui-table" lay-size="sm">
+                            <thead>
+                            <tr>
+                                <td>流程类别</td>
+                                <td>
+                                    <table class="table-data">
+                                        <tr>
+                                            <td>标题</td>
+                                            <td>创建时间</td>
+                                            <td>状态</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            </thead>
+                            <tbody  id="relevanceTableBody">
+
+                           </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class='' id="baseInfo">
+                <div class="card of">
+                    <div class="tag">
+                        <div class="icon"></div>
+                        <span>卷宗负责人信息</span>
+                    </div>
+                    <div class='input fl'>
+                        <div class='label'> 负责人</div>
+                        <input type="text" name='creatorAccountName' class="borderNone" readonly/>
+                    </div>
+                    <div class='input fl'>
+                        <div class='label'> 联系电话</div>
+                        <input type="text" name='creatorCell' class="borderNone" readonly/>
+                    </div>
+                    <div class='input fl'>
+                        <div class='label'> 负责部门</div>
+                        <input type="text" name='creatorDeptName' class="borderNone" readonly/>
+                    </div>
+                    <div class='input fl'>
+                        <div class='label'> 负责单位</div>
+                        <input type="text" name='creatorUnitName' class="borderNone" readonly/>
+                    </div>
+                    <div class='input fl'>
+                        <div class='label'> 最后更新时间</div>
+                        <input type="text" name='lastUpdateTime' class="borderNone" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- step1 end -->
+
+        <!-- step2 start -->
+        <div class='step-panel'>
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>裁决详情</span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>申请人</div>
+                    <div class="inputdiv len" name="claimant"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>仲裁请求</div>
+                    <div class="textareadiv" name="claimantArbitrateRequest"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>申请人关键证据</div>
+                    <div class="textareadiv" name="claimantKeyEvidence"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>被申请人</div>
+                    <div class="inputdiv len" name="respondent"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>被申请人答辩意见</div>
+                    <div class="textareadiv" name="respondentPleaReply"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>被申请人关键证据</div>
+                    <div class="textareadiv" name="respondentKeyEvidence"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>审理机构</div>
+                    <div class="inputdiv len" name="reviewApplyforInstitution"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>争议焦点</div>
+                    <div class="textareadiv" name="deputeFocus"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>裁决理由</div>
+                    <div class="textareadiv" name="reasonForFindings"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>裁决结果</div>
+                    <div class="textareadiv" name="ofArbitration"></div>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span style="display: none;">*</span>裁决时间</div>
+                    <div class="inputdiv" readonly name="rulingTime" class='date_date'></div>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span style="display: none;">*</span>结案方式</div>
+                    <div class='selectdiv' name="caseFinishWay">
+
+                    </div>
+                </div>
+                <br class='cls'/>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>裁决/和解金额(元)</div>
+                    <div class="inputdiv" type='text' name="rulingMoney" class="numFormat"></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <!-- 上传附件 -->
+                <div class="duilie input" id="thelist_arbittate">
+                    <input type='hidden' class='upfileinput' name="arbitralAward"/>
+                    <div class='label'><span style="display: none;">*</span>仲裁书</div>
+                    <div class="layui-input-block">
+                        <ul class="uploadlist">
+
+                        </ul>
+                    </div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>执行方式</div>
+                    <div class='selectdiv' name="executiveWay"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>执行金额</div>
+                    <div class="inputdiv" type='text' name="executiveMoney"></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 挽回损失金额(元)</div>
+                    <div class="inputdiv" type='text' name="helpLossMoney"></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 损失金额(元)</div>
+                    <div class="inputdiv" type='text' name="lossMoney"></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>律师费(元)</div>
+                    <div class="inputdiv" type='text' name="lawyerMoney"></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 诉讼费(元)</div>
+                    <div class="inputdiv" type='text' name="lawsuitMoney"></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+            </div>
+        </div>
+        <!-- step2 end -->
+        <!-- step3 start -->
+        <div class='step-panel'>
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>一审信息</span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>原告</div>
+                    <div class="inputdiv" type='text' name="prosecution"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>原告诉讼请求</div>
+                    <div class="textareadiv" name="prosecutionLawsuitRequest"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>原告关键证据</div>
+                    <div class="textareadiv" name="prosecutionKeyEvidence"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>被告</div>
+                    <div class="inputdiv" type='text' name="defense"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>被告答辩意见</div>
+                    <div class="textareadiv" name="defensePleaReply"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>被告关键证据</div>
+                    <div class="textareadiv" name="defenseKeyEvidence"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>第三人</div>
+                    <div class="inputdiv" name="caseTheThird"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>第三人诉讼请求</div>
+                    <div class="textareadiv" name="thirdLawsuitRequest"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>第三人关键证据</div>
+                    <div class="textareadiv" name="thirdKeyEvidence"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>审理机构</div>
+                    <div class="inputdiv" type='text' name="reviewApplyforInstitution"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>争议焦点</div>
+                    <div class="textareadiv" name="deputeFocus"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>裁决理由</div>
+                    <div class="textareadiv" name="reasonForFindings"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>裁决结果</div>
+                    <div class="textareadiv" name="ofArbitration"></div>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span style="display: none;">*</span>裁决时间</div>
+                    <div class="inputdiv" name="rulingTime" readonly="readonly" class='date_date'></div>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span style="display: none;">*</span>结案方式</div>
+                    <div class='selectdiv' name="caseFinishWay">
+
+                    </div>
+                </div>
+                <br class='cls'/>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 裁决/和解金额(元)</div>
+                    <div class="inputdiv" name="rulingMoney"></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <!-- 上传附件 -->
+                <div class="duilie input" id="thelist_firstInstance">
+                    <input type='hidden' class='upfileinput' name="award"/>
+                    <div class='label'><span style="display: none;">*</span>判决书</div>
+                    <div class="layui-input-block">
+                        <ul class="uploadlist">
+
+                        </ul>
+                    </div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>执行方式</div>
+                    <div class='selectdiv' name="executiveWay">
+
+                    </div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 执行金额(元)</div>
+                    <div class="inputdiv" type='text' name="executiveMoney"></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 挽回损失金额(元)</div>
+                    <div class="inputdiv" name="helpLossMoney"></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 损失金额(元)</div>
+                    <div class="inputdiv" name="lossMoney"></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>律师费(元)</div>
+                    <div class="inputdiv" name="lawyerMoney"></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 诉讼费(元)</div>
+                    <div class="inputdiv" name="lawsuitMoney"></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+            </div>
+
+        </div>
+        <!-- step3 end -->
+        <!-- step4 start -->
+        <div class='step-panel'>
+
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>二审信息</span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>上诉人名称</div>
+                    <div class="inputdiv" name="appellant"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>上诉人请求</div>
+                    <div class="textareadiv" name="appealRequest"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>上诉人关键证据</div>
+                    <div class="textareadiv" name="appellantKeyEvidence"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>被上诉人名称</div>
+                    <div class="inputdiv" name="appellee"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>被上诉人答辩意见</div>
+                    <div class="textareadiv" name="appelleePleaReply"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>被上诉人关键证据</div>
+                    <div class="textareadiv" name="appelleeKeyEvidence"></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>审理机构</div>
+                    <div class="inputdiv" name='reviewApplyforInstitution'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>争议焦点</div>
+                    <div class="textareadiv" name='deputeFocus'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>裁决理由</div>
+                    <div class="textareadiv" name='reasonForFindings'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>裁决结果</div>
+                    <div class="textareadiv" name='ofArbitration'></div>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span style="display: none;">*</span>裁决时间</div>
+                    <div class="inputdiv" name="rulingTime" readonly="readonly" class='date_date'></div>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span style="display: none;">*</span>结案方式</div>
+                    <div class='selectdiv' name="caseFinishWay">
+
+                    </div>
+                </div>
+                <br class='cls'/>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 裁决/和解金额(元)</div>
+                    <div class="inputdiv" name="rulingMoney"></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <!-- 上传附件 -->
+                <div class="duilie input" id="thelist_secondInstance">
+                    <input type='hidden' class='upfileinput' name="award"/>
+                    <div class='label'><span style="display: none;">*</span>审判书</div>
+                    <div class="layui-input-block">
+                        <ul class="uploadlist">
+
+                        </ul>
+                    </div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>执行方式</div>
+                    <div class='selectdiv' name="executiveWay">
+
+                    </div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 执行金额(元)</div>
+                    <div class="inputdiv" name="executiveMoney"></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 挽回损失金额(元)</div>
+                    <div class="inputdiv" name='helpLossMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 损失金额(元)</div>
+                    <div class="inputdiv" name='lossMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>律师费(元)</div>
+                    <div class="inputdiv" name='lawyerMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 诉讼费(元)</div>
+                    <div class="inputdiv" name='lawsuitMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+            </div>
+
+        </div>
+        <!-- step4 end -->
+        <!-- step5 start -->
+        <div class='step-panel'>
+
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>再审信息</span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>再申请人</div>
+                    <div class="inputdiv" name='claimant'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>诉讼请求</div>
+                    <div class="textareadiv" name='claimantLawsuitRequest'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>申请人关键证据</div>
+                    <div class="textareadiv" name='claimantKeyEvidence'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>被申请人</div>
+                    <div class="inputdiv" name='respondent'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>被申请人答辩意见</div>
+                    <div class="textareadiv" name='respondentPleaReply'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>被申请人关键证据</div>
+                    <div class="textareadiv" name='respondentKeyEvidence'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>审理机构</div>
+                    <div class="inputdiv" name='reviewApplyforInstitution'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>争议焦点</div>
+                    <div class="textareadiv" name='deputeFocus'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>裁决理由</div>
+                    <div class="textareadiv" name='reasonForFindings'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>裁决结果</div>
+                    <div class="textareadiv" name='ofArbitration'></div>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span style="display: none;">*</span>裁决时间</div>
+                    <div class="inputdiv" name='rulingTime' readonly="readonly" class='date_date'></div>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span style="display: none;">*</span>结案方式</div>
+                    <div class='selectdiv' name='caseFinishWay'>
+
+                    </div>
+                </div>
+                <br class='cls'/>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 裁决/和解金额(元)</div>
+                    <div class="inputdiv" name='rulingMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <!-- 上传附件 -->
+                <div class="duilie input" id="thelist_againInstance">
+                    <input type='hidden' class='upfileinput' name="award"/>
+                    <div class='label'><span style="display: none;">*</span>审判书</div>
+                    <div class="layui-input-block">
+                        <ul class="uploadlist">
+
+                        </ul>
+                    </div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>执行方式</div>
+                    <div class='selectdiv' name='executiveWay'>
+
+                    </div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 执行金额(元)</div>
+                    <div class="inputdiv" name='executiveMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 挽回损失金额(元) ></div>
+                    <div class="inputdiv" name='helpLossMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 损失金额(元)</div>
+                    <div class="inputdiv" name='lossMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>律师费(元)</div>
+                    <div class="inputdiv" name='lawyerMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 诉讼费(元)</div>
+                    <div class="inputdiv" name='lawsuitMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- step5 end -->
+        <!-- step6 start -->
+        <div class='step-panel'>
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>行政复议</span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 我方主体名称</div>
+                    <div class="inputdiv" name='ourBody' class='len'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>行政处罚机关名称</div>
+                    <div class="textareadiv" name='penaltyInstitution'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>认定处罚事实</div>
+                    <div class="textareadiv" name='decidedPenaltyTruth'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>法律依据</div>
+                    <div class="textareadiv" name='judiciallyLegalRegulations'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>处罚内容</div>
+                    <div class="textareadiv" name='penaltyContent'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 行政处罚金额</div>
+                    <div class="inputdiv" name='penaltyMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>执行方式</div>
+                    <div class='selectdiv' name='executiveWay'>
+
+                    </div>
+                </div>
+                <!-- 上传附件 -->
+                <div class="duilie input" id="thelist_punish">
+                    <input type='hidden' class='upfileinput' name="administrativePenaltyAward"/>
+                    <div class='label'><span style="display: none;">*</span>行政处罚决定书</div>
+                    <div class="layui-input-block">
+                        <ul class="uploadlist">
+
+                        </ul>
+                    </div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>是否听证</div>
+                    <div class='selectdiv' name='isHearing'></div>
+                </div>
+                <div class='input hearingOpinion none'>
+                    <div class='label'>听证意见</div>
+                    <div class="textareadiv" name='hearingOpinion'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>是否复议</div>
+                    <div class='selectdiv' name='isReconsider'></div>
+                </div>
+                <!-- 上传附件 -->
+                <div class="duilie input" id="thelist_administrativeReconsiderAward">
+                    <input type='hidden' class='upfileinput' name="administrativeReconsiderAward"/>
+                    <div class='label'>行政复议决定书</div>
+                    <div class="layui-input-block">
+                        <ul class="uploadlist">
+
+                        </ul>
+                    </div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>是否需要提起行政诉讼</div>
+                    <div class="inputdiv" name='bringAdministrativeLawsuit' type='radio'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 律师费(元)</div>
+                    <div class="inputdiv" name='lawyerMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 诉讼费(元)</div>
+                    <div class="inputdiv" name='lawsuitMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+            </div>
+        </div>
+        <!-- step6 end -->
+        <!-- step7 start -->
+        <div class='step-panel'>
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>执行情况</span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 法律文书执行单号</div>
+                    <div class="inputdiv" name='documentOrder' class='len'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 我方执行主体名称</div>
+                    <div class="inputdiv len" name='ourRulingBody'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 对方执行主体名称</div>
+                    <div class="inputdiv len" name='otherRulingBody'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 执行内容</div>
+                    <div class="textareadiv" name='performContent'>555</div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 我方执行部门/人员</div>
+                    <div class="inputdiv len" name='rulingRole'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>执行方式</div>
+                    <div class='selectdiv' name='executiveWay'>
+
+                    </div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 执行完毕日期</div>
+                    <div class="inputdiv" name='endTime' readonly="readonly" class='date_date'></div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 裁决/和解金额（元）</div>
+                    <div class="inputdiv" name='rulingMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 执行金额（元）</div>
+                    <div class="inputdiv" name='executiveMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 挽回损失金额（元）</div>
+                    <div class="inputdiv" name='helpLossMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 损失金额（元）</div>
+                    <div class="inputdiv" name='lossMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 律师费（元）</div>
+                    <div class="inputdiv" name='lawyerMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span> 诉讼费（元）</div>
+                    <div class="inputdiv" name='lawsuitMoney'></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+            </div>
+
+        </div>
+        <!-- step7 end -->
+        <!-- step8 start -->
+        <div class='step-panel step-panel-end'>
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>结案信息</span>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span style="display: none;">*</span>结案方式</div>
+                    <div class='selectdiv' name='caseFinishWay'></div>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span style="display: none;">*</span>结案时间</div>
+                    <div class="inputdiv" name='caseFinishTime'></div>
+                </div>
+                <br class='cls'/>
+                <div class='input'>
+                    <div class='label'><span style="display: none;">*</span>结案说明</div>
+                    <div class="textareadiv" name='caseExplain'></div>
+                </div>
+            </div>
+        </div>
+        <!-- step8 end -->
+    </div>
+    <div class='last-gap'></div>
+    <!-- btn组 -->
+    <div class="last btnzu" id='desBtn'></div>
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/formBase.js?v=fw1.6"></script>
+<script src="../../../js/public/listBase.js?v=fw1.6"></script>
+
+<script src="../../../js/legaldispute/casefileManage/progress.js?v=fw1.6"></script>
+<script src="../../../js/legaldispute/casefileManage/panelDes.js?v=fw1.6"></script>
+<script src="../../../js/legaldispute/casefileManage/tabs.js?v=fw1.6"></script>
+<script src="../../../js/legaldispute/casefileManage/floatTable.js?v=fw1.6"></script>
+<script src="../../../js/legaldispute/casefileManage/relationShip.js?v=fw1.6"></script>
+<script src="../../../js/legaldispute/casefileManage/desBtns.js?v=fw1.6"></script>
+</body>
+
+</html>

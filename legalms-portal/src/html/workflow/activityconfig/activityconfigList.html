@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>流程处理线配置</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/commonality.css?v=fw1.6">
+    <link rel="stylesheet" href="../../../css/listBase.css?v=fw1.6">
+    <link rel="stylesheet" href="../../../css/rolemenu.css?v=fw1.6">
+    <link rel="stylesheet" href="../../../css/form.css?v=fw1.6">
+</head>
+<style>
+    .left {
+        width: 340px;
+        border-radius: 3px;
+        border: solid 1px #e5e5e5;
+    }
+
+    .left label {
+        margin-left: 10px;
+        color: red;
+    }
+
+    .right {
+        width: 820px;
+        margin-left: 10px;
+    }
+</style>
+
+<body>
+<div class=wp>
+    <!-- 查询框 -->
+    <div style="position: relative;">
+        <div class="queryBorder selfQueryBorderHeight">
+            <!-- form表单 -->
+            <form id="queryForm" class="query-card">
+                <div class="info-card">
+                    <ul>
+                        <li>
+                            <div class="span-input">
+                                <span>流程</span><input type="text" maxlength='80' placeholder="请输入" name="flowId">
+                            </div>
+                            <div class="span-input">
+                                <span>开始ID</span><input type="text" maxlength='80' placeholder="请输入" name="beginId">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="span-input">
+                                <span>开始名称</span><input type="text" maxlength='80' placeholder="请输入" name="beginName">
+                            </div>
+                            <div class="span-input">
+                                <span>重要程度</span><input type="text" maxlength='80' placeholder="请输入"
+                                                        name="importantLevel">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="span-input">
+                                <span>结束ID</span><input type="text" maxlength='80' placeholder="请输入" name="endId">
+                            </div>
+                            <div class="span-input">
+                                <span>结束名称</span><input type="text" maxlength='80' placeholder="请输入"
+                                                        name="endName">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="span-input">
+                                <span>版本号</span><input type="text" maxlength='80' placeholder="请输入" name="versionId">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-card">
+                    <input type="button" class="querybtn" id="querybtn" value="查询" />
+                    <input type="button" class="resetbtn" id="resetbtn" value="重置" />
+                </div>
+            </form>
+        </div>
+        <!-- 展开按钮 -->
+        <div class="toggleHeightBtn">
+            <span>展开</span>
+            <img src="../../../css/images/down.png">
+        </div>
+        <!-- 按钮组 -->
+        <div class="tableBtnGroup">
+            <div class="right-card">
+                <!-- <input type="button" class="confirm-btn Exportexsel" value="导出"> -->
+                <!--<input type="button" class="waring-btn  table-del-btn" value="删除">-->
+            </div>
+            <div class="right-card">
+                <button class="declarationBtn"><img src="../../../css/images/icon.png">新增节点</button>
+            </div>
+        </div>
+        <div class="layui-col-md6 div-table left">
+            <ul>
+                <li><a href="#">com.tower.issue.consult.mrg.city</a><label>法律支撑-地市-集约</label>
+                </li>
+                <li><a href="#">com.tower.issue.consult.city</a><label>法律支撑-地市-非集约</label>
+                </li>
+                <li><a href="#">com.tower.issue.consult.head</a><label>法律支撑-总部</label>
+                </li>
+                <li><a href="#">com.tower.issue.consult.state</a><label>法律支撑-省份</label>
+                </li>
+                <li><a href="#">com.tower.issue.lawsuit.mrg.city</a><label>纠纷处理-地市集约</label>
+                </li>
+                <li><a href="#">com.tower.issue.lawsuit.city</a><label>纠纷处理-地市非集约</label>
+                </li>
+                <li><a href="#">com.tower.issue.lawsuit.head</a><label>纠纷处理-总部</label>
+                </li>
+                <li><a href="#">com.tower.issue.lawsuit.state</a><label>纠纷处理-省份</label>
+                </li>
+                <li><a href="#">com.tower.empower.city</a><label>授权</label>
+                </li>
+                <li><a href="#">com.tower.empower.head</a><label>授权-总部</label>
+                </li>
+                <li><a href="#">com.tower.empower.state</a><label>授权-省份</label>
+                </li>
+                <li><a href="#">com.tower.issue.guide.city</a><label>引诉</label>
+                </li>
+                <li><a href="#">com.tower.issue.guide.head</a><label>引诉-总部</label>
+                </li>
+                <li><a href="#">com.tower.issue.guide.state</a><label>引诉-省份</label>
+                </li>
+                <li><a href="#">com.tower.issue.jointly.city</a><label>协办-地市</label>
+                </li>
+                <li><a href="#">com.tower.issue.jointly.head</a><label>协办-总部</label>
+                </li>
+                <li><a href="#">com.tower.issue.jointly.sate</a><label>协办-省分</label>
+                </li>
+                <li><a href="#">com.tower.issue.lawcase.head</a><label>案件交办-总部</label>
+                </li>
+                <li><a href="#">com.tower.issue.lawcase.state</a><label>案件交办-省份</label>
+                </li>
+                <li><a href="#">com.tower.lawletter.city</a><label>律师函转办</label>
+                </li>
+                <li><a href="#">com.tower.lawletter.head</a><label>律师函转办-总部</label>
+                </li>
+                <li><a href="#">com.tower.lawletter.state</a><label>律师函转办-省分</label>
+                </li>
+                <li><a href="#">com.tower.issue.legislation.head</a><label>法律文书-总部</label>
+                </li>
+                <li><a href="#">com.tower.issue.legislation.city</a><label>法律文书</label>
+                </li>
+                <li><a href="#">com.tower.issue.legislation.state</a><label>法律文书-省分</label>
+                </li>
+            </ul>
+        </div>
+        <!-- 表格 -->
+        <div class="layui-col-md6 div-table right">
+            <table id="bus-table" class="layui-table" lay-size="sm">
+                <thead>
+                <!-- <tr>
+                    <th class="th-index"><span>序号</span></th>
+                    <th class="Tr-12">流程模板id</th>
+                    <th class="Tr-6">流程模板名称</th>
+                    <th class="Tr-8">活动定义id</th>
+                    <th class="Tr-12">活动定义名称</th>
+                    <th class="Tr-12">权限字段</th>
+                    <th class="Tr-6">参与者角色</th>
+                    <th class="Tr-6">参与者组织</th>
+                    <th class="Tr-6">操作</th>
+                </tr> -->
+                <tr>
+                    <th class="th-index"><span>序号</span></th>
+                    <th class="Tr-12">流程模板id</th>
+                    <th class="Tr-10">开始环节ID</th>
+                    <th class="Tr-12">开始环节</th>
+                    <th class="Tr-10">结束环节ID</th>
+                    <th class="Tr-12">结束环节</th>
+                    <th class="Tr-12">条件</th>
+                    <th class="Tr-6">是否隐藏</th>
+                    <th class="Tr-6">是否单选</th>
+                    <th class="Tr-10">重要程度</th>
+                    <th class="Tr-8">是否为送会签</th>
+                    <th class="Tr-8">交办标志</th>
+                    <th class="Tr-8">是否回退线</th>
+                    <th class="Tr-6">版本号</th>
+                    <th class="Tr-6">操作</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <!-- 分页 -->
+        <div id="pageContainer" class="pageContainer"></div>
+    </div>
+
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/listBase.js?v=fw1.6"></script>
+<script src="../../../js/workflow/activityconfig/activityconfigList.js?v=fw1.6"></script> <!-- 分页 -->
+</body>
+
+</html>

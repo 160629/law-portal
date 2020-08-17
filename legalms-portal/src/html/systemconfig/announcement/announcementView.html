@@ -1,0 +1,59 @@
+<!--公告发布-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>系统公告详情页</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/form.css">
+    <link rel="stylesheet" href="../../../css/commonality.css">
+    <link rel="stylesheet" href="../../../lib/zTree-zTree_v3-master/zTree_v3/css/demo.css" type="text/css">
+    <link rel="stylesheet" href="../../../css/openselect/selectList.css">
+    <link rel="stylesheet" href="../../../css/listBase.css">
+</head>
+
+<body>
+<div class="Container" style="padding-bottom: 0px;">
+
+    <!--发布时间-->
+    <!--<div style="text-align: center;margin-top: 20px; font-size:14px;color: black" id="announcementTime"></div>-->
+    <form id="announcementForm" class="layui-form" action="">
+        <div class="card  layui-row">
+            <!--公告标题-->
+            <div style="margin-left: 10px">
+                <div class="centered-title" id="announcementName"></div>
+                <div id="announcementContent"  style="margin-top: 20px;overflow:auto;word-break: break-all;height:100px">
+                </div>
+                <div style="line-height: 30px ">
+                    <div>
+                        <span id="files">附件</span><span class="announcementModel" id="activeFiles"></span>
+                    </div>
+                    <div>
+                        <span>公告类型</span> <span class="announcementModel" id="announcementType"></span>
+                    </div>
+                    <div>
+                        <span>发布时间</span><span class="announcementModel" id="announcementTime"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- 按钮组 -->
+        <div class="alertbtnbox">
+            <button class="alertCancelBtn" id="alertCancelBtn">关闭</button>
+        </div>
+        <!-- 案件信息 -->
+    </form>
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/formBase.js?v=fw1.6"></script>
+<script src="../../../js/workflow/formControl.js?v=fw1.6"></script>
+<script src="../../../../src/js/systemconfig/announcement/announcementView.js?v=fw1.6"></script>
+</body>
+
+</html>

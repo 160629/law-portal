@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>案件交办详情页</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css"/>
+    <link rel="stylesheet" href="../../../css/form.css"/>
+    <link rel="stylesheet" href="../../../css/commonality.css"/>
+</head>
+<body>
+<div class="Container">
+    <div id="model_form" class="layui-form">
+        <!-- 标题 -->
+        <div class="card titleborder view-title">
+            <div class="titles">
+                <span class="title-font">案件交办单</span>
+                <div class="Right">
+                    <span class="currentStatus">当前状态:</span>
+                    <span class="uncommitted">
+                        <label name="assignStatus">未提交</label>
+                    </span>
+                </div>
+            </div>
+            <!--  -->
+            <div class="layui-form-item">
+                <div class="center-div">
+                    <label class="layui-form-label">编号:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="assignCode" value="" readonly
+                               class="borderNone">
+                    </div>
+                    <label class="layui-form-label">创建时间:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="createTime" value="" readonly
+                               class="borderNone">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="tag">
+                <div class="icon"></div>
+                <span>标题</span>
+            </div>
+
+            <div class="layui-container">
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label">标题</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="assignTitle" value="" readonly
+                                   class="borderNone">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 交办案件 -->
+        <div class="card">
+            <div class="tag">
+                <div class="icon"></div>
+                <span>交办案件</span>
+            </div>
+            <!--  -->
+            <div class="layui-container">
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label">审理机构</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="approveOrg" value="" readonly class="borderNone"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">审理机关案件编号</label>
+                        <div class="layui-input-block">
+                            <input type="text"  name="caseCode" value="" readonly class="borderNone"/>
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">送达日期</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="sendTime" value="" readonly class="borderNone"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">立案日期</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="caseCreateTime" value="" readonly
+                                   class="borderNone"/>
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">我方诉讼地位</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="ourLawsuitStatus" value="" readonly
+                                   class="borderNone"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label">我方涉案主体</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="ourLawsuitBodyName" value="" readonly
+                                   class="borderNone"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label">对方涉案主体</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="theyLawsuitBody" value="" readonly
+                                   class="borderNone"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row hide">
+                    <div class="layui-col-md6 hide" id="thirdPersonAppend">
+                        <label class="layui-form-label">第三人</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="thirdPerson" value="" readonly class="borderNone"/>
+                        </div>
+                    </div>
+                    <div class="layui-col-md6 hide" id="plaintiffAppend">
+                        <label class="layui-form-label">同案原告</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="plaintiff" value="" readonly class="borderNone"/>
+                        </div>
+                    </div>
+                    <div class="layui-col-md6 hide" id="defendantAppend">
+                        <label class="layui-form-label">同案被告</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="defendant" value="" readonly class="borderNone"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label">争议金额(元)</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="lawsuitMoney" readonly value=""
+                                   class="borderNone priceipt" />
+                            &nbsp;&nbsp;&nbsp;&nbsp;大写：
+                            <span class="aux" name="implMoneyStr"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">案件所属专业线</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="caseLine" value="" readonly class="borderNone"/>
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">案件类型</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="caseType" value="" readonly class="borderNone"/>
+                        </div>
+                    </div>
+                </div>
+                <!-- 附件 -->
+                <div class="duilie" id="thelist">
+                    <label class="layui-form-label">案件材料</label>
+                    <div class="layui-input-block">
+                        <ul class="uploadlist"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="div-flow">
+            <div class="card" id="r_assignInform">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>交办信息</span>
+                </div>
+                <div class="layui-container">
+                    <div class="layui-row">
+                        <div class="layui-col-md6">
+                            <label class="layui-form-label">转出单位</label>
+                            <div class="layui-input-block">
+                                <input type="text"  name="assignOrg" value="" readonly class="borderNone"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-row">
+                        <div class="layui-col-md6">
+                            <label class="layui-form-label">主送单位</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="mainSeedOrg" value="" readonly class="borderNone"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-row">
+                        <div class="layui-col-md12">
+                            <label class="layui-form-label">交办事项</label>
+                            <div class="layui-input-block">
+                                <textarea name="assignItem" readonly class="layui-textarea borderNone"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 起草信息 -->
+            <div class="card show" id="">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>起草信息</span>
+                </div>
+                <div class="layui-container">
+                    <div class="layui-row">
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">起草人</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="loginName" value="" readonly class="borderNone">
+                            </div>
+                        </div>
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">联系电话</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="mobile" readonly value="" class="borderNone">
+                            </div>
+                        </div>
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">起草部门</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="deptName" readonly class="borderNone">
+                            </div>
+                        </div>
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">起草单位</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="orgName" readonly class="borderNone">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 涉案负责人信息 -->
+            <div class="card" id="r_involve">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>涉案负责人信息</span>
+                </div>
+                <div class="layui-container">
+                    <div class="layui-row">
+                        <div class="layui-col-md6">
+                            <label class="layui-form-label">生成卷宗方式</label>
+                            <div class="layui-input-block" name="">
+                                <input type="radio" name="createCaseType" value=0 title="自动创建案件卷宗" disabled/>
+                                <input type="radio" name="createCaseType" value=1 title="关联已有案件卷宗" disabled/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-row">
+                        <div class="layui-col-md12">
+                            <label class="layui-form-label">关联案件</label>
+                            <div class="layui-input-block">
+                                <label name="caseTitle" class="a-link"></label>
+                                <input type="hidden" name="caseId"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-row">
+                        <div class="layui-col-md6">
+                            <label class="layui-form-label">涉案负责人</label>
+                            <div class="layui-input-block">
+                                <input type="text" title='涉案单位' name="involvedAccountName" class="borderNone"
+                                       readonly/>
+                                <input type="hidden" name="involvedOrgId"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-row">
+                        <div class="layui-col-md6">
+                            <label class="layui-form-label">涉案单位</label>
+                            <div class="layui-input-block">
+                                <input type="text" title='涉案单位' name="involvedOrgName" class="borderNone" readonly/>
+                                <input type="hidden" name="involvedOrgId"/>
+                            </div>
+                        </div>
+                        <div class="layui-col-md6">
+                            <label class="layui-form-label">涉案部门</label>
+                            <div class="layui-input-block">
+                                <input type="text" title='涉案部门' name="involvedDeptName" class="borderNone"
+                                       readonly/>
+                                <input type="hidden" name="involvedDeptId"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--------------输入信息-------------->
+            <form id="business_form">
+                <!----------默认参数项----------->
+                <input type="hidden" name="assignId">
+
+                <!-- 交办信息-->
+                <div class="card" id="w_assignInform">
+                    <div class="tag">
+                        <div class="icon"></div>
+                        <span>交办信息</span>
+                    </div>
+                    <div class="layui-container">
+                        <div class="layui-row">
+                            <div class="layui-col-md6">
+                                <label class="layui-form-label"><span>转出单位</span></label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="assignOrg" value="" readonly
+                                           class="borderNone"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-row">
+                            <div class="layui-col-md6">
+                                <label class="layui-form-label"><b>*</b>主送单位</label>
+                                <div class="layui-input-block">
+                                    <i class="layui-icon layui-icon-search icon-inputSearch mainSeedOrgPage"
+                                       title="主送单位"></i>
+                                    <input type="text" maxlength='80' title='主送单位' lay-verify="required"
+                                           name="mainSeedOrg" placeholder="请选择" class="layui-input mainSeedOrgPage"
+                                           readonly/>
+                                    <input type="hidden" name="mainSeedOrgId" class="layui-input"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-row">
+                            <div class="layui-col-md12">
+                                <label class="layui-form-label">交办事项</label>
+                                <div class="layui-input-block">
+                                    <textarea maxlength="5000" name="assignItem" lay-verify="maxlength"
+                                              placeholder="请输入内容" class="layui-textarea"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--涉案负责人信息-->
+                <div class="card" id="w_involve">
+                    <div class="tag">
+                        <div class="icon"></div>
+                        <span>涉案负责人信息</span>
+                    </div>
+                    <div class="layui-container">
+                        <div class="layui-row">
+                            <div class="layui-col-md6">
+                                <label class="layui-form-label">生成卷宗方式</label>
+                                <div class="layui-input-block" name="createCaseTypeDiv">
+                                    <input type="radio"  name="createCaseType" value=0 title="自动创建案件卷宗" lay-filter="createCaseType" checked />
+                                    <input type="radio"  name="createCaseType" value=1 title="关联已有案件卷宗" lay-filter="createCaseType" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-row hide">
+                            <div class="layui-col-md12">
+                                <label class="layui-form-label"><b></b>关联案件</label>
+                                <div class="layui-input-block">
+                                    <i class="layui-icon layui-icon-search icon-inputSearch casePage" title="选择案件"></i>
+                                    <i class="layui-icon layui-icon-close icon-inputDel delCasePage hide" title="取消选择"></i>
+                                    <input type="text" name=caseTitle lay-verify="" placeholder="请选择" readonly class="layui-input casePage"/>
+                                    <input type="hidden" name="caseId"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-row">
+                            <div class="layui-col-md6">
+                                <label class="layui-form-label"><b>*</b>涉案负责人</label>
+                                <div class="layui-input-block">
+                                    <i class="layui-icon layui-icon-search icon-inputSearch involvedAccountPage"
+                                       title="涉案负责人"></i>
+                                    <i class="layui-icon layui-icon-close icon-inputDel delInvolvedAccountPage hide" title="取消选择"></i>
+                                    <input type="text" title='涉案负责人' name="involvedAccountName" class="layui-input involvedAccountPage" lay-verify="required"
+                                           placeholder="请选择涉案负责人" readonly/>
+                                    <input type="hidden" name="involvedAccountId"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-row">
+                            <div class="layui-col-md6">
+                                <label class="layui-form-label">涉案单位</label>
+                                <div class="layui-input-block">
+                                    <input type="text" title='涉案单位' name="involvedOrgName" class="borderNone" readonly/>
+                                    <input type="hidden" name="involvedOrgId"/>
+                                </div>
+                            </div>
+                            <div class="layui-col-md6">
+                                <label class="layui-form-label">涉案部门</label>
+                                <div class="layui-input-block">
+                                    <input type="text" title='涉案部门' name="involvedDeptName" class="borderNone" readonly/>
+                                    <input type="hidden" name="involvedDeptId"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <form id="flowing_form">
+
+                <!-- 处理意见 -->
+                <div class="card" id="w_handleIdea">
+                    <div class="tag">
+                        <div class="icon"></div>
+                        <span>处理意见</span>
+                        <input type="button" class="card-btn CommonOp" value="常用意见"/>
+                    </div>
+                    <div class="layui-container">
+                        <div class="layui-row">
+                            <div class="layui-col-md12">
+                                <label class="layui-form-label"><b>*</b>意见内容</label>
+                                <div class="layui-input-block">
+                                    <textarea maxlength="1000" title='处理意见' lay-verify="required|maxlength" name="opinion" placeholder="请输入内容"
+                                              class="layui-textarea CommonOp-textarea"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- 审批意见 -->
+            <div class="card" id="r_historyIdea">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>审批意见</span>
+                    <input type="button" class="slideBtn card-btn" value="展开"/>
+                </div>
+                <ul class="log-content flowLog">
+                </ul>
+            </div>
+            <!-- 审批记录 -->
+            <div class="card " id="r_flowLog">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>审批记录</span>
+                    <input type="button" class="slideBtn card-btn" value="展开"/>
+                </div>
+                <ul class='layui-timeline flowlog'>
+                </ul>
+            </div>
+            <!-- 按钮组 测试-->
+            <div class="btnzu last">
+                <button type="button" class="closebtn" id="closebtn">关闭</button>
+                <button type="button" class="solid_btn hide" id="btn_edit">编辑</button>
+                <button type="button" class="solid_btn hide" id="back_btn" lay-submit lay-filter="nextForm">退回</button>
+                <button type="button" class="solid_btn hide" id="next_btn" lay-submit lay-filter="nextForm">下一步</button>
+                <button type="button" class="solid_btn hide" id="recall_btn" >撤回</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/formBase.js?v=fw1.6"></script>
+<script src="../../../js/workflow/formControl.js?v=fw1.6"></script>
+<script src="../../../../src/js/legaldispute/eventassign/eventassignView.js?v=fw1.6"></script>
+</body>
+</html>

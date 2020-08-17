@@ -1,0 +1,8 @@
+
+.left .center{
+   width: 770px;
+}
+.div-table .layui-table{
+    width: 100%;
+    table-layout: auto;
+}

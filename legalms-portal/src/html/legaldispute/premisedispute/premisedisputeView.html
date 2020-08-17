@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>引诉纠纷详情页</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/form.css?v=fw1.6">
+    <link rel="stylesheet" href="../../../css/commonality.css?v=fw1.6">
+</head>
+
+<body>
+<div class="Container">
+    <div id="model_form" class="layui-form" action="">
+        <!-- 标题 -->
+        <div class="card titleborder view-title">
+            <div class="titles">
+                <span class="title-font">引诉纠纷申报单</span>
+                <div class="Right">
+                    <span class="currentStatus">当前状态:</span>
+                    <span class="uncommittedstep">
+                        <label name="guideStatus">未提交</label>
+                    </span>
+                </div>
+            </div>
+            <!--  -->
+            <div class="layui-form-item">
+                <div class="center-div">
+                    <label class="layui-form-label">编号:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="guideCode" value="" readonly
+                               class="borderNone">
+                    </div>
+                    <label class="layui-form-label">创建时间:</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="createTime" value="" readonly
+                               class="borderNone">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="tag">
+                <div class="icon"></div>
+                <span>标题</span>
+            </div>
+
+            <div class="layui-container">
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label">标题</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="guideTitle" value="" readonly
+                                   class="borderNone">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 纠纷信息 -->
+        <div class="card">
+            <div class="tag">
+                <div class="icon"></div>
+                <span>纠纷信息</span>
+            </div>
+
+            <!--  -->
+            <div class="layui-container">
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">我方争议主体</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="ourLawsuitBodyName" value="" readonly
+                                   class="borderNone">
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">对方争议主体</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="otherDeputeBody" value="" readonly class="borderNone">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">所属业务大类</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="guideMethod" value="合同纠纷" readonly
+                                   class="borderNone">
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">纠纷案由</label>
+                        <div class="layui-input-block">
+                            <input name="caseReason" readonly class="borderNone">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label">争议金额(元)</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="caseDeputeMoney" readonly value=""
+                                   class="borderNone priceipt" >
+                            &nbsp;&nbsp;&nbsp;&nbsp;大写：
+                            <span class="aux" name="caseDeputeMoneyStr"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">重要程度</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="guideSize" readonly value=""
+                                   class="borderNone">
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">纠纷发生日期</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="caseHappenTime" value="" readonly
+                                   class="borderNone">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label">争议事实</label>
+                        <div class="layui-input-block">
+                            <textarea name="caseDeputeTruth" readonly
+                                      class="layui-textarea borderNone"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- 附件 -->
+                <div class="duilie" id="thelist">
+                    <label class="layui-form-label">附件</label>
+                    <div class="layui-input-block">
+                        <ul class="uploadlist"></ul>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label">建议解决方式</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="guideSolve" value="建议解决方式" readonly
+                                   class="borderNone">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 起草信息 -->
+        <div class="card">
+            <div class="tag">
+                <div class="icon"></div>
+                <span>起草信息</span>
+            </div>
+            <div class="layui-container">
+                <div class="layui-row">
+                    <div class="layui-col-md3">
+                        <label class="layui-form-label">起草人</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="loginName" value="" readonly class="borderNone">
+                        </div>
+                    </div>
+                    <div class="layui-col-md3">
+                        <label class="layui-form-label">联系电话</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="mobile" readonly value="" class="borderNone">
+                        </div>
+                    </div>
+                    <div class="layui-col-md3">
+                        <label class="layui-form-label">起草部门</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="deptName" readonly class="borderNone">
+                        </div>
+                    </div>
+                    <div class="layui-col-md3">
+                        <label class="layui-form-label">起草单位</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="orgName" readonly class="borderNone">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="div-flow">
+            <!-- 审批意见 -->
+            <div class="card" id="r_historyIdea">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>审批意见</span>
+                    <input type="button" class="slideBtn card-btn" value="展开"/>
+                </div>
+                <ul class="log-content flowLog">
+                </ul>
+            </div>
+            <!-- 审批记录 -->
+            <div class="card" id="r_flowLog">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>审批记录</span>
+                    <input type="button" class="slideBtn card-btn" value="展开"/>
+                </div>
+                <ul class='layui-timeline flowlog'>
+                </ul>
+            </div>
+            <!-- 纠纷处理建议 -->
+            <div class="card" id="r_hisDisputeDeal">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>纠纷处理建议</span>
+                    <input type="button" class="card-btn businessAdvicePage" value="历史纠纷处理建议"/>
+                </div>
+                <div class="layui-container">
+                    <div class="layui-row">
+                        <div class="layui-col-md12">
+                            <label class="layui-form-label">建议内容</label>
+                            <div class="layui-input-block">
+                                <textarea name="businessAdvice" readonly
+                                          class="layui-textarea borderNone"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 附件 -->
+                    <div class="duilie" id="thelist_businessAdvice_r">
+                        <label class="layui-form-label">附件</label>
+                        <div>
+                            <ul class="uploadlist">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 执行结果 -->
+            <div class="card" id="r_executeResult">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>执行结果</span>
+                </div>
+
+                <div class="layui-container">
+                    <div class="layui-row">
+                        <div class="layui-col-md12">
+                            <label class="layui-form-label">执行方式</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="guideResultName" value="" readonly
+                                       class="borderNone">
+                                <input type="hidden" name="guideResult" value="" readonly
+                                       class="borderNone">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-row hide implMoney">
+                        <div class="layui-col-md12">
+                            <label class="layui-form-label">执行金额(元)</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="implMoney" value="" class="borderNone numFormat priceipt"
+                                       >
+                                &nbsp;&nbsp;&nbsp;&nbsp;大写：
+                                <span class="aux" name="implMoneyStr"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-row">
+                        <div class="layui-col-md6">
+                            <label class="layui-form-label">承办部门</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="deptName" value="" readonly
+                                       class="borderNone">
+                            </div>
+                        </div>
+                        <div class="layui-col-md6">
+                            <label class="layui-form-label">承办人</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="loginName" value="" readonly
+                                       class="borderNone">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--------------输入信息-------------->
+            <form id="business_form">
+                <!----------默认参数项----------->
+                <input type="hidden" name="guideId">
+
+                <!-- 纠纷处理建议 -->
+                <div class="card" id="w_disputeIdea">
+                    <div class="tag">
+                        <div class="icon"></div>
+                        <span>纠纷处理建议</span>
+                        <input type="button" class="card-btn businessAdvicePage" value="历史纠纷处理建议"/>
+                    </div>
+                    <div class="layui-container">
+                        <div class="layui-row">
+                            <div class="layui-col-md12">
+                                <label class="layui-form-label"><b>*</b>建议内容</label>
+                                <div class="layui-input-block">
+                                        <textarea maxlength="5000" title='纠纷处理建议' lay-verify="required|maxlength"
+                                                  name="businessAdvice" class="layui-textarea"
+                                                  placeholder="请输入"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 附件 -->
+                        <div class="duilie" id="thelist_businessAdvice_w">
+                            <label class="layui-form-label">附件</label>
+                            <div class="layui-input-block">
+                                <div class="upload-btn">
+                                    上传附件
+                                    <input name="file" type="file" class="inputfile" multiple id="file">
+                                </div>
+                                <div class="hint-msg">（最多允许上传10个附件,单个附件不允许超过50M）</div>
+                                <ul class="uploadlist ">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 执行结果 -->
+                <div class="card" id="w_executeResult">
+                    <div class="tag">
+                        <div class="icon"></div>
+                        <span>执行结果</span>
+                    </div>
+                    <!-- <form class="layui-form" action=""> -->
+
+                    <div class="layui-container">
+                        <div class="layui-row">
+                            <div class="layui-col-md6">
+                                <label class="layui-form-label">请选择</label>
+                                <div class="layui-input-block" name="resultDiv">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-row hide implMoney">
+                            <div class="layui-col-md12">
+                                <label class="layui-form-label">执行金额(元)</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="implMoney" class="numFormat priceipt" >
+                                    &nbsp;&nbsp;&nbsp;&nbsp;大写：
+                                    <span class="aux" name="implMoneyStr"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-row">
+                            <div class="layui-col-md6">
+                                <label class="layui-form-label">主办部门</label>
+                                <div class="layui-input-block">
+                                    <input type="text" maxlength='80' readonly name="deptName" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-col-md6">
+                                <label class="layui-form-label">主办人</label>
+                                <div class="layui-input-block">
+                                    <input type="text" maxlength='80' readonly name="loginName" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form id="flowing_form">
+                <!-- 处理意见 -->
+                <div class="card" id="w_handleIdea">
+                    <div class="tag">
+                        <div class="icon"></div>
+                        <span>处理意见</span>
+                        <input type="button" class="card-btn CommonOp" value="常用意见"/>
+                    </div>
+                    <div class="layui-container">
+                        <div class="layui-row">
+                            <div class="layui-col-md12">
+                                <label class="layui-form-label"><b>*</b>意见内容</label>
+                                <div class="layui-input-block">
+                                    <textarea maxlength="1000" title='处理意见' lay-verify="required|maxlength" name="opinion" placeholder="请输入内容"
+                                              class="layui-textarea CommonOp-textarea"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+            <!-- 按钮组 -->
+            <div class="btnzu last">
+                <button type="button" class="closebtn" id="closebtn">关闭</button>
+                <button type="button" class="solid_btn hide" id="btn_edit">编辑</button>
+                <button type="button" class="solid_btn hide" id="back_btn" lay-submit lay-filter="nextForm">退回</button>
+                <button type="button" class="solid_btn hide" id="next_btn" lay-submit lay-filter="nextForm">下一步</button>
+                <button type="button" class="solid_btn hide" id="recall_btn" >撤回</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/formBase.js?v=fw1.6"></script>
+<script src="../../../js/workflow/formControl.js?v=fw1.6"></script>
+<script src="../../../js/legaldispute/premisedispute/premisedisputeView.js?v=fw1.6"></script>
+</body>
+
+</html>

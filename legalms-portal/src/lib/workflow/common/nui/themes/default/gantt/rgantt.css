@@ -1,0 +1,107 @@
+﻿.mini-rgantt 
+{
+    
+}
+.mini-rgantt  .mini-splitter-border
+{
+    border:#2d2c2c 1px solid;
+}
+.mini-rgantt .mini-splitter-handler
+{
+    border-left:1px solid #232930;
+    border-right:1px solid #232930;
+}
+
+.mini-rgantt .mini-supergrid-headercell
+,.mini-rgantt .mini-ganttview-headercell
+{
+    background:url(images/rgantt/hdbg.gif) repeat-x 0 -5px;
+    border-top:0;
+	border-bottom:#2d2c2c 1px solid;
+    border-right:#2d2c2c 1px solid;       
+    color:#232930;
+}
+.mini-rgantt .mini-supergrid-headercell
+{
+    background:url(images/rgantt/hdbg.gif) repeat-x 0 0px;
+}
+.mini-rgantt .mini-ganttview-header
+,.mini-rgantt .mini-supergrid-header
+{
+    border-bottom:#2d2c2c 1px solid;
+}
+.mini-rgantt .mini-supergrid-cell 
+{
+    border-right:solid 1px #c0c0c0;
+    border-bottom:solid 1px #c0c0c0;
+}
+.mini-rgantt .mini-gantt-row
+{
+    border-bottom:solid 1px #c0c0c0;
+}
+.mini-rgantt .mini-gantt-column
+{
+    border-right:solid 1px #c0c0c0;
+}
+
+
+.mini-rgantt .mini-gantt-item
+{
+    border:solid 1px #404040;
+    background:none;    
+}
+.mini-gantt-itembg
+{
+    position:absolute;overflow:hidden;
+    margin:0;padding:0;
+    top:0;left:0;width:100%;height:100%;z-index:5;   
+    background:#dbedff url(images/rgantt/bg.gif) repeat-x;    
+}
+.mini-rgantt .mini-gantt-percentcomplete
+{
+    position:absolute;overflow:hidden;
+    margin:0;padding:0;
+    top:0;left:0;height:100%;z-index:8;   
+    background:#70b8ff url(images/rgantt/pc_03.gif) repeat-x;
+    border-right:solid 1px #777474;
+    box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-webkit-box-sizing:border-box;    
+}
+.mini-gantt-text
+{
+    position:absolute;overflow:hidden;
+    top:0;left:0;
+    width:100%;height:100%;z-index:10;
+    text-align:center;
+    line-height:15px;
+    font-size:11px;
+}
+.mini-gantt-cross
+{
+    position:absolute;overflow:hidden;
+    top:0;left:0;z-index:10;height:3px;
+    background:#e30909;
+}
+.mini-rgantt .mini-ganttview-cells .mini-gantt-selected
+{
+    border:solid 1px red;
+    z-index:120;
+}
+
+.mini-gantt-proxy
+{
+    position:absolute;
+    overflow:hidden;
+    z-index:100000000;
+    background:gray;
+    border:solid 1px black;
+    opacity: .4;-moz-opacity: .4;filter: alpha(opacity=40);
+}
+.mini-gantt-dragicon
+{
+    position:absolute;
+    overflow:hidden;
+    z-index:100000000;
+    width:16px;height:16px;
+    background:url(images/rgantt/cancel.gif) no-repeat;
+    display:none;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文件管理列表</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/commonality.css">
+    <link rel="stylesheet" href="../../../css/listBase.css">
+    <link rel="stylesheet" href="../../../css/rolemenu.css">
+    <link rel="stylesheet" href="../../../css/form.css">
+</head>
+<style>
+    .left{
+        width: 240px;
+        border-radius: 3px;
+        border: solid 1px #e5e5e5;
+    }
+    .left label{
+        margin-left: 10px;
+        color: red;
+    }
+    .right{
+        width: 920px;
+        margin-left: 10px;
+    }
+</style>
+<body>
+<div class=wp>
+    <!-- 查询框 -->
+    <div style="position: relative;">
+        <div class="queryBorder selfQueryBorderHeight">
+            <!-- form表单 -->
+            <form id="queryForm" class="query-card">
+                <div class="info-card">
+                    <ul>
+                        <li>
+                            <div class="span-input">
+                                <span>业务Id</span>
+                                <input type="text"  placeholder="请输入" name="formId">
+                            </div>
+                            <div class="span-input">
+                                <span>业务类型</span>
+                                <input type="text" placeholder="reference" name="shareType" value="reference">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-card">
+                    <input type="button" class="querybtn" id="querybtn" value="查询"/>
+                    <input type="button" class="resetbtn" id="resetbtn" value="重置"/>
+                </div>
+            </form>
+        </div>
+        <!-- 展开按钮 -->
+        <div class="toggleHeightBtn">
+            <span>展开</span>
+            <img src="../../../css/images/down.png">
+        </div>
+        <!-- 按钮组 -->
+        <div class="tableBtnGroup">
+            <div class="right-card">
+                <ul>
+                    <input type="button" class="waring-btn  table-del-btn" value="删除">
+                </ul>
+            </div>
+            <div class="right-card">
+                <button class="declarationBtn"><img src="../../../css/images/icon.png">上传模板</button>
+            </div>
+        </div>
+
+        <div class="layui-col-md6 div-table left">
+            <ul>
+                <li><a href="#" type="reference">lawsuitdeclare1</a><label>纠纷处理-reference</label>
+                </li>
+            </ul>
+        </div>
+        <!-- 表格 -->
+        <div class="layui-col-md6 div-table right">
+            <table id="bus-table" class="layui-table" lay-size="sm">
+                <thead>
+                <tr>
+                    <th class="th-index"><span>序号</span></th>
+                    <th class="Tr-12">业务文件联合主键</th>
+                    <th class="Tr-6">业务类型</th>
+                    <th class="">文件名</th>
+                    <th class="Tr-6">文件后缀</th>
+                    <th class="">文件路径</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <!-- 分页 -->
+        <div id="pageContainer" class="pageContainer"></div>
+    </div>
+
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/listBase.js?v=fw1.6"></script>
+<script src="../../../js/systemconfig/filemanage/filemanageList.js?v=fw1.6"></script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/form.css">
+    <link rel="stylesheet" href="../../../css/commonality.css">
+    <link rel="stylesheet" href="../../../css/transferView.css">
+</head>
+
+<body>
+<div class="small-container" id="transferForm">
+
+    <form id="model_form" class="layui-form" action="">
+        <input type="hidden" name="id">
+        <div class="layui-container">
+            <div class="layui-row">
+                <label class="layui-form-label"><b>*</b>移交卷宗数量</label>
+                <div class="layui-input-inline">
+                    <input name='caseNum' readonly class="layui-input"/>
+                </div>
+            </div>
+            <div class="layui-row">
+                <label class="layui-form-label"><b>*</b>接收人</label>
+                <div class="layui-input-inline">
+                    <i class="layui-icon layui-icon-search icon-inputSearch selectOrgUserTreePage" title="选择接收人"></i>
+                    <input name='accountName' placeholder="请选择接收人" title='接收人' lay-verify="required" readonly
+                           class="layui-input selectOrgUserTreePage"/>
+                    <input name='accountId' type="hidden"/>
+                    <input name='deptId' type="hidden"/>
+                </div>
+            </div>
+            <div class="layui-row">
+                <label class="layui-form-label"><b>*</b>移交原因</label>
+                <div class="layui-input-inline">
+                    <textarea maxlength="5000" name="tansferReason" title='移交原因' lay-verify="required|maxlength"
+                              placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- 按钮组 -->
+        <div class="btnzu last">
+            <button type="button" class="closebtn">取消</button>
+            <button type="button" class="save_btn" id="save_btn" lay-submit lay-filter="saveForm">提交</button>
+        </div>
+    </form>
+</div>
+<div id="transferResult" class="hide">
+    <div class="transferView">
+        <div class="transfer-info">
+            <p>卷宗移交成功，请及时查看“卷宗移交列表”！</p>
+        </div>
+        <div class="transfer-param">
+            <ul>
+                <li><label>移交卷宗数量</label><span name="num"></span>个</span></li>
+                <li><label>接收人账号</label><span name="loginAct"></span></li>
+                <li><label>接收人姓名</label><span name="loginName"></span></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 按钮组 -->
+    <div class="btnzu last">
+        <button type="button" class="closebtn">关闭</button>
+    </div>
+</div>
+
+<div id="transferWARNResult" class="hide transferWARNResult">
+    <div class="transferView">
+        <div class="transfer-info">
+        </div>
+    </div>
+    <!-- 按钮组 -->
+    <div class="btnzu last">
+        <button type="button" class="closebtn">关闭</button>
+    </div>
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/formBase.js?v=fw1.6"></script>
+<script src="../../../js/legaldispute/casetransfer/casemainEdit.js?v=fw1.6"></script>
+
+</body>
+
+</html>

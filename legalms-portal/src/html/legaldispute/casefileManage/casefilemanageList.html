@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>案件卷宗列表</title>
+		<link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+		<link rel="stylesheet" href="../../../css/commonality.css?v=fw1.6">
+		<link rel="stylesheet" href="../../../css/listBase.css?v=fw1.6">
+	</head>
+
+	<body>
+		<div class="wp">
+			<!-- 查询框 -->
+			<div style="position: relative;">
+				<div class="queryBorder selfQueryBorderHeight">
+					<!-- form表单 -->
+					<form id="queryForm" class="query-card">
+						<div class="info-card">
+							<ul>
+								<li>
+									<div class="span-input">
+										<span>卷宗标题</span><input type="text" maxlength='80' placeholder="请输入" name="title">
+									</div>
+									<div class="span-input">
+
+										<span>卷宗编号</span><input type="text" maxlength='80' placeholder="请输入" name="caseCode">
+									</div>
+								</li>
+								<li>
+									<div class="span-input relative">
+										<i class="layui-icon layui-icon-search icon-inputSearch involvedOrgPage" title="涉案单位/部门"></i>
+										<i class="layui-icon layui-icon-close icon-inputDel delinvolvedOrgPage hide" title="取消选择"></i>
+										<span>涉案单位/部门</span>
+										<input readonly type="text" maxlength='80' name="involvedOrgName" placeholder="请选择" class="involvedOrgPage">
+										<input type="hidden" name="type">
+										<input type="hidden" name="id">
+									</div>
+									<div class="span-input">
+										<span>更新时间</span>
+										<input type="text" maxlength='80' id="start_date" class="start_date row-two-input" name="startDate" placeholder="开始时间"> 至
+										<input type="text" maxlength='80' id="end_date" class="end_date row-two-input" name="endDate" placeholder="结束时间">
+									</div>
+								</li>
+								<li>
+									<div class="span-input relative">
+										<i class="layui-icon layui-icon-search icon-inputSearch ourLawsuitBodyNamePage" title="选择主体"></i>
+										<i class="layui-icon layui-icon-close icon-inputDel delOurLawsuitBodyNamePage hide" title="取消选择"></i>
+										<span>我方诉讼主体</span><input readonly type="text" maxlength='80' name="ourLawsuitBodyName" placeholder="请选择" class="ourLawsuitBodyNamePage">
+									</div>
+									<div class="span-input">
+										<span>对方诉讼主体</span>
+										<input type="text" maxlength='80' autocomplete="off" name="otherLawsuitBody" class="" placeholder="请输入">
+									</div>
+								</li>
+								<li>
+									<div class="span-input">
+										<span>案件类型</span>
+										<select name="deputeType">
+											<option value="">全部</option>
+										</select>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="btn-card">
+							<input type="button" class="querybtn" id="querybtn" value="查询" />
+							<input type="button" class="resetbtn" id="resetbtn" value="重置" />
+						</div>
+					</form>
+				</div>
+				<!-- 展开按钮 -->
+				<div class="toggleHeightBtn">
+					<span>展开</span>
+					<img src="../../../css/images/down.png">
+				</div>
+				<!-- 按钮组 -->
+				<div class="tableBtnGroup">
+					<div class="right-card">
+						<!-- <input type="button" class="confirm-btn Exportexsel" value="导出"> -->
+						<input type="button" class="confirm-btn  table-edit-btn" value="编辑">
+						<input type="button" class="waring-btn  table-del-btn" value="删除">
+					</div>
+					<div class="right-card">
+						<button class="declarationBtn"><img src="../../../css/images/icon.png">创建案件卷宗</button>
+					</div>
+				</div>
+
+				<!-- 表格 -->
+				<div class="div-table">
+					<table id="bus-table" class="layui-table" lay-size="sm">
+						<thead>
+							<tr>
+								<th class="th-index"><span><input type="checkbox" class="allBtn"></span><span>序号</span></th>
+								<th class="Trtitle">卷宗标题</th>
+								<th class="Trcode">卷宗编号</th>
+								<th class="longTd">对方诉讼主体</th>
+								<th class="TrMy">我方诉讼主体</th>
+								<th class="Tr-8">案件类型</th>
+								<th>争议金额（元）</th>
+								<th class="lastdata">最后更新时间</th>
+								<th class="Tr-6">状态</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+				<!-- 分页 -->
+				<div id="pageContainer" class="pageContainer"></div>
+			</div>
+		</div>
+		<script src="../../../lib/jquery-1.8.0.min.js"></script>
+		<script src="../../../lib/layui/layui.all.js"></script>
+		<script src="../../../js/ajax.js?v=fw1.6"></script>
+		<script src="../../../js/public/listBase.js?v=fw1.6"></script>
+		<script src="../../../../src/js/legaldispute/casefileManage/casefilemanageList.js?v=fw1.6"></script>
+
+	</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择卷宗</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/commonality.css?v=fw1.6">
+    <link rel="stylesheet" href="../../../css/listBase.css?v=fw1.6">
+    <link rel="stylesheet" href="../../../css/form.css?v=fw1.6">
+    <link rel="stylesheet" href="../../../css/openselect/selectList.css?v=fw1.6">
+</head>
+<body>
+<!-- 穿梭框 -->
+<div class="alertBox radio-div">
+    <div class="contentbox">
+        <div class="left">
+            <!-- 做左 -->
+            <div class="center berder">
+                <!-- 查询框 -->
+                <div class="queryBorder selfQueryBorderHeight">
+                    <!-- form表单 -->
+                    <form id="queryForm" class="query-card">
+                        <div class="info-card">
+                            <ul>
+                                <li>
+                                    <div class="span-input">
+                                        <span>卷宗编号</span>
+                                        <input type="text" maxlength='80' name="caseCode" placeholder="请输入">
+                                    </div>
+                                    <div class="span-input">
+                                        <span>更新时间</span>
+                                        <input type="text" maxlength='80' id="start_date" class="start_date row-two-input" name="startDate"
+                                               placeholder="开始时间">
+                                        至
+                                        <input type="text" maxlength='80' id="end_date" class="end_date row-two-input" name="endDate"
+                                               placeholder="结束时间">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="span-input">
+                                        <span>卷宗标题</span>
+                                        <input type="text" maxlength='80' name="title" class="" placeholder="请输入">
+                                    </div>
+                                    <div class="span-input relative">
+                                        <i class="layui-icon layui-icon-search icon-inputSearch ourLawsuitBodyNamePage" title="选择主体"></i>
+                                        <i class="layui-icon layui-icon-close icon-inputDel delOurLawsuitBodyNamePage hide" title="取消选择"></i>
+                                        <span>我方诉讼主体</span><input readonly type="text" maxlength='80' name="ourLawsuitBodyName"
+                                                                  placeholder="请选择" class="ourLawsuitBodyNamePage">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="span-input">
+                                        <span>案件类型</span>
+                                        <select name="deputeType" class="must-select">
+                                        </select>
+                                    </div>
+                                    <div class="span-input">
+                                        <span>对方诉讼主体</span>
+                                        <input type="text" maxlength='80' autocomplete="off" name="otherLawsuitBody" class="" placeholder="请输入">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="btn-card">
+                            <input type="button" class="querybtn" id="querybtn" value="查询"/>
+                            <input type="button" class="resetbtn" id="resetbtn" value="重置"/>
+                        </div>
+                    </form>
+                </div>
+                <!-- 展开按钮 -->
+                <div class="toggleHeightBtn">
+                    <span>展开</span>
+                    <img src="../../../css/images/down.png">
+                </div>
+                <div class="div-line"></div>
+                <!-- 表格 -->
+                <div class="div-table">
+                    <table id="bus-table" class="layui-table" lay-size="sm">
+                        <thead>
+                        <tr>
+                            <th class="th-index"><span><input type="checkbox" class="allBtn"></span><span>序号</span></th>
+                            <th class="Trtitle">卷宗标题</th>
+                            <th class="Trcode">卷宗编号</th>
+                            <th>对方诉讼主体</th>
+                            <th  class="TrMy">我方诉讼主体</th>
+                            <th class="Tr-8">案件类型</th>
+                            <th>争议金额（元）</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 分页 -->
+                <div id="pageContainer" class="pageContainer"></div>
+            </div>
+        </div>
+        <!-- 右 -->
+        <div class="right">
+            <div class="listtitle">已选项</div>
+            <div class="center berder">
+                <ul class="checkedlist">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 按钮组 -->
+    <div class="alertbtnbox">
+        <button class="alertCancelBtn" id="alertCancelBtn">关闭</button>
+        <button class="alertSubmitBtn" id="alertSubmitBtn">确定</button>
+    </div>
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/listBase.js?v=fw1.6"></script>
+<script src="../../../js/openselect/selectcase/selectcaseList.js?v=fw1.6"></script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!--公告列表 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>系统公告列表</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/commonality.css">
+    <link rel="stylesheet" href="../../../css/listBase.css">
+</head>
+
+<body>
+<div class="wp">
+    <!-- 查询框 -->
+    <div style="position: relative;">
+
+        <!-- form表单 -->
+        <div class="queryBorder selfQueryBorderHeight">
+            <!-- form表单 -->
+            <form id="queryForm" class="query-card">
+                <div class="info-card">
+                    <ul>
+                        <li>
+                            <div class="span-input">
+                                <span>公告标题</span>
+                                <input type="text" maxlength='80' name="announcementName" class="" placeholder="请输入">
+                            </div>
+                            <div class="span-input">
+                                <span>发布时间</span>
+                                <input type="text" maxlength='80' id="start_date" class="start_date row-two-input" name="announcementStarttime"
+                                       placeholder="开始时间">
+                                至
+                                <input type="text" maxlength='80' id="end_date" class="end_date row-two-input" name="announcementFinishtime"
+                                       placeholder="结束时间">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="span-input">
+                                <span>公告类型</span>
+                                <select name="announcementTypeid" style="width:302px;border-color: #E5E5E5" >
+                                    <option value="">全部</option>
+                                    <option value=1>系统公告</option>
+                                    <option value=2>消息公告</option>
+                                </select>
+                            </div>
+                            <div class="span-input">
+                                <span>发布人</span>
+                                <input style='width: 300px;' type="text" maxlength='80' name="announcementIssuername"
+                                       placeholder="请选择">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-card">
+                    <input type="button" class="querybtn" id="querybtn" onclick="queryNoticeList()" value="查询" />
+                    <input type="button" class="resetbtn" id="resetbtn" value="重置" />
+                </div>
+            </form>
+        </div>
+        <!-- 展开按钮 -->
+        <!--<div class="toggleHeightBtn">
+            <span>展开</span>
+            <img src="../../../css/images/down.png">
+        </div>-->
+    </div>
+    <!-- 按钮组 -->
+    <div class="tableBtnGroup">
+        <div class="right-card">
+            <button class="declarationBtn" type="button" onclick="addNewAnnouncement()"><img src="../../../css/images/icon.png">发布新公告</button>
+        </div>
+    </div>
+    <!-- 表格 -->
+    <div class="" style="height: 420px;">
+        <table id="noticeTable" class="layui-table" lay-filter="noticeTableFilter">
+        </table>
+    </div>
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/listBase.js?v=fw1.6"></script>
+<script src="../../../../src/js/systemconfig/announcement/announcementList.js?v=fw1.6"></script>
+
+</body>
+
+</html>

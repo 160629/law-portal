@@ -1,0 +1,562 @@
+
+.card{
+}
+
+.ul li {
+    display: inline-block;
+    width: 150px;
+    height: 20px;
+}
+/* form块 */
+
+/* 标题 */
+.center-div{
+    margin: 0 auto;
+    width: 404px;
+    padding-left: 40px;
+}
+.center-div .layui-form-label,.layui-form-item .layui-input-inline{
+    width: auto;
+}
+.layui-form-item{
+    margin-bottom: 2px;
+}
+.layui-form-item input{
+}
+.titleborder {
+	padding-top: 0!important;
+}
+
+.titleborder .layui-form-item {
+    margin-top: 20px;
+}
+.titleborder .layui-input-inline input{
+    width: 150px;
+}
+.layui-input-inline{
+    float: left;
+    min-height: 35px;
+}
+.titles {
+    position: relative;
+    background-color: #f5f5f5;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+}
+
+.title-font {
+    font-weight: bold;
+    font-size: 18px;
+}
+.uncommittedstep input{
+    width: 220px;
+}
+
+.layui-row {
+    margin-bottom:2px;
+    padding: 5px 0px;
+}
+
+.layui-form-label {
+    width: 140px;
+    padding: 0 !important;
+    line-height: 22px;
+}
+.layui-input-block {
+    margin-left: 147px;
+}
+.textarefar{
+	/*margin-left: 46px!important;*/
+}
+.fankui{
+	width: 60px!important;
+}
+
+.layui-form-label b {
+    color: #e9484f;
+    margin: 0 2px !important;
+}
+
+.layui-input-block .priceipt {
+    width: 426px;
+    float: left;
+}
+
+.aux {
+    margin-left: 5px;
+    font-weight: bold;
+    line-height: 22px;
+}
+
+.layui-form-select dl dd.layui-this {
+    background-color: #e9484f;
+    color: #fff;
+}
+
+input::-webkit-input-placeholder {
+    color: #cbcbcb;
+}
+
+input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #cbcbcb;
+}
+
+input:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #cbcbcb;
+}
+
+input:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #cbcbcb;
+}
+
+textarea::-webkit-input-placeholder {
+    color: #cbcbcb;
+}
+
+textarea:-moz-placeholder {
+    color: #cbcbcb;
+}
+
+textarea::-moz-placeholder {
+    color: #cbcbcb;
+}
+
+textarea:-ms-input-placeholder {
+    color: #cbcbcb;
+}
+
+
+.layui-form-checked span,
+.layui-form-checked:hover span {
+    background-color: #e9484f;
+}
+
+.layui-form-radio>i:hover,
+.layui-form-radioed>i {
+    color: #e9484f;
+}
+
+.layui-form-checked[lay-skin=primary] i {
+    border-color: #e9484f;
+    background-color: #e9484f;
+    color: #fff;
+}
+
+/* 复选框 */
+
+.layui-form-checkbox[lay-skin=primary] {
+    height: auto !important;
+    line-height: normal !important;
+    min-width: 18px;
+    min-height: 18px;
+    border: none !important;
+    margin-right: 0;
+    padding-left: 28px;
+    padding-right: 0;
+    margin-top: 9px;
+    background: 0 0;
+}
+/* 只读的input-修饰输入框边和背景色的不准加其他样式 */
+.borderNone{
+    background-color: #ffffff;
+    border:none;
+}
+
+
+/* 上传文件 */
+
+.inputfile {
+    position: absolute;
+    z-index: 999;
+    display: block;
+    color: #CBCBCB;
+    width: 37px;
+    height: 34px !important;
+    top: 3px;
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    opacity: 0;
+    background-image: url("images/upload.png");
+    cursor: pointer;
+}
+.bottomDiv{
+    margin-top: 10px;
+    margin-left: 18px;
+}
+.duilie {
+    margin-top:10px;
+    position: relative;
+}
+
+
+.uploadlist {
+}
+.uploadlist li {
+    position: relative;
+    float: left;
+    list-style: none;
+    padding:2px 0;
+}
+.row-height li {
+    line-height: 36px;
+}
+.uploadlist::after {
+    clear: both;
+    content: '';
+    display: block;
+}
+
+.uploadlist li a {
+    text-decoration:underline;
+}
+.uploadlist .filename {
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 170px;
+}
+
+.uploadlist .layui-icon {
+    color: #333333;
+    cursor:pointer;
+    margin: 3px;
+    font-size: 13px;
+
+}
+.uploadlist .status{
+    color: #eb4b4b;
+    float: left;
+    margin-left: 10px;
+}
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+/* 创建卷宗进度条 */
+.progbar img {
+    display: block;
+    margin: 0 auto;
+}
+
+
+/* input */
+
+.layui-input-block,.layui-input-inline  {
+    min-height: 22px;
+}
+.layui-input-block input,.layui-input-inline input{
+    height: 20px;
+    width: 100%;
+}
+.layui-input-block a {
+    line-height: 22px;
+}
+/* radio */
+.layui-form-radio>i {
+    margin-right: 8px;
+    font-size: 16px;
+    color: #e9484f;
+}
+.layui-form-radio {
+    margin: 0px;
+    line-height: 20px;
+}
+.layui-form-radio *{
+    font-size: 12px;
+}
+
+.layui-disabled, .layui-disabled:hover {
+    color: #000000 !important;
+}
+/***详情页--标题部分****/
+.view-title .layui-form-item{
+    margin-bottom: 5px;
+}
+.view-title .layui-input-inline{
+    min-height: 22px;
+    line-height: 22px;
+}
+/***纠纷处理、案件交办等复选选中出行-输入框****/
+.jiajianbtn {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    border: 1px solid #e9484f;
+    color:#e9484f;
+    background:#FFFFFF;
+    cursor: pointer;
+}
+.jiajianbtn:hover{
+    color:#FFFFFF;
+    background:#e9484f;
+}
+.content-low{
+    margin-left: 153px;
+}
+.content-low .layui-input-inline{
+    margin-right: 5px;
+}
+
+.layui-textarea{
+    min-height: 60px;
+    outline: none;
+    resize: none;
+    padding: 1px 0px;
+    overflow: hidden;
+    transition: all;
+}
+.commonDiv{
+    width: 95%;
+    margin: 10px auto;
+}
+.addCommonDiv{
+    margin: 0 auto;
+}
+.CommonOpup{
+	width: 100%;
+	height: 240px;
+	margin: 0 auto;
+	overflow-y:auto;
+	border: 1px solid #eaeaea;
+}
+.CommonOpdown{
+	width: 100%;
+	height: 50px;
+}
+.CommonOpdown input{
+	width: 80%;
+	height: 30px;
+	margin-top: 20px;
+	margin-right: 5%;
+	float: left;
+	box-sizing: border-box;
+	border:1px solid #eaeaea;
+
+}
+.CommonOpdown .CommonOpadd{
+	width: 10%;
+	height: 30px;
+	margin-top: 20px;
+	cursor: pointer;
+	float: left;
+	border: 1px solid #e9484f;
+	border-radius: 3px;
+	box-sizing: border-box;
+	text-align: center;
+	color: #e9484f;
+	background: #fff;
+}
+
+.CommonOpupitem{
+	width: 100%;
+	min-height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid #eaeaea;
+}
+.CommonOpupitemcon{
+	width: 85%;
+	min-height: 30px;
+	display: inline-block;
+    padding-left:5% ;
+    font-style: normal;
+}
+.CommonOpup span{
+	display: inline-block;
+	width: 5%;
+	height: 30px;
+	color: red;
+	text-align: right;
+	cursor: pointer;
+	visibility: hidden;
+}
+.itemclick{
+	background: #f2f2f2;
+}
+.commonDiv .alertbtnbox {
+    width: 100%;
+    text-align: center;
+}
+.commonDiv .alertbtnbox button {
+    width: 120px;
+    height: 38px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/*审批意见 --开始*/
+
+.log-content{
+    margin-left: 68px;
+    width: 1084px;
+}
+.log-content .heard{
+    font-family: MicrosoftYaHeiUI;
+    font-size: 14px;
+    font-weight: bold;
+    color: #424242;
+}
+.log-content .content{
+    margin: 5px 0;
+    padding: 0 18px 0 30px;
+    word-break: break-all;
+    white-space: pre-line
+}
+.log-content .foot{
+    float: right;
+    margin-right: 14px;
+}
+.log-content .foot span{
+    padding: 0 5px;
+}
+.log-content .dashed-line{
+    width: 100%;
+    height: 1px;
+    border-top: 1px #bbabab dashed;
+    display: inline-block;
+}
+.flowlog{
+    margin-left: 88px;
+    margin-top: 20px;
+}
+.hidehuiqian .layui-timeline-item{
+}
+.flowlog .tages-red {
+    color: #e9484f;
+}
+
+.flowlog .optionType{
+    display: inline-block;
+    text-align: center;
+    padding: 0 10px;
+    color: #33AAFF;
+}
+.flowlog .endNode{
+    padding-right: 10px;
+}
+.flowlog .pakeupbtn{
+    background: #eb4b4b;
+    color: #fff;
+    border: 1px solid #eb4b4b;
+    padding: 0 10px;
+}
+/*审批意见 --结束*/
+/*修改表单中标题和内容没有水平对齐的问题-开始*/
+.layui-row .layui-input-block textarea{
+    line-height: 18px;
+}
+.layui-input-block input,.layui-input-inline input{
+    line-height: 18px;
+}
+/*修改表单中标题和内容没有水平对齐的问题-结束*/
+/*显示边框-开始*/
+.borderNone{
+    border: 1px solid #EAEAEA;
+    background-color: #f7f7f7;
+}
+.view-title .borderNone{
+    border:none;
+    background-color: #fff;
+}
+body .layui-textarea{
+    /*margin: 9px 0;*/
+}
+/*显示边框-结束*/
+
+/*表单输入框加padding-left-开始*/
+.layui-input-block input,
+.layui-input-inline input,
+body .layui-textarea{
+    text-indent: 5px;
+}
+/*表单输入框加padding-left-开始*/
+/*没有标题的文本域添加标题-开始*/
+body .textarefar{
+    margin-left: 147px;
+}
+/*没有标题的文本域添加标题-结束*/
+/*文本框获取焦点时，改变边框颜色-开始*/
+input:focus:not(.borderNone),
+.input textarea:not(.borderNone):focus,
+.input select:not(.borderNone):focus{
+    border:1px solid  #A9A9A9;
+}
+body .borderNone:hover, body .borderNone:hover{
+    border-color: #EAEAEA !important;
+}
+/*文本框获取焦点时，改变边框颜色-结束*/
+
+/*案件交办单  省市机构-开始*/
+.org-add .layui-col-md3:nth-child(2){
+    padding: 0 5px;
+}
+.org-add .province {
+    width: 100%;
+}
+
+.org-add .citys {
+    width: 100%;
+}
+
+.org-add .approveOrg {
+    width: 100%;
+}
+/*案件交办单  省市机构-结束*/
+
+.hint-msg{
+    line-height: 30px;
+    display: flex;
+}
+
+/*提示框*/
+.message-mark {
+    padding: 15px 25px;
+    text-align: center;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 9999999999;
+    color: white;
+    font-size: 14px;
+    opacity: .75;
+    margin-left: -52px;
+    margin-top: -25px;
+    border-radius: 3px;
+    display: none;
+}
+/*反馈记录*/
+.feedbackLog .duilie{
+    margin-top: 0px;
+}
+.feedbackLog .group{
+    width: 100%;
+    border-bottom: 1px #bbabab solid;
+    margin-bottom: 10px;
+}
+.feedbackLog .group .line{
+    width: 100%;
+    border-bottom: 1px #bbabab dashed;
+}
+.feedbackLog .group-main{
+     width: 100%;
+ }
+.group .group-name{
+    font-family: MicrosoftYaHeiUI;
+    font-size: 18px;
+    font-weight: bold;
+    color: #424242;
+    padding-left: 85px;
+}
+.group .group-main .node,.group .log-line .node{
+    font-weight: bold;
+    color: #000;
+}

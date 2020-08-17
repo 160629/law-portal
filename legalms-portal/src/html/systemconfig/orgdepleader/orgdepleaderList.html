@@ -1,0 +1,102 @@
+<!-- 分管领导列表 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>分管领导列表</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/commonality.css">
+    <link rel="stylesheet" href="../../../css/listBase.css">
+</head>
+<style>
+
+
+
+</style>
+
+<body>
+    <div class="wp">
+        <!-- 查询框 -->
+        <div style="position: relative;">
+            <div class="queryBorder selfQueryBorderHeight">
+                <!-- form表单 -->
+                <form id="queryForm" class="query-card">
+                    <div class="info-card" style="width: 80%;">
+                        <ul>
+                            <li>
+                                <div class="span-input relative">
+                                    <i class="layui-icon layui-icon-search icon-inputSearch showOrgTree"
+                                        title="选择公司"></i>
+                                    <i class="layui-icon layui-icon-close icon-inputDel delShowOrgTree hide"
+                                        title="取消选择"></i>
+                                    <span>公司名称</span>
+                                    <input type="text" maxlength='80' name="compName1" readonly placeholder="请选择" class="showOrgTree">
+                                    <!--勿动--> <input type="hidden" name="orgCode">
+                                    <!--勿动！！！-->
+                                </div>
+                            </li>
+                            <li>
+                                <div class="span-input">
+                                    <span>是否已设置</span>
+                                    <select name="isSetup" id="isSetup">
+                                        <!--<option value="">&#45;&#45;请选择&#45;&#45;</option>-->
+                                        <option value="">全部</option>
+                                        <option value="1">是</option>
+                                        <option value="0">否</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="span-input">
+                                    <span>部门名称</span>
+                                    <input type="text" maxlength='80' name="orgName" placeholder="请输入">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="span-input">
+                                    <span>分管领导</span>
+                                    <input type="text" maxlength='80' name="empName" placeholder="请输入">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="btn-card">
+                        <input type="button" class="querybtn" id="querybtn" value="查询" />
+                        <input type="button" class="resetbtn" id="resetbtn" value="重置" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="tableBtnGroup">
+        </div>
+        <!-- 表格 -->
+        <div class="div-table">
+            <table id="bus-table" class="layui-table" lay-size="sm">
+                <thead>
+                    <tr>
+                        <th class="th-index">序号</th>
+                        <th>公司名称</th>
+                        <th>部门名称</th>
+                        <th>分管领导</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <!-- 分页 -->
+        <div id="pageContainer" class="pageContainer"></div>
+
+    </div>
+    <script src="../../../lib/jquery-1.8.0.min.js"></script>
+    <script src="../../../lib/layui/layui.all.js"></script>
+    <script src="../../../js/ajax.js?v=fw1.6"></script>
+    <script src="../../../js/public/listBase.js?v=fw1.6"></script>
+    <script src="../../../../src/js/systemconfig/orgdepleader/orgdepleaderList.js?v=fw1.6"></script>
+</body>
+
+</html>

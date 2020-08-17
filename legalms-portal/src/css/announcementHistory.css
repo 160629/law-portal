@@ -1,0 +1,10 @@
+.layui-table-cell{ display:table-cell; vertical-align: middle; }
+.layui-laypage{
+    float: right;}
+.gonggao{
+    text-align: left;
+    white-space:normal;
+    word-break:break-all;
+    word-wrap:break-word;
+    overflow-x: hidden;
+}

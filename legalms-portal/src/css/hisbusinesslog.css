@@ -1,0 +1,47 @@
+.layui-row {
+    padding-top: 0px;
+}
+.main-content{
+	font-size: 12px;
+	font-weight: 400;
+}
+.layui-form-label{
+    text-align: left;
+    width: auto;
+}
+.layui-input-block {
+    margin-left: 10px;
+    line-height: 22px;
+}
+.layui-input-block  span{
+	display: inline-block;
+}
+.connect{
+	width: 100%;
+	margin: 5px 0;
+	line-height: 25px;
+	font-size: 12px;
+	font-weight: 400;
+	min-height: 60px;
+	resize: none;
+}
+#main-content{
+    height: 490px;
+	overflow: auto;
+	overflow-x: hidden;
+}
+.main-content-li{
+	padding: 10px 10px 5px;
+	border-bottom: 1px solid #eaeaea;
+}
+.div-line{
+    width: 100%;
+    border-bottom: 1px solid #e2e2e2;
+    margin: 10px 0px;
+}
+#main-content .uploadlist li{
+	padding: 0!important;
+}
+.layui-input-block .uploadlist li{
+	margin: 0 5px;
+}

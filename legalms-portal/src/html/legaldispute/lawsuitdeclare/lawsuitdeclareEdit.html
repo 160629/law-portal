@@ -1,0 +1,318 @@
+<!--纠纷处理申报-->
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+<title>纠纷处理单</title>
+<link rel="stylesheet" href="../../../lib/layui/css/layui.css"/>
+<link rel="stylesheet" href="../../../css/form.css"/>
+<link rel="stylesheet" href="../../../css/commonality.css"/>
+<div class="Container">
+    <form id="model_form" class="layui-form" action="">
+        <!-- 默认参数项 -->
+        <input type="hidden" name="lawsuitId"/>
+        <input type="hidden" name="lawsuitCode"/>
+        <!-- 标题 -->
+        <div class="card titleborder">
+            <div class="titles">
+                <span class="title-font">纠纷处理单</span>
+                <div class="Right">
+                    <span class="currentStatus">当前状态:</span>
+                    <span class="uncommitted">
+                        <label name="lawsuitStatus">未提交</label>
+                    </span>
+                </div>
+            </div>
+            <div class="layui-container">
+                <div class="layui-row titleinput">
+                    <div class="layui-form-item layui-col-md12">
+                        <label class="layui-form-label"><b>*</b>标题</label>
+                        <div class="layui-input-block">
+                            <input type="text" maxlength='80' autocomplete="off" placeholder="请输入标题" title='标题'  lay-verify="required|title|maxlength"  name="lawsuitTitle" class="layui-input c-title"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 案件信息 -->
+        <div class="card">
+            <div class="tag">
+                <div class="icon"></div>
+                <span>案件信息</span>
+            </div>
+            <!-- 表单块 -->
+            <div class="layui-container">
+                <div class="layui-row">
+                    <!--<div class="layui-col-md6">-->
+                        <!--<label class="layui-form-label">关联引诉纠纷</label>-->
+                        <!--<div class="layui-input-block hide" id="w_guideTitle">-->
+                            <!--<i class="layui-icon layui-icon-search icon-inputSearch issueguidePage" title="选择引诉" ></i>-->
+                            <!--<i class="layui-icon layui-icon-close icon-inputDel delIssueguidePage hide" title="取消选择"></i>-->
+                            <!--<input type="text" name="guideTitle" placeholder="请选择" readonly class="layui-input"/>-->
+                            <!--<input type="hidden" name="guideId"/>-->
+                        <!--</div>-->
+                        <!--<div class="layui-input-block hide" id="r_guideTitle">-->
+                            <!--<label name="guideTitle"></label>-->
+                            <!--<input type="hidden" name="guideId"/>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label">关联案件</label>
+                        <div class="layui-input-block">
+                            <i class="layui-icon layui-icon-search icon-inputSearch casePage" title="选择案件"></i>
+                            <i class="layui-icon layui-icon-close icon-inputDel delCasePage hide" title="取消选择"></i>
+                            <input type="text" name=caseTitle placeholder="请选择" readonly class="layui-input casePage"/>
+                            <input type="hidden" name="caseId"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label"><b>*</b>起诉/应诉</label>
+                        <div class="layui-input-block">
+                            <select name="indictOrUnindict" title='起诉/应诉' lay-verify="required" class="must-select">
+                                <option value="">请选择</option>
+                                <option value="起诉">起诉</option>
+                                <option value="应诉">应诉</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label"><b>*</b>我方诉讼地位</label>
+                        <div class="layui-input-block">
+                            <select name="ourLawsuitStatus" title='我方诉讼地位' lay-verify="required" class="must-select"> </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label"><b>*</b>我方诉讼主体</label>
+                        <div class="layui-input-block">
+                            <i class="layui-icon layui-icon-search icon-inputSearch ourLitigationBodyPage" title="选择主体"></i>
+                            <input type="text" name="ourLawsuitBodyName" placeholder="请选择" title='我方诉讼主体' lay-verify="required" readonly class="layui-input ourLitigationBodyPage">
+                            <input type="hidden" name="ourLawsuitBody" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label"><b>*</b>对方诉讼主体</label>
+                        <div class="layui-input-block">
+                            <input type="text" maxlength='80' autocomplete="off" name="theyLawsuitBody" placeholder="请输入" title='对方诉讼主体' lay-verify="required" class="layui-input"/>
+                        </div>
+                    </div>
+                </div><div class="layui-form-item">
+                <label class="layui-form-label">其他涉案方</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" id="thirdPersonId" lay-filter="thirdPerson" title="第三人"/>
+                    <input type="checkbox" id="plaintiffId" lay-filter="plaintiff" title="同案原告"/>
+                    <input type="checkbox" id="defendantId" lay-filter="defendant" title="同案被告"/>
+                </div>
+                <div id="thirdPersonAppend" class="layui-row " style="display: none;">
+                    <label class="layui-form-label">第三人</label>
+                    <div class=" content-low">
+                        <div class="layui-input-inline" >
+                            <div style="float:left">
+                                <input type="text" maxlength='80' lay-verify="maxlength"
+                                       class="layui-input appendThird"
+                                       placeholder="请输入" autocomplete="off"/>
+                            </div>
+                            <div style='float: left' class="jiajinbtn">
+                                <button type='button' class='float jiajianbtn jianbtn'>-</button>
+                            </div>
+                        </div>
+                        <div style='float: left' class="jiajinbtn jiabtn_div">
+                            <button type='button' class='float jiajianbtn jabtn'>+</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="plaintiffAppend" class="layui-row " style="display: none;">
+                    <label class="layui-form-label">同案原告</label>
+                    <div class=" content-low">
+                        <div class="layui-input-inline" >
+                            <div style="float:left">
+                                <input type="text" maxlength='80' lay-verify="maxlength"
+                                       class="layui-input appendPlaintiff" placeholder="请输入"
+                                       autocomplete="off"/>
+                            </div>
+                            <div style='float: left' class="jiajinbtn">
+                                <button type='button' class='float jiajianbtn jianbtn'>-</button>
+                            </div>
+                        </div>
+                        <div style='float: left' class="jiajinbtn jiabtn_div">
+                            <button type='button' class='float jiajianbtn jabtn'>+</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="defendantAppend" class="layui-row " style="display: none;">
+                    <label class="layui-form-label">同案被告</label>
+                    <div class=" content-low">
+                        <div class="layui-input-inline" >
+                            <div style="float:left">
+                                <input type="text" maxlength='80' lay-verify="maxlength"
+                                       class="layui-input appendDefendant" placeholder="请输入"
+                                       autocomplete="off"/>
+                            </div>
+                            <div style='float: left' class="jiajinbtn">
+                                <button type='button' class='float jiajianbtn jianbtn'>-</button>
+                            </div>
+                        </div>
+                        <div style='float: left' class="jiajinbtn jiabtn_div">
+                            <button type='button' class='float jiajianbtn jabtn'>+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label"><b>*</b>争议金额(元)</label>
+                        <div class="layui-input-block">
+                            <input type="text"  name="lawsuitMoney" lay-verify="required|maxlength" maxlength=18  placeholder="例88888.88"
+                                   title='争议金额'
+                                   class="layui-input priceipt numFormat"/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;大写：
+                            <span class="aux"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label"><b>*</b>重要程度</label>
+                        <div class="layui-input-block hide" id="w_lawsuitSize">
+                            <select name="lawsuitSize" title='重要程度' lay-verify="required" class="must-select">
+                            </select>
+                        </div>
+                        <div class="layui-input-block hide" id="r_lawsuitSize">
+                            <input type="hidden" name="lawsuitSize" >
+                            <input type="text" name="lawsuitSizeName" readonly value=""
+                                   class="borderNone">
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label"><b>*</b>案由</label>
+                        <div class="layui-input-block">
+                            <select name="caseCause" title='案由' lay-verify="required" class="must-select"> </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label"><b>*</b>案件类型</label>
+                        <div class="layui-input-block">
+                            <select name="caseType" title='案件类型' lay-verify="required" class="must-select"> </select>
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label"><b>*</b>案件所属专业线</label>
+                        <div class="layui-input-block">
+                            <select name="caseLine" title='案件所属专业线' lay-verify="required" class="must-select"> </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label"><b>*</b>案件基本事实</label>
+                        <div class="layui-input-block">
+                            <textarea maxlength="5000" name="lawsuitDetail" title='案件基本事实' lay-verify="required" placeholder="请输入内容" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label"><b>*</b>案件分析内容</label>
+
+                        <div class="layui-input-block">
+                                        <textarea maxlength="5000" name="lawsuitAnalyze" title='案件分析内容' lay-verify="required|maxlength"
+                                                  class="layui-textarea"
+                                                  placeholder="请输入"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label"><b>*</b>案件相关建议</label>
+
+                        <div class="layui-input-block">
+                                        <textarea maxlength="5000" name="lawsuitAdvise" title='案件相关建议' lay-verify="required|maxlength"
+                                                  class="layui-textarea"
+                                                  placeholder="请输入"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- 上传附件 -->
+                <div class="duilie" id="thelist">
+                    <label class="layui-form-label"><b>*</b>附件</label>
+                    <div class="layui-input-block">
+                        <div class="upload-btn">
+                            上传附件
+                            <input name="file" type="file" class="inputfile" title="附件" lay-verify="required"  multiple id="file">
+                        </div>
+                        <div class="hint-msg">（最多允许上传10个附件,单个附件不允许超过50M）</div>
+                        <ul class="uploadlist">
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="div-flow">
+            <!-- 起草信息 -->
+            <div class="card">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>起草信息</span>
+                </div>
+                <div class="layui-container">
+                    <div class="layui-row">
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">起草人</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="loginName" value="" readonly class="borderNone">
+                            </div>
+                        </div>
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">联系电话</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="mobile" readonly value="" class="borderNone">
+                            </div>
+                        </div>
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">起草部门</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="deptName" readonly class="borderNone">
+                            </div>
+                        </div>
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">起草单位</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="orgName"  readonly class="borderNone">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 按钮组 -->
+            <div class="btnzu last">
+                <button type="button" class="closebtn" id="closebtn">关闭</button>
+                <button type="button" class="solid_btn hide" id="staging_btn">暂存</button>
+                <button type="button" class="solid_btn hide" id="abandon_btn">作废</button>
+                <button type="button" class="solid_btn hide" id="save_btn" lay-submit  lay-filter="saveForm">保存</button>
+                <button type="button" class="hide" id="return_btn">返回</button>
+                <button type="button" class="solid_btn hide" id="start_btn" lay-submit  lay-filter="startForm">下一步</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/formBase.js?v=fw1.6"></script>
+<script src="../../../js/workflow/formControl.js?v=fw1.6"></script>
+<script src="../../../../src/js/legaldispute/lawsuitdeclare/lawsuitdeclareEdit.js?v=fw1.6"></script>
+</body>
+</html>

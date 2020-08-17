@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>卷宗信息</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/form.css?v=fw1.6">
+    <link rel="stylesheet" href="../../../css/commonality.css?v=fw1.6">
+    <link rel="stylesheet" href="../../../css/legaldispute/casefileManage/casefilemanage.css?v=fw1.6">
+
+</head>
+
+<body class="casefile">
+<div class='bg'></div>
+<div class="Container div-float">
+    <div class="head">
+        <!-- 进度条 -->
+        <div class='progress' id='progress'></div>
+        <!-- tab 标签 -->
+        <div class='tabs of' id='tabs'>
+        </div>
+    </div>
+    <div class="body">
+        <!-- step1 start -->
+        <div class='step-panel'>
+            <!-- 基本信息 -->
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>基本信息</span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>卷宗标题</div>
+                    <input class='len c-title' name='caseTitle' type='text' maxlength='80' placeholder="参考命名格式：xx诉xx（案由）纠纷（立案年份）"/>
+                </div>
+                <div class='input fl'>
+                    <div class='label'>卷宗编号<span></span></div>
+                    <input readonly="readonly" name='caseCode' type='text' class="borderNone" />
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span>*</span>涉案负责人</div>
+                    <div class="popup-input">
+                        <i class="layui-icon layui-icon-search icon-inputSearch involvedAccountPage"  onclick="floatTable.involvedAccountPage()"></i>
+                        <input type="text"  name="involvedAccountName" class="" placeholder="请选择涉案负责人"  onclick="floatTable.involvedAccountPage()"/>
+                        <input type="hidden" name="involvedAccountId" />
+                    </div>
+                </div>
+                <div class='input fl'>
+                    <div class='label'>涉案单位</div>
+                    <input readonly="readonly" name='involvedOrgName' type='text' class="borderNone"/>
+                    <input type="hidden" name="involvedDeptId" />
+                </div>
+
+                <div class='input fl'>
+                    <div class='label'>涉案部门</div>
+                    <input readonly="readonly" name='involvedDeptName' type='text' class="borderNone"/>
+                    <input type="hidden" name="involvedOrgId" />
+                </div>
+            </div>
+
+            <!-- 案件信息 -->
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>案件信息</span>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span>*</span>立案日期</div>
+                    <input readonly="readonly" name='caseRecordTime' class="date_date" type='text' maxlength='80'/>
+                </div>
+
+                <div class='input fl'>
+                    <div class='label'><span>*</span>审理机关案件编号</div>
+                    <input  name='institutionCaseCode' type='text' maxlength='80'/>
+                </div>
+                <br class='cls'/>
+                <div class='input fl'>
+                    <div class='label'><span>*</span>我方诉讼地位</div>
+                    <select name='ourLawsuitIdentity'>
+                        <option>请输入</option>
+                        <option>一审</option>
+                        <option>二审</option>
+                        <option>再审</option>
+                    </select>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>案件审级</div>
+                    <select class="editCaseReviewGrade" name='caseReviewGrade'>
+                        <option>一审</option>
+                        <option>二审</option>
+                        <option>再审</option>
+                    </select>
+                </div>
+                <div class='layui-col-md12 input'>
+                    <div class='label'><span>*</span>我方诉讼主体</div>
+                    <div class="layui-input-block ">
+                        <i class="layui-icon layui-icon-search icon-inputSearch ourLawsuitBodyName" title="选择主体" onclick="floatTable.ourLawsuitBodySelect()"></i>
+                        <input type="text" name="ourLawsuitBodyName" placeholder="请选择" readonly onclick="floatTable.ourLawsuitBodySelect()"
+                               class="layui-input len"/>
+                        <input type="hidden" name="ourLawsuitBody"/>
+                    </div>
+                    <!--<div class='boxserach' onclick="tIssueGuide(350,300,1)"></div>-->
+                </div>
+                <br class='cls'/>
+
+                <div class='input'>
+                    <div class='label'><span>*</span>对方诉讼主体</div>
+                    <input class='len' name='otherLawsuitBody' placeholder='填入多个关键字时请用“,”分割' type='text'
+                           maxlength='80'/>
+                </div>
+                <div class='sanx'>
+                    <!-- 其他涉案方 -->
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>争议金额</div>
+                    <input type='text' maxlength='80' name='caseDeputeMoney' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span>*</span>重要程度</div>
+                    <select name='largeLawsuitMark'>
+                    </select>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span>*</span>案由</div>
+                    <select name='caseReason' class="caseReason"></select>
+                </div>
+                <br class='cls'/>
+
+                <div class='input fl'>
+                    <div class='label'><span>*</span>案件所属专业线</div>
+                    <select class="caseSpecialLine" name='caseSpecialLine'></select>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span>*</span>案件类型</div>
+                    <select name='deputeType'></select>
+                </div>
+                <br class='cls'/>
+                <div class='input'>
+                    <div class='label'>案件关键字<span></span></div>
+                    <input class='len' name='caseKeyword' type='text' maxlength='80'/>
+                </div>
+                <br class='cls'/>
+
+
+                <div class='input'>
+                    <div class='label'>案件基本事实<span></span></div>
+                    <textarea maxlength="5000" name='caseTruth' maxlength="5000"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'>原告诉讼请求<span></span></div>
+                    <textarea maxlength="5000" name='plaintiffLawsuitRequest' maxlength="5000"></textarea>
+                </div>
+                <!-- 上传附件 -->
+                <div class="duilie input" id="thelist_casemain">
+                    <input type='hidden' class='upfileinput' name='caseFile'/>
+                    <div class='label'>案件材料<span></span></div>
+                    <div class="layui-input-block">
+                        <div class="upload-btn">
+                            上传附件
+                            <input name="file" type="file" class="inputfile" onchange='panel.up(this,"casemain")'
+                                   multiple>
+                        </div>
+                        <div class="hint-msg">（最多允许上传10个附件,单个附件不允许超过50M）</div>
+                        <ul class="uploadlist">
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 关联表单 -->
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>关联表单</span>
+                </div>
+                <div id="relevance-btn-group" class="relevance-btn-group">
+                    <div class='btn' style='' onclick='floatTable.addLawsuitdeclareListPage()'>+添加</div>
+                </div>
+                <div class="input">
+                    <div class="label"><span></span></div>
+                    <div class="relevanceTable" name="">
+                        <table class="layui-table" lay-size="sm">
+                            <thead>
+                            <tr>
+                                <td>流程类别</td>
+                                <td>
+                                    <table class="table-data">
+                                        <tr>
+                                            <td>标题</td>
+                                            <td>创建时间</td>
+                                            <td>状态</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            </thead>
+                            <tbody  id="relevanceTableBody">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class='' id="baseInfo">
+                <div class="card of">
+                    <div class="tag">
+                        <div class="icon"></div>
+                        <span>卷宗负责人信息</span>
+                    </div>
+                    <div class='input fl'>
+                        <div class='label'> 负责人</div>
+                        <input type="text" name='creatorAccountName' class="borderNone" readonly/>
+                    </div>
+                    <div class='input fl'>
+                        <div class='label'> 联系电话</div>
+                        <input type="text" name='creatorCell' class="borderNone" readonly/>
+                    </div>
+                    <div class='input fl'>
+                        <div class='label'> 负责部门</div>
+                        <input type="text" name='creatorDeptName' class="borderNone" readonly/>
+                    </div>
+                    <div class='input fl'>
+                        <div class='label'> 负责单位</div>
+                        <input type="text" name='creatorUnitName' class="borderNone" readonly/>
+                    </div>
+                    <div class='input fl'>
+                        <div class='label'> 最后更新时间</div>
+                        <input type="text" name='lastUpdateTime' class="borderNone" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- step1 end -->
+
+        <!-- step2 start -->
+        <div class='step-panel'>
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>裁决详情</span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>申请人<span></span></div>
+                    <input class='len' name="claimant" type='text' maxlength='80'/>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>仲裁请求<span></span></div>
+                    <textarea maxlength="5000" name="claimantArbitrateRequest" maxlength="5000"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>申请人关键证据<span></span></div>
+                    <textarea maxlength="5000" name="claimantKeyEvidence" maxlength="5000"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>被申请人<span></span></div>
+                    <input class='len' name="respondent" type='text' maxlength='80' maxlength="5000"/>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>被申请人答辩意见<span></span></div>
+                    <textarea maxlength="5000" name="respondentPleaReply" maxlength="5000"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>被申请人关键证据<span></span></div>
+                    <textarea maxlength="5000" name="respondentKeyEvidence" maxlength="5000"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>审理机构<span></span></div>
+                    <input class='len' name="reviewApplyforInstitution" type='text' maxlength='80'/>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>争议焦点<span></span></div>
+                    <textarea maxlength="5000" name="deputeFocus" maxlength="5000"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>裁决理由<span></span></div>
+                    <textarea maxlength="5000" name="reasonForFindings" maxlength="5000"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>裁决结果<span></span></div>
+                    <textarea maxlength="5000" name="ofArbitration" maxlength="5000"></textarea>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span>*</span>裁决时间<span></span></div>
+                    <input readonly name="rulingTime" class='date_date_currentBefore' type='text' maxlength='80'/>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span>*</span>结案方式<span></span></div>
+                    <select name="caseFinishWay">
+
+                    </select>
+                </div>
+                <br class='cls'/>
+                <div class='input'>
+                    <div class='label'><span>*</span>裁决/和解金额(元)<span></span></div>
+                    <input type='text' maxlength='80' name="rulingMoney" class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <!-- 上传附件 -->
+                <div class="duilie input" id="thelist_arbittate">
+                    <input type='hidden' class='upfileinput' name="arbitralAward"/>
+                    <div class='label'><span>*</span>仲裁书<span></span></div>
+                    <div class="layui-input-block">
+                        <div class="upload-btn">
+                            上传附件
+                            <input name="file" type="file" class="inputfile" onchange='panel.up(this,"arbittate")'
+                                   multiple>
+                        </div>
+                        <div class="hint-msg">（最多允许上传10个附件,单个附件不允许超过50M）</div>
+                        <ul class="uploadlist">
+
+                        </ul>
+                    </div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>执行方式<span></span></div>
+                    <select name="executiveWay"></select>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>执行金额</div>
+                    <input type='text' maxlength='80' name="executiveMoney" class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 挽回损失金额(元) </div>
+                    <input type='text' maxlength='80' name="helpLossMoney" class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 损失金额(元)</div>
+                    <input name="lossMoney" type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 律师费(元) </div>
+                    <input type='text' maxlength='80' name="lawyerMoney" class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 诉讼费(元) </div>
+                    <input type='text' maxlength='80' name="lawsuitMoney" class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+            </div>
+        </div>
+        <!-- step2 end -->
+        <!-- step3 start -->
+        <div class='step-panel'>
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>一审信息</span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>原告</div>
+                    <input class='len' type='text' maxlength='80' name="prosecution"/>
+                </div>
+
+                <div class='input'>
+                    <div class='label'><span>*</span>原告诉讼请求</div>
+                    <textarea maxlength="5000" name="prosecutionLawsuitRequest"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>原告关键证据</div>
+                    <textarea maxlength="5000" name="prosecutionKeyEvidence"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>被告</div>
+                    <input class='len' type='text' maxlength='80' name="defense"/>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>被告答辩意见</div>
+                    <textarea maxlength="5000" name="defensePleaReply"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>被告关键证据</div>
+                    <textarea maxlength="5000" name="defenseKeyEvidence"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>第三人</div>
+                    <input class='len' name="caseTheThird" type='text' maxlength='80'/>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>第三人诉讼请求</div>
+                    <textarea maxlength="5000" name="thirdLawsuitRequest"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>第三人关键证据</div>
+                    <textarea maxlength="5000" name="thirdKeyEvidence"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>审理机构</div>
+                    <input class='len' type='text' maxlength='80' name="reviewApplyforInstitution"/>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>争议焦点</div>
+                    <textarea maxlength="5000" name="deputeFocus"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>裁决理由</div>
+                    <textarea maxlength="5000" name="reasonForFindings"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>裁决结果</div>
+                    <textarea maxlength="5000" name="ofArbitration"></textarea>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span>*</span>裁决时间</div>
+                    <input name="rulingTime" readonly="readonly" class='date_date_currentBefore' type='text'
+                           maxlength='80'/>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span>*</span>结案方式</div>
+                    <select name="caseFinishWay">
+
+                    </select>
+                </div>
+                <br class='cls'/>
+                <div class='input'>
+                    <div class='label'><span>*</span> 裁决/和解金额(元) </div>
+                    <input name="rulingMoney" type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <!-- 上传附件 -->
+                <div class="duilie input" id="thelist_firstInstance">
+                    <input type='hidden' class='upfileinput' name="award"/>
+                    <div class='label'><span>*</span>判决书/调解书</div>
+                    <div class="layui-input-block">
+                        <div class="upload-btn">
+                            上传附件
+                            <input name="file" type="file" class="inputfile"
+                                   onchange='panel.up(this,"firstinstance")'
+                                   multiple>
+                        </div>
+                        <div class="hint-msg">（最多允许上传10个附件,单个附件不允许超过50M）</div>
+                        <ul class="uploadlist">
+
+                        </ul>
+                    </div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>执行方式</div>
+                    <select name="executiveWay">
+
+                    </select>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 执行金额(元) </div>
+                    <input name="executiveMoney" type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 挽回损失金额(元) </div>
+                    <input name="helpLossMoney" type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 损失金额(元)</div>
+                    <input name="lossMoney" type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>律师费(元) </div>
+                    <input name="lawyerMoney" type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 诉讼费(元) </div>
+                    <input name="lawsuitMoney" type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+            </div>
+
+        </div>
+        <!-- step3 end -->
+        <!-- step4 start -->
+        <div class='step-panel'>
+
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>二审信息</span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>上诉人名称</div>
+                    <input class="len" name="appellant" type='text' maxlength='80'/>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>上诉人请求</div>
+                    <textarea maxlength="5000" name="appealRequest"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>上诉人关键证据</div>
+                    <textarea maxlength="5000" name="appellantKeyEvidence"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>被上诉人</div>
+                    <input class="len" name="appellee" type='text' maxlength='80'/>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>被上诉人答辩意见</div>
+                    <textarea maxlength="5000" name="appelleePleaReply"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>被上诉人关键证据</div>
+                    <textarea maxlength="5000" name="appelleeKeyEvidence"></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>审理机构</div>
+                    <input class="len" name='reviewApplyforInstitution' type='text' maxlength='80'/>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>争议焦点</div>
+                    <textarea maxlength="5000" name='deputeFocus'></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>裁决理由</div>
+                    <textarea maxlength="5000" name='reasonForFindings'></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>裁决结果</div>
+                    <textarea maxlength="5000" name='ofArbitration'></textarea>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span>*</span>裁决时间</div>
+                    <input name="rulingTime" readonly="readonly" class='date_date_currentBefore' type='text'
+                           maxlength='80'/>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span>*</span>结案方式</div>
+                    <select name="caseFinishWay">
+
+                    </select>
+                </div>
+                <br class='cls'/>
+                <div class='input'>
+                    <div class='label'><span>*</span> 裁决/和解金额(元) </div>
+                    <input name="rulingMoney" type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <!-- 上传附件 -->
+                <div class="duilie input" id="thelist_secondInstance">
+                    <input type='hidden' class='upfileinput' name="award"/>
+                    <div class='label'><span>*</span>判决书/调解书</div>
+                    <div class="layui-input-block">
+                        <div class="upload-btn">
+                            上传附件
+                            <input name="file" type="file" class="inputfile"
+                                   onchange='panel.up(this,"secondinstance")'
+                                   multiple>
+                        </div>
+                        <div class="hint-msg">（最多允许上传10个附件,单个附件不允许超过50M）</div>
+                        <ul class="uploadlist">
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class='input'>
+                    <div class='label'><span>*</span>执行方式</div>
+                    <select name="executiveWay">
+
+                    </select>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 执行金额(元) </div>
+                    <input type='text' maxlength='80' name="executiveMoney" class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 挽回损失金额(元) </div>
+                    <input name='helpLossMoney' type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 损失金额(元)</div>
+                    <input name='lossMoney' type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>律师费(元) </div>
+                    <input name='lawyerMoney' type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 诉讼费(元) </div>
+                    <input name='lawsuitMoney' type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+            </div>
+
+        </div>
+        <!-- step4 end -->
+        <!-- step5 start -->
+        <div class='step-panel'>
+
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>再审信息</span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>再申请人</div>
+                    <input class="len" name='claimant' type='text' maxlength='80'/>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>诉讼请求</div>
+                    <textarea maxlength="5000" name='claimantLawsuitRequest'></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>申请人关键证据</div>
+                    <textarea maxlength="5000" name='claimantKeyEvidence'></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>被申请人</div>
+                    <input class="len" name='respondent' type='text' maxlength='80'/>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>被申请人答辩意见</div>
+                    <textarea maxlength="5000" name='respondentPleaReply'></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>被申请人关键证据</div>
+                    <textarea maxlength="5000" name='respondentKeyEvidence'></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>审理机构</div>
+                    <input class="len" name='reviewApplyforInstitution' type='text' maxlength='80'/>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>争议焦点</div>
+                    <textarea maxlength="5000" name='deputeFocus'></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>裁决理由</div>
+                    <textarea maxlength="5000" name='reasonForFindings'></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>裁决结果</div>
+                    <textarea maxlength="5000" name='ofArbitration'></textarea>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span>*</span>裁决时间</div>
+                    <input name='rulingTime' readonly="readonly" class='date_date_currentBefore' type='text'
+                           maxlength='80'/>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span>*</span>结案方式</div>
+                    <select name='caseFinishWay'>
+
+                    </select>
+                </div>
+                <br class='cls'/>
+                <div class='input'>
+                    <div class='label'><span>*</span> 裁决/和解金额(元) </div>
+                    <input name='rulingMoney' type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <!-- 上传附件 -->
+                <div class="duilie input" id="thelist_againInstance">
+                    <input type='hidden' class='upfileinput' name="award"/>
+                    <div class='label'><span>*</span>判决书/调解书</div>
+                    <div class="layui-input-block">
+                        <div class="upload-btn">
+                            上传附件
+                            <input name="file" type="file" class="inputfile"
+                                   onchange='panel.up(this,"againinstance")'
+                                   multiple>
+                        </div>
+                        <div class="hint-msg">（最多允许上传10个附件,单个附件不允许超过50M）</div>
+                        <ul class="uploadlist">
+
+                        </ul>
+                    </div>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>执行方式</div>
+                    <select name='executiveWay'>
+
+                    </select>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 执行金额(元) </div>
+                    <input type='text' maxlength='80' name="executiveMoney" class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 挽回损失金额(元) </div>
+                    <input name='helpLossMoney' type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 损失金额(元)</div>
+                    <input name='lossMoney' type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>律师费(元) </div>
+                    <input name='lawyerMoney' type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 诉讼费(元) </div>
+                    <input name='lawsuitMoney' type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- step5 end -->
+        <!-- step6 start -->
+        <div class='step-panel'>
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>行政复议</span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 我方主体名称</div>
+                    <input name='ourBody' class='len' type='text' maxlength='80'/>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>行政处罚机关名称</div>
+                    <textarea maxlength='80' name='penaltyInstitution'></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>认定处罚事实</div>
+                    <textarea maxlength="5000" name='decidedPenaltyTruth'></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>法律依据</div>
+                    <textarea maxlength="5000" name='judiciallyLegalRegulations'></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>处罚内容</div>
+                    <textarea maxlength="5000" name='penaltyContent'></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 行政处罚金额 </div>
+                    <input name='penaltyMoney' type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>执行方式</div>
+                    <select name='executiveWay'>
+
+                    </select>
+                </div>
+                <!-- 上传附件 -->
+                <div class="duilie input" id="thelist_punish">
+                    <input type='hidden' class='upfileinput' name="administrativePenaltyAward"/>
+                    <div class='label'><span>*</span>行政处罚决定书</div>
+                    <div class="layui-input-block">
+                        <div class="upload-btn">
+                            上传附件
+                            <input name="file" type="file" class="inputfile" onchange='panel.up(this,"punish")'
+                                   multiple>
+                        </div>
+                        <div class="hint-msg">（最多允许上传10个附件,单个附件不允许超过50M）</div>
+                        <ul class="uploadlist">
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class='input'>
+                    <div class='label'><span>*</span>是否听证</div>
+                    <select name='isHearing'></select>
+                </div>
+                <div class='input hearingOpinion none'>
+                    <div class='label'>听证意见</div>
+                    <textarea maxlength="5000" name='hearingOpinion'></textarea>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>是否复议</div>
+                    <select name='isReconsider'></select>
+                </div>
+                <!-- 上传附件 -->
+                <div class="duilie input" id="thelist_administrativeReconsiderAward">
+                    <input type='hidden' class='upfileinput' name="administrativeReconsiderAward"/>
+                    <div class='label'>行政复议决定书</div>
+                    <div class="layui-input-block">
+                        <div class="upload-btn">
+                            上传附件
+                            <input name="file" type="file" class="inputfile"
+                                   onchange='panel.up(this,"administrativeieconsideraward")' multiple>
+                        </div>
+                        <div class="hint-msg">（最多允许上传10个附件,单个附件不允许超过50M）</div>
+                        <ul class="uploadlist">
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class='input'>
+                    <div class='label'><span>*</span>是否需要提起行政诉讼</div>
+                    <input type='radio' value='1' name='bringAdministrativeLawsuit' class='radio'/> 是
+                    <input type='radio' value='0' name='bringAdministrativeLawsuit' class='radio'/> 否
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>律师费(元) </div>
+                    <input name='lawyerMoney' type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'> <span>*</span>诉讼费(元) </div>
+                    <input name='lawsuitMoney' type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+            </div>
+        </div>
+        <!-- step6 end -->
+        <!-- step7 start -->
+        <div class='step-panel'>
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>执行情况</span>
+                </div>
+                <div class='input'>
+                    <div class='label'> <span>*</span>法律文书执行单号</div>
+                    <input name='documentOrder' class='len' type='text' maxlength='80'/>
+                </div>
+                <div class='input'>
+                    <div class='label'> <span>*</span>我方执行主体名称</div>
+                    <input class='len' name='ourRulingBody' type='text' maxlength='80'/>
+                </div>
+                <div class='input'>
+                    <div class='label'> <span>*</span>对方执行主体名称</div>
+                    <input class='len' name='otherRulingBody' type='text' maxlength='80'/>
+                </div>
+                <div class='input'>
+                    <div class='label'> <span>*</span>执行内容 </div>
+                    <textarea maxlength="5000" name='performContent'></textarea>
+
+                </div>
+                <div class='input'>
+                    <div class='label'> <span>*</span>我方执行部门/人员</div>
+                    <input class='len' name='rulingRole' type='text' maxlength='80'/>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>执行方式</div>
+                    <select name='executiveWay'>
+
+                    </select>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 执行完毕日期 </div>
+                    <input name='endTime' readonly="readonly" class='date_date_currentBefore' type='text' maxlength='80'/>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 裁决/和解金额（元） </div>
+                    <input name='rulingMoney' type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 执行金额（元） </div>
+                    <input type='text' maxlength='80' name="executiveMoney" class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 挽回损失金额（元） </div>
+                    <input name='helpLossMoney' type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span>损失金额（元） </div>
+                    <input name='lossMoney' type='text' maxlength='80' class="numFormat"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 律师费（元） </div>
+                    <input name='lawyerMoney' type='text' maxlength='80' class="numFormat" id="lawyerMoneyTotal"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+                <div class='input'>
+                    <div class='label'><span>*</span> 诉讼费（元） </div>
+                    <input name='lawsuitMoney' type='text' maxlength='80' class="numFormat" id="lawsuitMoneyTotal"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;大写：<span class="aux"></span>
+                </div>
+            </div>
+
+        </div>
+        <!-- step7 end -->
+        <!-- step8 start -->
+        <div class='step-panel step-panel-end'>
+            <div class="card of">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>结案信息</span>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span>*</span>结案方式</div>
+                    <select name='caseFinishWay'></select>
+                </div>
+                <div class='input fl'>
+                    <div class='label'><span>*</span>结案时间</div>
+                    <input readonly="readonly" name='caseFinishTime' class='date_date_currentBefore' type='text'
+                           maxlength='80'/>
+                </div>
+                <br class='cls'/>
+                <div class='input'>
+                    <div class='label'><span>*</span>结案说明</div>
+                    <textarea maxlength="5000" name='caseExplain'></textarea>
+                </div>
+            </div>
+        </div>
+
+        <input type='hidden' name='caseId'/>
+    </div>
+    <div class='last-gap'></div>
+    <div class="last btnzu" id='appBtn'></div>
+</div>
+
+
+<div class="Container adjustmentbox none">
+    <div class='selPanel'>
+        <ul class='pan-ul'>
+            <li alt='2' class='pan pan1 hide'>仲裁</li>
+            <li alt='3' class='pan pan2 hide'>一审</li>
+            <li alt='4' class='pan pan3 hide'>二审</li>
+            <li alt='5' class='pan pan4 hide'>再审</li>
+            <li alt='6' class='pan pan5 hide'>行政处罚（复议）</li>
+            <li alt='7' status='default' class='pan pan6 '>裁决执行</li>
+            <li alt='8' status='default' class='pan pan7 '>案件结案</li>
+        </ul>
+        <div class='msga'></div>
+        <!-- 按钮组 -->
+        <div class="btnzu last">
+            <button type="button" class="closebtn">取消</button>
+            <button type="button" class="solid_btn save_btn" >保存</button>
+        </div>
+    </div>
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/formBase.js?v=fw1.6"></script>
+<script src="../../../js/public/listBase.js?v=fw1.6"></script>
+
+<script src="../../../js/legaldispute/casefileManage/progress.js?v=fw1.6"></script>
+<script src="../../../js/legaldispute/casefileManage/panel.js?v=fw1.6"></script>
+<script src="../../../js/legaldispute/casefileManage/tabs.js?v=fw1.6"></script>
+<script src="../../../js/legaldispute/casefileManage/floatTable.js?v=fw1.6"></script>
+<script src="../../../js/legaldispute/casefileManage/relationShip.js?v=fw1.6"></script>
+<script src="../../../js/legaldispute/casefileManage/editBtns.js?v=fw1.6"></script>
+</body>
+
+</html>

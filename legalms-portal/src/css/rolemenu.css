@@ -1,0 +1,41 @@
+.tree-div {
+    height: 418px;
+    overflow-y: auto;
+    padding-left: 30px;
+}
+.ztree li ul {
+    padding-left: 30px;
+}
+.ztree li span.button.switch{
+    display: none;
+}
+.ztree li span.button.chk{
+    margin-top: 3px;
+    margin-right: 10px;
+}
+.level0{
+    width: 515px;
+    overflow: hidden;
+}
+.level0 .level0{
+}
+.level0 .level1 .chk{
+    float: left;
+}
+.level1{
+     float: left;
+    width: 230px;
+ }
+.level1 .level1{
+    width: 200px;
+}
+.ztree li{
+    padding-top: 4px;
+    padding-bottom: 8px;
+}
+input{
+    border: 1px solid #E5E5E5;
+}
+.tr-select{
+    background-color: #f2f2f2;
+}

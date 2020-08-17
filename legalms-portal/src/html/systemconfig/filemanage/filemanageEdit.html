@@ -1,0 +1,103 @@
+<!--引诉纠纷申报-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>上传文件</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/form.css">
+    <link rel="stylesheet" href="../../../css/commonality.css">
+    <link rel="stylesheet" href="../../../css/rolemenu.css">
+
+    <style>
+        .Container {
+            width: 950px;
+        }
+
+        .layui-container {
+            width: 950px;
+        }
+
+        .sugget li {
+            float: left;
+            margin: 5px 15px;
+            border-radius: 3px;
+            border: solid 1px #a2c1d7;
+            padding: 2px 2px;
+        }
+
+        .sugget label {
+            color: red;
+        }
+
+        span {
+            margin: 0px 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="Container">
+
+        <form id="model_form" class="layui-form" action="">
+            <input type="hidden" name="guideId">
+
+            <!-- 案件信息 -->
+            <div class="card">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>基本信息</span>
+                </div>
+
+                <!-- 表单块 -->
+                <div class="layui-container">
+                    <div class="layui-row">
+                        <div class="layui-col-md6">
+                            <label class="layui-form-label">业务id</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="formId" title='业务id' placeholder="请输入内容" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-row">
+                        <div class="layui-col-md6">
+                            <label class="layui-form-label">业务类型</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="shareType" title='业务类型' placeholder="请输入内容" class="layui-input" value="reference">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 上传附件 -->
+                    <div class="duilie" id="thelist">
+                        <label class="layui-form-label"><b>*</b>参考模板</label>
+                        <div class="layui-input-block">
+                            <div class="upload-btn">
+                                上传模板
+                                <input name="file" type="file" class="inputfile" title="上传模板" lay-verify="required"  multiple id="file">
+                            </div>
+                            <div class="hint-msg">（最多允许上传10个附件,单个附件不允许超过50M）</div>
+                            <ul class="uploadlist">
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 按钮组 -->
+                    <div class="btnzu last">
+                        <button type="button" class="closebtn" id="closebtn">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="../../../lib/jquery-1.8.0.min.js"></script>
+    <script src="../../../lib/layui/layui.all.js"></script>
+    <script src="../../../js/ajax.js?v=fw1.6"></script>
+    <script src="../../../js/public/formBase.js?v=fw1.6"></script>
+    <script src="../../../js/systemconfig/filemanage/filemanageEdit.js?v=fw1.6"></script>
+</body>
+
+</html>

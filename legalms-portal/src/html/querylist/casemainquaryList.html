@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>案件卷宗综合查询</title>
+		<link rel="stylesheet" href="../../lib/layui/css/layui.css">
+		<link rel="stylesheet" href="../../css/commonality.css?v=fw1.6">
+		<link rel="stylesheet" href="../../css/listBase.css?v=fw1.6">
+	</head>
+
+	<body>
+		<div class=wp>
+			<!-- 查询框 -->
+			<div style="position: relative;">
+				<!-- borderin -->
+				<div class="queryBorder selfQueryBorderHeight">
+					<!-- form表单 -->
+					<form id="queryForm" class="query-card">
+						<div class="info-card">
+							<ul>
+								<li>
+									<div class="span-input relative">
+										<span>卷宗标题</span><input type="text" maxlength='80' placeholder="请输入" name="title">
+									</div>
+									<div class="span-input">
+										<span>卷宗编号</span><input type="text" maxlength='80' placeholder="请输入" name="caseCode">
+									</div>
+								</li>
+								<li>
+									<div class="span-input relative">
+										<i class="layui-icon layui-icon-search icon-inputSearch involvedOrgPage" title="涉案单位/部门"></i>
+										<i class="layui-icon layui-icon-close icon-inputDel delInvolvedOrgPage hide" title="取消选择"></i>
+										<span>涉案单位/部门</span>
+										<input readonly type="text" maxlength='80' name="involvedOrgName" placeholder="请选择" class="involvedOrgPage">
+										<input type="hidden" name="type">
+										<input type="hidden" name="id">
+									</div>
+									<div class="span-input">
+										<span>对方诉讼主体</span>
+										<input type="text" maxlength='80' autocomplete="off" placeholder="请输入" name="otherLawsuitBody">
+									</div>
+								</li>
+								<li>
+									<div class="span-input relative">
+										<i class="layui-icon layui-icon-search icon-inputSearch ourLawsuitBodyNamePage" title="选择主体"></i>
+										<i class="layui-icon layui-icon-close icon-inputDel delOurLawsuitBodyNamePage hide" title="取消选择"></i>
+										<span>我方诉讼主体</span><input readonly type="text" maxlength='80' name="ourLawsuitBodyName" placeholder="请选择" class="ourLawsuitBodyNamePage">
+									</div>
+									<div class="span-input">
+										<span>案件类型</span>
+										<select name="deputeType">
+											<option value="">全部</option>
+										</select>
+									</div>
+								</li>
+								<li>
+									<div class="span-input">
+										<span>案件所属专业线</span>
+										<select name="caseSpecialLine">
+											<option value="">全部</option>
+										</select>
+									</div>
+									<div class="span-input">
+										<span>状态</span>
+										<select name="caseStatus">
+										</select>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="btn-card">
+							<input type="button" class="querybtn" id="querybtn" value="查询" />
+							<input type="button" class="resetbtn" id="resetbtn" value="重置" />
+						</div>
+					</form>
+				</div>
+				<!-- 展开按钮 -->
+				<div class="toggleHeightBtn">
+					<span>展开</span>
+					<img src="../../css/images/down.png">
+				</div>
+				<!-- 表格 -->
+				<div class="div-table">
+					<table id="bus-table" class="layui-table" lay-size="sm">
+						<thead>
+							<tr>
+								<th class="th-index">序号</th>
+								<th class="Trtitle">卷宗标题</th>
+								<th class="Tr-12">卷宗编号</th>
+								<th>对方诉讼主体</th>
+								<th class="TrMy">我方诉讼主体</th>
+								<th class="Tr-8">案件类型</th>
+								<th class="Tr-8">案件所属专业线</th>
+								<th class="Tr-10">争议金额（元）</th>
+								<th class="Tr-6">状态</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+				<!-- 分页 -->
+				<div id="pageContainer" class="pageContainer"></div>
+			</div>
+		</div>
+		<script src="../../lib/jquery-1.8.0.min.js"></script>
+		<script src='../../lib/layui/layui.all.js'></script>
+		<script src="../../js/ajax.js?v=fw1.6"></script>
+		<script src="../../js/public/listBase.js?v=fw1.6"></script>
+		<script src="../../../src/js/querylist/casemainqueryList.js?v=fw1.6"></script>
+	</body>
+
+</html>

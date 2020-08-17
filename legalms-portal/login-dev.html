@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模拟登陆测试，快速登陆页</title>
+    <link rel="stylesheet" href="src/lib/layui/css/layui.css">
+
+</head>
+
+<body style="padding-left: 100px;">
+
+<script src="src/lib/jquery-1.8.0.min.js"></script>
+<script src="src/lib/layui/layui.all.js"></script>
+<script src="src/lib/carhartl-jquery-cookie-v1.3.0-0-gdf3e07a/carhartl-jquery-cookie-bf24a03/jquery.cookie.js"></script>
+
+<script src="src/js/ajax.js?v=fw1.6"></script>
+<br />
+<br />
+<h1>默认登陆</h1>
+<label>用户名</label><input type="text" maxlength='80' name="loginAcct" value="zhangjiuyang">
+<button id='btn'>登陆4a测试平台</button>
+<button id='btn1'>登陆开发环境</button>
+<br />
+<br />
+<br />
+<div id="currentUser">
+    <h1>当前已登录用户信息</h1>
+    <ul>
+        <li>名字</li>
+    </ul>
+</div>
+<br />
+<br />
+<h1>切换兼职账号登录</h1>
+<div id="currentAccount">
+    当前登录用户可切换的账号
+    <ul>
+        <li>名字</li>
+    </ul>
+    <button id='btn2'>切换账号登录4A</button>
+    <button id='btn3'>切换账号登录开发环境</button>
+</div>
+<script>
+
+    var currentUser = {
+        token: '',
+        loginName: '', menuCode: 'CHNTLEGALMS', flag: 1
+    };
+    // test ajax
+    $('#btn').click(function(){
+        var loginAcct = $("input[name=loginAcct]").val();
+        getToken(loginAcct,function () {
+            currentUser.loginName = loginAcct;
+            login(function () {
+                window.location.href = portalUrl + "/uac_oa/ssoMenuHead?" +
+                    "appCode=CHNTLEGALMS&" +
+                    "token=" + currentUser.token +
+                    "&saCode=" + currentUser.loginName + "&isHead=1&menuCode=CHNTLEGALMS&" +
+                    "url=http:%2F%2F" + nginxUrl + "%2Flegalms%2Flegalms-portal%2Findex.html";
+            });
+        });
+
+    });
+    $('#btn1').click(function () {
+        var loginAcct = $("input[name=loginAcct]").val();
+        getToken(loginAcct,function () {
+            currentUser.loginName = loginAcct;
+            login(function () {
+                window.location.href = "index.html?" +
+                    "token=" + currentUser.token +
+                    "&loginName=" + currentUser.loginName;
+            });
+        });
+    });
+    var mainAccount = "";
+    $("#btn2").click(function () {
+        if ($("input[name=accountType]:checked").length > 0) {
+            var userInfo = eval("(" + $("input[name=accountType]:checked").val() + ")");
+            var accountId = userInfo.accountId;
+            if (accountId) {
+                getToken(mainAccount, function () {
+                    currentUser.loginName = accountId;
+                    login(function () {
+                        window.location.href = portalUrl + "/uac_oa/ssoMenuHead?" +
+                            "appCode=CHNTLEGALMS&" +
+                            "token=" + currentUser.token +
+                            "&saCode=" + currentUser.loginName + "&isHead=1&menuCode=CHNTLEGALMS&" +
+                            "url=http:%2F%2F" + nginxUrl + "%2Flegalms%2Flegalms-portal%2Findex.html";
+                    });
+                });
+            }
+
+        } else {
+            alert("选择账号信息")
+        }
+    });
+    $("#btn3").click(function () {
+        if ($("input[name=accountType]:checked").length > 0) {
+            var userInfo = eval("(" + $("input[name=accountType]:checked").val() + ")");
+            var accountId = userInfo.accountId;
+            if (accountId) {
+                getToken(mainAccount, function () {
+                    currentUser.loginName = accountId;
+                    login(function () {
+                        window.location.href = "index.html?" +
+                            "token=" + currentUser.token +
+                            "&loginName=" + currentUser.loginName;
+                    });
+                });
+            }
+
+        } else {
+            alert("选择账号信息")
+        }
+    });
+    function login(fun) {
+        $.ajax({
+            url: baseUrl.index.reqEncryptUserMsgInfo,
+            type: 'get',
+            cache: false,
+            headers: {
+                'token': currentUser.token,
+                'loginAccount': currentUser.loginName,
+                'passWord':'1q2w3e4r'
+            },
+            success: function (res) {
+                if (res.resultStat == "SUCCESS") {
+                    // test 获取 pid
+                    setLocalInfo('pid', res.data.decryptUser);
+                    var userInfo = getUserData('pid');
+                    setLocalInfo('token', currentUser.token);
+                    setLocalInfo('loginAccount', currentUser.loginName);
+
+                    // console.info('以下是获取的userInfo');
+                    // console.info(userInfo);
+                    fun();
+                } else {
+                    alert(res.mess);
+                    $("input[name=loginAcct]").val('');
+                }
+            },
+            error: function (err) {
+                // console.log(err)
+            },
+            complete: function (xhr) {
+                if (xhr.status == 401) {
+                    // console.log(xhr)
+                    setLocalInfo('pid', null);
+                    setLocalInfo('token', null);
+                    setLocalInfo('loginAccount', null);
+                }
+            }
+        });
+    }
+
+    function getToken(loginAcct,fun) {
+        var token;
+        var encode = getEncode(loginAcct);
+        ajax_req({
+            // http://123.126.34.176:20214/WS4A/token/createBwdaToken  测试环境地址
+            // http://120.52.96.35:8097/WS4A/token/createBwdaToken     验收环境地址
+            url: getTokenUrl + "?args=" + encode,
+            type: 'get',
+            async: false,
+            headers: {
+                accessIpAddr: '',
+                loginAcct: '',
+                token: '',
+                pid: ''
+            },
+            success: function (res) {
+                if (res.resultStat == "SUCCESS") {
+                    token = res;
+                    var data = eval("(" + token.data + ")");
+                    if (data.TOKEN) {
+                        currentUser.token = data.TOKEN;
+                        fun();
+                    } else {
+                        alert(data.ERRDESC);
+                        $("input[name=loginAcct]").val('');
+                    }
+                } else {
+                    alert(res.mess);
+                    $("input[name=loginAcct]").val('');
+                }
+            }
+        });
+        return token;
+    }
+
+    function getUserinfo(loginAcct,callback) {
+        //"http://123.126.34.157:1180/v1/oauth/getEncode"
+        if (loginAcct){
+            ajax_req({
+                url: baseUrl.accountlogic.selectUserInfoByUserCode,
+                type: 'post',
+                async: false,
+                data: JSON.stringify({
+                    accountCurUserId:loginAcct
+                }),
+                success: function (res) {
+                    if (res.resultStat == "SUCCESS") {
+                        callback(res)
+                    }
+                }
+            });
+        }
+    }
+    function getEncode(loginAcct) {
+        var encode;
+        //"http://123.126.34.157:1180/v1/oauth/getEncode",
+        ajax_req({
+            url: getEnCodeUrl,
+            type: 'post',
+            async: false,
+            headers: {
+                accessIpAddr: '',
+                loginAcct: loginAcct,
+                pid: ''
+            },
+            success: function (res) {
+                if (res.resultStat == "SUCCESS") {
+                    encode = res.data;
+                } else {
+                    alert(res.mess);
+                    $("input[name=loginAcct]").val('');
+                }
+            }
+        });
+        return encode;
+    }
+
+    function refreshCurren() {
+        var curWwwPath = window.document.location.href;
+        var pathName = window.document.location.pathname;
+        var pos = curWwwPath.indexOf(pathName);
+        var localhostPath = curWwwPath.substring(0, pos);
+        window.location.href = localhostPath + "/legalms/legalms-portal/login.html?token=" + currentUser.token + "&loginName=" + currentUser.loginName + "&menuCode=" + currentUser.menuCode + "&flag=" + currentUser.flag;
+        console.log(window.location + "&token=" + currentUser.token + "&loginName=" + currentUser.loginName + "&menuCode=" + currentUser.menuCode + "&flag=" + currentUser.flag)
+
+    }
+
+    function writeCurrentUserHtml() {
+        var userInfo = getUserData('pid');
+        var html = "<li><b>loginAccount：</b><br />" + getLocalInfo('loginAccount') + "</li>" +
+            "<li><b>ROLECODELIST</b>：<br />" +     userInfo.ROLECODELIST.toString()  + "</li>" +
+            "<li><b>pid：</b><br />" + getLocalInfo('pid') + "</li>" +
+            "<li><b>token：</b><br />" + getLocalInfo('token') + "</li>";
+        $("#currentUser ul").html(html);
+        var loginAccount = getLocalInfo('loginAccount');
+        var accountHtml = '';
+        if (!isEmpty(loginAccount)){
+            getUserinfo(loginAccount,function (res) {
+                if (res.data){
+                    if (res.data[0]){
+                        mainAccount = res.data[0].accountId
+                    }
+                    $.each(res.data,function (i,v) {
+                        accountHtml += "<li><label><input type='radio' name='accountType' value='"+JSON.stringify(v)+"'>&nbsp;" + v.accountId + "--" + v.companyName + "--" + v.orgName + "</label></li>";
+                    });
+                    $("#currentAccount ul").html(accountHtml);
+                    $("#currentAccount").show()
+                }
+            });
+        }
+    }
+
+    writeCurrentUserHtml();
+</script>
+</body>
+</html>

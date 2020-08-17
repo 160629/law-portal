@@ -1,0 +1,93 @@
+<!--法律支撑-->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>法律支撑编辑页</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css"/>
+    <link rel="stylesheet" href="../../../css/form.css"/>
+    <link rel="stylesheet" href="../../../css/commonality.css"/>
+</head>
+<body>
+<div class="Container">
+    <form id="model_form" class="layui-form" action="">
+        <!--默认参数项----------->
+        <input type="hidden" name="id"/>
+        <input type="hidden" name="code"/>
+        <!-- 标题 -->
+        <div class="card titleborder">
+            <div class="titles">
+                <span class="title-font">法律支撑单</span>
+                <div class="Right">
+                    <span class="currentStatus">当前状态:</span>
+                    <span class="uncommitted">
+                        <label name="statusName">未提交</label>
+                    </span>
+                </div>
+            </div>
+            <div class="layui-container">
+                <div class="layui-row titleinput">
+                    <div class="layui-form-item layui-col-md12">
+                        <label class="layui-form-label"><b>*</b>标题</label>
+                        <div class="layui-input-block">
+                            <input type="text" maxlength='80' autocomplete="off" placeholder="请输入标题" title='标题'  lay-verify="required|title|maxlength"  name="title" class="layui-input c-title"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 咨询信息 -->
+        <div class="card">
+            <div class="tag">
+                <div class="icon"></div>
+                <span>咨询信息</span>
+            </div>
+            <div class="layui-container">
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label"><b>*</b>问题描述</label>
+                        <div class="layui-input-block">
+                            <textarea maxlength="5000" title="问题描述" name="problem" lay-verify="required|maxlength" placeholder="请输入问题描述"
+                                      class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- 上传附件 -->
+                <div class="duilie" id="thelist">
+                    <label class="layui-form-label">附件</label>
+                    <div class="layui-input-block">
+                        <div class="upload-btn">
+                            上传附件
+                            <input name="file" title='附件' type="file" class="inputfile" multiple id="file">
+                        </div>
+                        <div class="hint-msg">（最多允许上传10个附件,单个附件不允许超过50M）</div>
+                        <ul class="uploadlist">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="div-flow">
+            <!-- 按钮组 -->
+            <div class="btnzu last">
+                <button type="button" class="closebtn" id="closebtn">关闭</button>
+                <button type="button" class="solid_btn hide" id="staging_btn">暂存</button>
+                <button type="button" class="solid_btn hide" id="abandon_btn">作废</button>
+                <button type="button" class="solid_btn hide" id="save_btn" lay-submit  lay-filter="saveForm">保存</button>
+                <button type="button" class="hide" id="return_btn">返回</button>
+                <button type="button" class="solid_btn hide" id="start_btn" lay-submit  lay-filter="startForm">下一步</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/formBase.js?v=fw1.6"></script>
+<script src="../../../js/workflow/formControl.js?v=fw1.6"></script>
+<script src="../../../js/legaladvice/legaladvice/legaladviceEdit.js?v=fw1.6"></script>
+</body>
+</html>

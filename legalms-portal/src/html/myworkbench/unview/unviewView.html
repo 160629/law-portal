@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>详情查询</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/form.css?v=fw1.6">
+    <link rel="stylesheet" href="../../../css/commonality.css?v=fw1.6">
+    <link rel="stylesheet" href="../../../css/unviewView.css?v=fw1.6">
+</head>
+
+<body>
+<div class="Container">
+    <div id="model_form" class="layui-form">
+        <!-- 标题 -->
+        <div class=" titleborder view-title">
+            <div class="titles">
+                <span class="title-font" id="viewTitle"></span>
+            </div>
+            <div class="center-div">
+                <div class="layui-input-inline" id="toerTime">
+                </div>
+            </div>
+        </div>
+        <div class="tag">
+            <div class="icon"></div>
+            <span>消息内容</span>
+        </div>
+
+        <div class="card">
+            <div class="layui-row">
+                <div class="layui-col-md12">
+                    <div class="layui-input-block" id="viewComent">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tag">
+            <div class="icon"></div>
+            <span>链接</span>
+        </div>
+
+        <div class="card">
+            <div class="layui-row">
+                <div class="layui-col-md12">
+                    <div class="layui-input-block" id="viewUrl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 按钮组 -->
+    <div class="btnzu last">
+    	<button type="button" class="readbtn hide" id="readbtn">已阅</button>
+        <button type="button" class="closebtn" id="closebtn">关闭</button>
+    </div>
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/formBase.js?v=fw1.6"></script>
+<script src="../../../js/workflow/formControl.js?v=fw1.6"></script>
+<script src="../../../js/myworkbench/unview/unviewView.js?v=fw1.6"></script>
+</body>
+
+</html>

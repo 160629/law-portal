@@ -1,0 +1,658 @@
+.div-float {
+    padding-top: 123px;
+}
+td{
+	height: 30px!important;
+}
+.head{
+    top: 0;
+    position: fixed;
+    z-index: 1;
+    width: 1200px;
+    height: 145px;
+    background: #ffffff;
+    border-bottom: 1px solid #eaeaea;;
+}
+.last-gap{
+	height: 92px;
+}
+/* panel start */
+.step-panel{
+	display:none;
+}
+.tag{
+	overflow:hidden;
+}
+.of{
+	overflow: hidden;
+}
+.fl{
+	float: left;
+}
+.cls{
+	clear:both;
+}
+.input{
+	margin-bottom:12px;
+	padding-left: 20px;
+	overflow:hidden;
+}
+.input .tip{
+	font-size: 12px;
+	display: inline-block;
+	color: #FFBC64;
+	margin-left: 12px;
+}
+.input .tip span{
+	color: #D7D7D7;
+}
+.input .label{
+	font-size: 12px;
+	width: 170px;
+	height: 20px;
+	line-height: 20px;
+	text-align:right;
+	margin-right: 5px;
+	display:inline-block;
+	float:left;
+}
+.input .msg{
+	font-size: 12px;
+	width: 150px;
+	height: 20px;
+	line-height: 20px;
+	text-align:left;
+	text-indent: 20px;
+	margin-right: 5px;
+	display:inline-block;
+}
+.input .label span{
+	color: #ff0000;
+}
+.input .boxserach{
+	width: 120px;
+	height: 22px;
+	display:inline-block;
+	border:1px solid #E5E5E5;
+	cursor:pointer;
+	background:url(../../images/icon/search.png) no-repeat 100px 2px;
+}
+.input input{
+	height: 20px;
+	line-height: 20px;
+	width: 332px;
+	text-indent: 5px;
+}
+.input .radio{
+	height: 14px;
+	border:0;
+	width: auto;
+	margin:0 8px;
+}
+.input select{
+	height: 22px;
+	line-height: 22px;
+	border: 1px solid #E5E5E5;
+	width: 157px;
+}
+.input .len{
+	width: 859px;
+}
+.input textarea{
+	width: 852px;
+	min-height: 60px;
+	color: #000000;
+	border: 1px solid #E5E5E5;
+	resize: none;
+	overflow: hidden;
+	display: block;
+	outline: 0;
+	transition: all;
+	box-sizing: border-box;
+}
+.input .layui-input-block{
+	margin-left: 165px;
+	min-height: 22px;
+}
+.sanx .layui-input-block{
+	float: left;
+	margin-left: 0;
+}
+.sanx .sanx-item .fl{
+	border:1px solid #eeeeee;
+	margin-right: 10px;
+    width: 80px;
+    text-align: center;
+	cursor:pointer;
+}
+.sanx .sanx-item .cur{
+	border:1px solid #e9484f;
+}
+.sanx .plug,
+.sanx .rm{
+	font-size: 20px;
+    font-weight: bold;
+    line-height: 22px;
+    margin-left: 12px;
+	cursor: pointer;
+}
+.sanxrdoy input{
+	border: 0;
+}
+.none,
+.input .none{
+	display:none;
+}
+
+/* panel end */
+
+
+/* progress start */
+.progress{
+	width: 1200px;
+	margin: 0 auto;
+	height: 90px;
+	overflow:hidden;
+	padding-left:10px;
+}
+.progress div{
+	float:left;
+}
+.progress .h1{
+	line-height: 90px;
+	font-size: 14px;
+	font-weight:bold;
+	width: 100px;
+	text-align: center;
+	margin-left: 18px
+}
+.progress .pro-icon{
+	width: 42px;
+	height: 90px;
+	background:url(../../images/icon/3.png) no-repeat center 20px;
+	position: relative;
+	z-index:1;
+}
+.progress .pro-icon span{
+	text-align:center;
+	font-size: 14px; 
+	height: 20px;
+	line-height: 20px;
+	font-weight: bold;
+	position:absolute;
+	z-index:1;
+	bottom:0;
+	left:-39px;
+	display:block;
+	width: 120px;
+}
+.progress .pro-bar{
+	width: 100px;
+	height: 90px;
+	background:url(../../images/icon/2.png) no-repeat center 30px;
+	line-height: 140px;
+	text-align:center;
+	font-size: 14px; 
+	font-weight: bold;
+}
+
+.progress .pro-start{
+	background-image:url(../../images/icon/1.png);
+}
+.progress .pro-end{
+	background-image:url(../../images/icon/1-2.png);
+}
+
+.progress .step-cancel .pro-bar{
+	background-image:url(../../images/icon/2-2.png);
+}
+.progress .step-cancel .pro-icon{
+	background-image:url(../../images/icon/3-2.png);
+}
+.progress .step-cancel .pro-end{
+	background-image:url(../../images/icon/4.png);
+}
+
+/* progress end */
+
+/* tabs start */
+.tabs{
+	width: 1200px;
+	height: 34px;
+	border-left: 1px solid #F8F8F8;
+	margin-top: 20px;
+}
+.tabs .fl{
+	height: 34px;
+	line-height: 34px;
+	width: 120px;
+	text-align: center;
+	font-size: 12px;
+	border: 1px solid #F8F8F8;
+	border-left: 0;
+	background: #F5F5F5;
+	cursor:pointer;
+}
+.tabs .cur{
+	border-bottom-color: #ffffff;
+	background: #ffffff;
+}
+/* tabs end */
+
+/* 选择 裁决类别面板 start */
+.adjustmentbox{
+}
+.selPanel{
+	height: 340px;
+	padding: 5px;
+}
+.selPanel .pan-ul{
+	height: 200px;
+}
+.selPanel .pan-ul .pan{
+	width: 110px;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	border: 1px solid #f5f5f5;
+	border-radius: 5px;
+	cursor:pointer;
+	font-size: 12px;
+	margin: 20px 0 0 50px ;
+	float: left;
+}
+
+.selPanel .pan-ul .panCur{
+	border: 1px solid #F1635D;
+}
+.selPanel .msga{
+	background: #FFFFCC;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border:1px solid #f5f5f5;
+	border-radius: 3px;
+}
+.selPanel .last{
+	position: inherit;
+	bottom: auto;
+	left: auto;
+	border: none;
+}
+/* 选择 裁决类别面板 end */
+
+/* 关联表单 start */
+.relevance-btn-group .btn{
+	width: 80px;
+	height: 28px;
+	line-height: 28px;
+	text-align:center;
+	border:1px solid #ff0000;
+	margin-left: 20px;
+	color: #ff0000;
+	cursor: pointer;
+	float:right;right: 185px;
+	position: relative;
+	margin-top: -30px;
+}
+.relevanceTable {
+	width: 852px;
+	float: left;
+	text-align: center;
+}
+.relevanceTable .noDate {
+	line-height: 30px;
+	position: absolute;
+	left: 45%;
+	font-size: 14px;
+}
+.relevanceTable .del{
+	margin-left: 15px;
+	color: #ff0000;
+	text-decoration: underline;
+	position: absolute;
+	line-height: 22px;
+}
+.relevanceTable .layui-table td{
+	padding: 0;
+	color: #0C0C0C;
+}
+.relevanceTable .table-data {
+	width: 100%;
+	border: 0;
+	margin: -0.8px 0;
+}
+.relevanceTable .table-data td{
+	padding: 5px 10px;
+	color: #0C0C0C;
+}
+
+.relevanceTable .table-data td:nth-child(1) {
+	width: 40%;
+}
+
+.relevanceTable .table-data td:nth-child(2) {
+	width: 40%;
+}
+
+.relevanceTable .table-data td:nth-child(3) {
+	width: 20%;
+}
+
+/* 关联表单 end */
+
+/* 上传附件 start */
+.uploadlist {
+}
+/* 上传附件 end */
+.bg{
+			position: fixed;
+			z-index: 100;
+			left: 0;
+			top: 0;
+			background:#000000;
+			opacity: 0.3;
+			filter: alpha(opacity=30);
+			width: 100%;
+			height: 100%;
+			display:none;
+}
+.gap{
+	width: 100%;
+	height: 120px;
+}
+/* floattabbel start */
+		.tabpanelbox{
+			position: absolute;
+			z-index: 101;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.tabpanel{
+			width: 1200px;
+			background:#ffffff;
+			position: absolute;
+			z-index: 102;
+			left: 50%;
+			top: 1000px;
+			margin-left: -600px;
+		}
+		.tabpanel .table{
+			max-height: 500px;
+			overflow: auto;
+		}
+		.tabpanel .close{
+			position: absolute;
+			z-index: 1;
+			right: 6px;
+			top: 6px;
+			width: 20px;
+			height: 20px;
+			cursor:pointer;
+			background:url(../../images/icon/x.png) no-repeat center center;
+		}
+		.tabpanel .ti{
+			height: 32px;
+			line-height: 32px;
+			background: #F5F5F5;
+			font-size: 14px;
+			font-weight: bold;
+			text-indent: 12px;
+		}
+		.tabpanel .form{
+			font-size: 24px;
+			font-weight: bold;
+			text-indent: 12px;
+			overflow:hidden;
+			position: relative;
+			z-index: 1;
+			height: 60px;
+		}
+		.tabpanel .formDown{
+			height: auto;
+		}
+		.tabpanel .form .toggle{
+		    position: absolute;
+			z-index: 1;
+			width: 20px;
+			height: 40px;
+			padding: 2px 0;
+			line-height: 20px;
+			font-size: 12px;
+			border: 1px solid #e5e5e5;
+			top: 8px;
+			right: 32px;
+			text-align: center;
+			text-indent: 0;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.tabpanel .form .li{
+			height: 32px;
+			padding:12px 0;
+			float:left;
+			font-size: 12px;
+			font-weight: bold;
+			text-indent: 12px;
+		}
+		.tabpanel .form .li a{
+			height: 32px;
+			line-height: 32px;
+			border: 1px solid #ff0000;
+			color: #ff0000;
+			text-align: center;
+			width: 80px;
+			float:left;
+			font-size: 12px;
+			margin: 0 12px;
+			border-radius: 3px;
+			text-indent: 0;
+			cursor:pointer;
+		}
+		.tabpanel .form .li .lii{
+			display:inline-block;
+			height: 32px;
+			line-height: 32px;
+			text-align: right;
+			width: 110px;
+			padding-right: 10px;
+		}
+		.tabpanel .form .li input{
+			display:inline-block;
+			height: 32px;
+			border:1px solid #eee;
+			width: 280px;
+		}
+		.tabpanel .form .li .short{
+			width: 125px;
+		}
+		.tabpanel .form .searchbtns{
+			position: absolute;
+			z-index:1;
+			right: 55px;
+			top: 1px;
+		}
+		
+		.tabpanel .table table{
+			width: 90%;
+			margin:0 auto;
+			text-align: center;
+			font-size: 12px;
+		}
+		.tabpanel .table table thead td{
+			height: 60px;
+			border-top: 1px solid #eeeeee;
+			border-bottom: 1px solid #eeeeee;
+		}
+		.tabpanel .table table tbody td{
+			height: 60px;
+		}
+		.tabpanel .table table tbody td a{
+			text-decoration: none;
+			color: #ff0000;
+			cursor: pointer;
+		}
+		.tabpanel .table .page{
+			text-align: right;
+			padding: 24px 0;
+			padding-right: 40px;
+			font-size: 12px;
+		}
+		.tabpanel .table .page span{
+			display:inline-block;
+			height: 24px;
+			line-height: 24px;
+			text-align:center;
+			margin: 0 2px;
+			min-width: 24px;
+			cursor: pointer;
+		}
+		.tabpanel .table .page .total{
+			display:inline-block;
+			height: 24px;
+			line-height: 24px;
+			text-align:center;
+			margin: 0 2px;
+		}
+		.tabpanel .table .page .cur{
+			color: #ffffff;
+			background: #ff0000;
+		}
+		.tabpanel .table .page input{
+			border:1px solid #eeeeee;
+			width: 24px;
+			margin: 0 5px;
+		}
+		.tabpanel .table .page button{
+			border:1px solid #eeeeee;
+			width: 50px;
+			background: #ffffff;
+			margin: 0 5px;
+		}
+		.btnpanel{
+			position: fixed;
+			z-index: 901;
+			left: 0;
+			bottom: 0;
+			height: 70px;
+			width: 100%;
+			background: #ffffff;
+		}
+		.btnpanel div{
+			cursor: pointer;
+			width: 80px;
+			height:28px;
+			line-height:28px;
+			text-align: center;
+			font-size: 12px;
+			color: #ff0000;
+			border: 1px solid #ff0000;
+			border-radius: 3px;
+			position: absolute;
+			z-index: 1;
+			top: 18px;
+		}
+		.btnpanel .clear{
+			left:120px;
+		}
+		.btnpanel .cancel{
+			right:200px;
+		}
+		.btnpanel .enter{
+			right: 100px;
+		}
+
+/* floattable end */
+
+/* 详情页 start */
+.selectdiv,
+.inputdiv{
+	display: inline-block;
+	width: 170px;
+	height: 20px;
+	line-height: 20px;
+	text-indent: 12px;
+}
+.textareadiv {
+	min-height: 60px;
+    line-height: 20px;
+    width: 850px;
+    color: #000000;
+	display:inline-block;
+}
+/*整改卷宗编辑页-开始*/
+.casefile .input input{
+	width: 326px;
+}
+.casefile .input select{
+	width: 328px;
+}
+.casefile .input .radio{
+	width: 15px;
+}
+.casefile input[name="caseCode"]{
+	margin-left: 0;
+}
+.casefile .input input[name="ourLawsuitBodyName"]{
+	width: 852px;
+}
+.casefile .sanx .input input{
+	width: 155px;
+	margin: 0px 5px 5px 0px;
+}
+.casefile .sanx .plug{
+	margin-left: 6px;
+}
+.casefile .layui-input-block{
+	width: 862px;
+}
+.casefile .input .len{
+	width: 850px;
+}
+.casefile .input .popup-input{
+	position: relative;
+	float: left;
+}
+.casefileDes .input .len{
+	width: 850px;
+}
+.casefileDes .inputdiv,
+.casefileDes .selectdiv,
+.casefileDes .input  div[name="caseTruth"] ,
+.casefileDes .input  div[name="plaintiffLawsuitRequest"],
+.casefileDes .textareadiv{
+	border:1px solid #eaeaea;
+	background-color: #F7F7F7;
+}
+.casefileDes .uploadlist{
+	width: 855px;
+}
+.casefileDes  div[name="caseRecordTime"],
+.casefileDes .input  div[name="institutionCaseCode"],
+.casefileDes .input  div[name="caseDeputeMoney"],
+.casefileDes .selectdiv{
+	width: 326px;
+}
+.casefileDes .sanx .input input{
+	width: 155px;
+	margin: 0px 5px 5px;
+	border:1px solid #eaeaea;
+	background-color: #F7F7F7;
+}
+.casefileDes .inputdiv{
+	width: 326px;
+}
+.casefileDes .inputdiv[name="prosecution"],
+.casefileDes .inputdiv[name="appellant"],
+.casefileDes .inputdiv[name="appellee"],
+.casefileDes .inputdiv[name="defense"]{
+	width: 856px;
+}
+
+.casefileDes .layui-input-block{
+	width: 875px;
+}
+/*整改卷宗-结束*/

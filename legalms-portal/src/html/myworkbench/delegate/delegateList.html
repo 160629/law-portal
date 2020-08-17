@@ -1,0 +1,91 @@
+<!-- 纠纷列表 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的委托</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/commonality.css">
+    <link rel="stylesheet" href="../../../css/listBase.css">
+</head>
+
+<body>
+    <div class="wp">
+        <!-- 查询框 -->
+        <div style="position: relative;">
+            <div class="queryBorder selfQueryBorderHeight">
+                <!-- form表单 -->
+                <form id="queryForm" class="query-card">
+                    <div class="info-card">
+                        <ul>
+                            <li>
+                                <div class="span-input">
+                                    <span>被委托人</span>
+                                    <input type="text" maxlength='80' name="toerName" class="" placeholder="请输入">
+                                </div>
+                                <div class="span-input">
+                                    <span>委托时限</span>
+                                    <input type="text" maxlength='80' id="start_date" class="start_date row-two-input" name="startTime"
+                                           placeholder="开始时间">
+                                    至
+                                    <input type="text" maxlength='80' id="end_date" class="end_date row-two-input" name="endTime"
+                                           placeholder="结束时间">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="btn-card">
+                        <input type="button" class="querybtn" id="querybtn" value="查询" />
+                        <input type="button" class="resetbtn" id="resetbtn" value="重置" />
+                    </div>
+                </form>
+            </div>
+            <!-- 展开按钮 -->
+            <!--<div class="toggleHeightBtn">-->
+                <!--<span>展开</span>-->
+                <!--<img src="../../../css/images/down.png">-->
+            <!--</div>-->
+        </div>
+
+        <!-- 按钮组 -->
+        <div class="tableBtnGroup">
+            <div class="right-card">
+                <!-- <input type="button" class="confirm-btn Exportexsel" value="导出"> -->
+                <input type="button"  style="width: 80px;"class="waring-btn  table-del-btn" value="结束委托">
+            </div>
+            <div class="right-card">
+                <button class="declarationBtn"><img src="../../../css/images/icon.png">新建委托</button>
+            </div>
+        </div>
+        <!-- 表格 -->
+        <div class="div-table">
+            <table id="bus-table" class="layui-table" lay-size="sm">
+                <thead>
+                    <tr>
+                        <th class="th-index"><span><input type="checkbox" class="allBtn"></span><span>选择</span></th>
+                        <th>委托时限</th>
+                        <th>实际委托结束时间</th>
+                        <th>被委托人</th>
+                        <th>委托状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <!-- 分页 -->
+        <div id="pageContainer" class="pageContainer"></div>
+
+    </div>
+    <script src="../../../lib/jquery-1.8.0.min.js"></script>
+    <script src="../../../lib/layui/layui.all.js"></script>
+    <script src="../../../js/ajax.js?v=fw1.6"></script>
+    <script src="../../../js/public/listBase.js?v=fw1.6"></script>
+    <script src="../../../js/myworkbench/delegate/delegateList.js?v=fw1.6"></script>
+
+</body>
+
+</html>

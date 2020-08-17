@@ -1,0 +1,489 @@
+/* 列表 */
+tr:hover{
+	color: #1b1b1b;
+}
+
+/* 相对定位 */
+
+.relative {
+	position: relative;
+}
+
+.iconfdj {
+	top: 9px;
+}
+
+.announcementModel {
+	margin-left: 10px;
+}
+
+.aShowLine:hover {
+	text-decoration: underline;
+}
+
+.tableBtnGroup .declarationBtn {
+	width: 180px;
+	line-height: 25px;
+	background-color: #eb4b4b;
+	border-radius: 3px;
+	border: 1px solid #eb4b4b;
+	color: #fff;
+	margin-right: 10px;
+	bottom: 0;
+	cursor: pointer;
+}
+
+.tableBtnGroup .declarationBtn img {
+	margin-right: 10px;
+}
+
+.queryBorder .query-ul {
+	width: 100px;
+}
+
+.contenttitle {
+	clear: both;
+	overflow: hidden;
+	margin: 16px 0 0 17px;
+}
+
+.biaoqian {
+	float: left;
+	width: 8px;
+	height: 16px;
+	background-color: #e9484f;
+	border-radius: 5px;
+	margin-top: 2px;
+	margin-right: 10px;
+}
+
+.contenttitle span {
+	float: left;
+	font-family: MicrosoftYaHeiUI;
+	color: #424242;
+}
+
+.queryBorderHeight {
+	height: 114px;
+	box-sizing: border-box;
+}
+
+.selfQueryBorderHeight {
+	height: 83px;
+	box-sizing: border-box;
+}
+
+
+/* ------------------------ */
+
+.layui-container {
+	margin-top: 10px;
+}
+
+.queryBorder .layui-row span {
+	margin-right: 10px;
+}
+
+.queryBorder .layui-col-md11 input {
+	width: 120px;
+	height: 20px;
+	border-radius: 2px;
+	border: solid 1px #eaeaea;
+}
+
+body .btn-class .layui-layer-btn0 {
+	background-color: #e9484f;
+	border-color: #e9484f;
+}
+
+body .btn-class .layui-this {
+	background-color: #e9484f;
+	border-color: #e9484f;
+}
+
+.btnzu {
+	position: absolute;
+	right: 15px;
+	top: 45px;
+}
+
+.querybtn {
+	width: 100px;
+	height: 22px;
+	background-color: #e9484f;
+	border-radius: 3px;
+	border: none;
+	color: #fff;
+	margin-bottom: 10px;
+}
+
+.layui-form-checked[lay-skin=primary] i {
+	border-color: #e9484f !important;
+	background-color: #FFF !important;
+	color: #e9484f !important;
+	font-weight: bold;
+}
+
+.resetbtn {
+	width: 100px;
+	height: 25px;
+	background-color: #fff;
+	border-radius: 3px;
+	border: solid 1px #e9484f;
+	color: #e9484f;
+	float: right;
+}
+
+.dictFormItem {
+	float: left;
+	margin-left: 14px;
+	margin-top: -24px;
+	width: 270px;
+}
+
+.dictSingleFormItem {
+	float: left;
+	margin-left: 14px;
+	width: 270px;
+	background-color: #cccccc;
+}
+
+.dictItem {
+	margin: 29px 0px 0px 10px;
+}
+
+.libox {
+	margin-bottom: 23px;
+	font-family: MicrosoftYaHeiUI;
+	font-size: 12px;
+	height: 14px;
+	color: #424242;
+}
+
+.libox input {
+	width: 120px;
+	height: 20px;
+	border-radius: 2px;
+	border: solid 1px #eaeaea;
+}
+
+.marinleft {
+	margin-left: 24px;
+}
+
+.queryBorder .query-ul-1 li {
+	float: left;
+	margin: 15px;
+}
+
+.toggleHeightBtn {
+	cursor: pointer;
+	box-sizing: border-box;
+	color: #545454;
+	padding-top: 4px;
+	position: absolute;
+	right: -19px;
+	width: 19px;
+	height: 59px;
+	top: 24px;
+	background-color: #f4f4f4;
+	border: 1px solid #e7e7e7;
+	text-align: center;
+}
+
+/*重写的样式往下放*/
+
+
+/* 查询框 */
+
+.queryBorder {
+	position: relative;
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	border: solid 1px #e5e5e5;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+
+/**查询框展开/收起*/
+
+.queryBorderHeight {
+	height: auto;
+	box-sizing: border-box;
+}
+
+.query-card {
+	padding-left: 50px;
+}
+
+.query-card .info-card {
+	float: left;
+	width: 80%;
+	padding-top: 5px;
+}
+
+.query-card .span-input {
+	line-height: 36px;
+	/*width: 48%;*/
+	float: left;
+}
+
+.span-input span {
+	width: 100px;
+	text-align: right;
+	margin-right: 5px;
+	float: left;
+	color: black;
+}
+
+.span-input input{
+	height: 25px;
+	width: 300px;
+	border: 1px solid #E5E5E5;
+}
+.span-input select {
+	width: 303px;
+	height: 25px;
+	border: 1px solid #E5E5E5;
+}
+
+.span-input .row-two-input {
+	margin: 0px;
+	width: 138px;
+}
+
+.query-card .btn-card {
+	width: 100px;
+	float: right;
+	margin-right: 30px;
+	padding: 10px 5px;
+}
+
+.query-card input {
+	/*cursor: pointer;*/
+}
+
+
+/* 全选删除导出按钮组 */
+
+.tableBtnGroup {
+	margin-right: 17px;
+	clear: both;
+	line-height: 40px;
+	height: 40px;
+}
+
+.tableBtnGroup .left-card {
+	float: left;
+}
+
+.tableBtnGroup .right-card {
+	float: right;
+}
+
+.tableBtnGroup .confirm-btn {
+	line-height: 25px;
+	border-radius: 3px;
+	background-color: #e9484f;
+	border: 1px solid #e9484f;
+	color: #fff;
+	margin-right: 10px;
+	text-align: center;
+	padding: 0 10px;
+}
+
+.tableBtnGroup .waring-btn {
+	line-height: 25px;
+	border-radius: 3px;
+	background-color: #fff;
+	border: 1px solid #e9484f;
+	color: #e9484f;
+	margin-right: 10px;
+	text-align: center;
+	padding: 0 10px;
+}
+
+.layui-table {
+	margin: 0px auto;
+}
+
+.layui-table .th-index {
+	text-align: center;
+	width: 40px;
+}
+
+.layui-table tbody tr td,
+table tbody tr td {
+	/*display: inline-block;*/
+	/*width: 25em;*/
+	/*overflow: hidden;*/
+	/*text-overflow: ellipsis;*/
+	white-space: nowrap;
+}
+
+.layui-table tbody tr td:first-child,
+table tbody tr td:first-child {
+	width: 40px;
+	text-align: center;
+}
+
+.layui-table span input {
+	margin-right: 5px;
+}
+
+.div-table {
+	width: 100%;
+	overflow: auto;
+	height: 360px;
+	position: relative;
+}
+.div-table th {
+	white-space: nowrap;
+	text-align: center;
+}
+.div-table th div{
+	text-align: center;
+}
+
+.div-table thead {
+	/*position: fixed;*/
+}
+.div-table .layui-table{
+	width: 1170px;
+	table-layout :fixed;
+}
+
+.div-table td {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	text-align: center;
+	position: relative;
+}
+.longText{
+	min-width: 150px;
+	height: 31px;
+	padding: 0 10px;
+	line-height: 31px;
+	background: #fff;
+	border-radius: 5px;
+	text-align: center;
+	position: absolute;
+	top: -50px;
+	left: 0;
+	z-index: 50000000000;
+	border: 1px solid #9F9F9F;
+	word-wrap:break-word
+}
+/*表格标题*/
+.Trtitle{
+	width: 168px;
+	
+}
+/*表格主体*/
+.TrMy{
+	width: 213px;
+
+}
+/*表格id*/
+.Trcode{
+	width: 147px;
+}
+/*表格短类型字段*/
+.Tr-12{
+	width: 150px;
+}
+/*表格短类型字段*/
+.Tr-10{
+	width: 100px;
+}
+/*表格短类型字段*/
+.Tr-8{
+	width: 80px;
+}
+/*表格短类型字段*/
+.Tr-6{
+	width: 60px;
+}
+
+.div-table .ellipsis {
+	width: 15em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.pageContainer {
+	float: right;
+}
+
+.pageContainer .layui-laypage a,
+.layui-laypage span {
+	padding: 0 11px;
+	height: 24px;
+	line-height: 24px;
+}
+
+.pageContainer select {
+	width: 100px;
+}
+
+
+/* 列表-列头下拉框 */
+
+.selectheight {
+	height: 27px;
+	overflow: hidden;
+}
+
+.th-select {
+	width: 110px;
+}
+
+.th-select .tableselect li {
+	width: 100%;
+}
+
+.tableselect {
+	cursor: pointer;
+	position: absolute;
+	z-index: 10;
+	top: 0px;
+	font-size: 12px;
+	color: #666;
+	text-align: center;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+}
+
+.tableselect li {
+	height: 25px;
+	line-height: 25px;
+}
+
+.tableselect .tubiao {
+	position: absolute;
+	top: 8.5px;
+	right: 3px;
+}
+.tr-select{
+	background-color: #f2f2f2;
+}
+.checkedAll {
+	background-color: #f74f4f;
+	color: #fff;
+}
+
+.div-table .index {
+	text-align: center;
+}
+.longboss{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}

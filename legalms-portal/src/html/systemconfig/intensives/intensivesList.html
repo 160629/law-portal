@@ -1,0 +1,88 @@
+<!-- 集约化配置列表 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>集约化配置列表</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/commonality.css">
+    <link rel="stylesheet" href="../../../css/listBase.css">
+</head>
+
+<body>
+    <div class="wp">
+        <!-- 查询框 -->
+        <div style="position: relative;">
+            <div class="queryBorder selfQueryBorderHeight">
+                <!-- form表单 -->
+                <form id="queryForm" class="query-card">
+                    <div class="info-card">	
+                        <ul>
+                            <li>
+                                <div class="span-input relative">
+                                    <i class="layui-icon layui-icon-search icon-inputSearch orgNamePage" title="选择公司"></i>
+                                    <i class="layui-icon layui-icon-close icon-inputDel delOrgNamePage hide" title="取消选择"></i>
+                                    <span>所属公司</span>
+                                    <input readonly type="text" maxlength='80' name="orgName" placeholder="请选择" class="orgNamePage">
+                                    <input  type="hidden" name="orgCode">
+                                </div>
+
+                                <div class="span-input">
+                                    <span>是否集约</span>
+                                    <select name="isJiYueHua">
+                                        <option value="">全部</option>
+                                        <option value="1">是</option>
+                                        <option value="0">否</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="btn-card">
+                        <input type="button" class="querybtn" id="querybtn" value="查询" />
+                        <input type="button" class="resetbtn" id="resetbtn" value="重置" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 按钮组 -->
+        <div class="tableBtnGroup">
+            <div class="right-card">
+                <!-- <input type="button" class="confirm-btn Exportexsel" value="导出"> -->
+                <input type="button" class="waring-btn  table-true-btn" value="设为集约">
+                <input type="button" class="waring-btn table-false-btn" value="设为非集约">
+            </div>
+        </div>
+        <!-- 表格 -->
+        <div class="div-table">
+            <table id="bus-table" class="layui-table" lay-size="sm">
+                <thead>
+                    <tr>
+                        <th class="th-index"><span><input type="checkbox" class="allBtn"></span><span>序号</span></th>
+                        <th>所属单位</th>
+                        <th>所属省分公司</th>
+                        <th>地市公司</th>
+                        <th class="Tr-6">是否集约</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <!-- 分页 -->
+        <div id="pageContainer" class="pageContainer"></div>
+
+    </div>
+    <script src="../../../lib/jquery-1.8.0.min.js"></script>
+    <script src="../../../lib/layui/layui.all.js"></script>
+    <script src="../../../js/ajax.js?v=fw1.6"></script>
+    <script src="../../../js/public/listBase.js?v=fw1.6"></script>
+    <script src="../../../js/systemconfig/intensives/intensivesList.js?v=fw1.6"></script>
+
+</body>
+
+</html>

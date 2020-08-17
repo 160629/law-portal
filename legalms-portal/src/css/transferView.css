@@ -1,0 +1,38 @@
+.small-container{
+    padding-top: 15px ;
+    height: 360px;
+    overflow: auto;
+}
+.transferView{
+    padding: 50px ;
+}
+.transfer-info{
+    color: #333333;
+    font-size: 16px;
+    text-align: center;
+}
+.transferView label{
+    margin-right: 1em;
+}
+.transferView div{
+    margin-bottom: 30px;
+}
+.transfer-param{
+    width: 200px;
+    margin: 0 auto;
+    color: #666;
+}
+.transfer-param li{
+    text-align: left;
+    line-height: 35px;
+}
+.transfer-param span{
+    color: #FF0000;
+    margin: 0 1em
+}
+.layui-input-inline{
+    width: 250px;
+}
+.transferWARNResult .transfer-info{
+    text-align: left;
+}

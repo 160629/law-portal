@@ -1,0 +1,16 @@
+.div-float{
+	padding-top: 73px;
+}
+.head{
+	height: 95px;
+}
+.tips{
+	font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    text-align: right;
+    margin-right: 5px;
+    display: inline-block;
+    color: red;
+    /* display: none; */
+}

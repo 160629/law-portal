@@ -1,0 +1,115 @@
+<!--案件交办-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>案件交办综合查询</title>
+    <link rel="stylesheet" href="../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/commonality.css?v=fw1.6">
+    <link rel="stylesheet" href="../../css/listBase.css?v=fw1.6">
+</head>
+
+<body>
+<div class="wp">
+    <!-- 查询框 -->
+    <div style="position: relative;">
+        <div class="queryBorder selfQueryBorderHeight">
+
+            <!-- form表单 -->
+            <form id="queryForm" class="query-card">
+                <div class="info-card">
+                    <ul>
+                        <li>
+                            <div class="span-input">
+                                <span>标题</span>
+                                <input type="text" maxlength='80' name="title" class="" placeholder="请输入">
+                            </div>
+                            <div class="span-input">
+                                <span>编号</span>
+                                <input type="text" maxlength='80' name="code" placeholder="请输入">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="span-input relative">
+                                <i class="layui-icon layui-icon-search icon-inputSearch mainSeedOrgPage" title="选择单位"></i>
+                                <i class="layui-icon layui-icon-close icon-inputDel delMainSeedOrgPage hide" title="取消选择"></i>
+                                <span>主送单位</span>
+                                <input type="text" maxlength='80' readonly="readonly" name="mainSeedOrg" placeholder="请输入" class="mainSeedOrgPage">
+                            </div>
+                            <div class="span-input">
+                                <span>案件类型</span>
+                                <select name="caseType"  class="must-select">
+                                </select>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="span-input relative">
+                                <i class="layui-icon layui-icon-search icon-inputSearch assignOrgPage" title="选择单位"></i>
+                                <i class="layui-icon layui-icon-close icon-inputDel delassignOrgPage hide" title="取消选择"></i>
+                                <span>转出单位</span>
+                                <input readonly type="text" maxlength='80' readonly="readonly" name="assignOrg" placeholder="请选择" class="assignOrgPage">
+                            </div>
+                            <div class="span-input">
+                                <span>交办日期</span>
+                                <input type="text" maxlength='80' id="start_date" class="start_date row-two-input" name="startDate"
+                                       placeholder="开始时间">
+                                至
+                                <input type="text" maxlength='80' id="end_date" class="end_date row-two-input" name="endDate"
+                                       placeholder="结束时间">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="span-input">
+                                <span>状态</span>
+                                <select name="assignStatus">
+                                </select>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-card">
+                    <input type="button" class="querybtn" id="querybtn" value="查询" />
+                    <input type="button" class="resetbtn" id="resetbtn" value="重置" />
+                </div>
+            </form>
+        </div>
+        <!-- 展开按钮 -->
+        <div class="toggleHeightBtn">
+            <span>展开</span>
+            <img src="../../css/images/down.png">
+        </div>
+    </div>
+    <!-- 表格 -->
+    <div class="div-table">
+        <table id="bus-table" class="layui-table" lay-size="sm">
+            <thead>
+            <tr>
+                <th class="th-index"><span>序号</span></th>
+                <th class="Trtitle">标题</th>
+                <th class="Trcode">编号</th>
+                <th class="Tr-10">转出单位</th>
+                <th class="Tr-10">主送单位</th>
+                <th class="Tr-10">案件类型</th>
+                <th class="Tr-10">交办时间</th>
+                <th class="Tr-6">状态</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <!-- 分页 -->
+    <div id="pageContainer" class="pageContainer"></div>
+
+</div>
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/layui/layui.all.js"></script>
+<script src="../../js/ajax.js?v=fw1.6"></script>
+<script src="../../js/public/listBase.js?v=fw1.6"></script>
+<script src="../../../src/js/querylist/eventassignqueryList.js?v=fw1.6"></script>
+</body>
+
+</html>

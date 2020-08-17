@@ -1,0 +1,456 @@
+/** 主题颜色 */
+/** 按钮 */
+.layui-btn:not(.layui-btn-primary):not(.layui-btn-normal):not(.layui-btn-warm):not(.layui-btn-danger):not(.layui-btn-disabled) {
+    background-color: #eb4b4b;
+}
+
+.layui-btn.layui-btn-primary:hover {
+    border-color: #eb4b4b;
+}
+
+/** 开关 */
+.layui-form-onswitch {
+    border-color: #eb4b4b;
+    background-color: #eb4b4b;
+}
+th .layui-table-cell,td .layui-table-cell{
+	text-align: center!important;
+}
+
+/** 分页插件 */
+.layui-laypage .layui-laypage-curr .layui-laypage-em {
+    background-color: #eb4b4b;
+}
+
+.layui-laypage select:focus {
+    border-color: #eb4b4b !important;
+}
+
+.layui-laypage input:focus,
+.layui-laypage select:focus {
+    border-color: #eb4b4b !important;
+}
+
+.layui-laypage a:hover {
+    color: #eb4b4b !important;
+}
+
+/* .layui-laypage select option:hover{
+    background-color: #eb4b4b!important;
+} */
+
+.layui-table-page .layui-laypage input:focus {
+    border-color: #eb4b4b !important;
+}
+
+.layui-table-view select:focus {
+    border-color: #eb4b4b !important;
+}
+
+.layui-table-page .layui-laypage a:hover {
+    color: #eb4b4b;
+}
+.div-table .noDate{
+    line-height: 30px;
+    position: absolute;
+    left: 45%;
+    font-size: 14px;
+}
+body,
+ul,
+p,
+button {
+    padding: 0;
+    margin: 0;
+}
+
+/* 标签 */
+.tag {
+    font-family: MicrosoftYaHeiUI;
+    font-size: 14px;
+    font-weight: bold;
+    color: #424242;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    line-height: 22px;
+}
+
+.icon {
+    width: 6px;
+    height: 15px;
+    background-color: #e9484f;
+    border-radius: 5px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 3px;
+}
+
+.currentweizhi {
+    color: #999;
+}
+
+.layui-input,
+.layui-textarea {
+    padding-left: 0;
+}
+
+.relative {
+    position: relative;
+}
+
+.wp {
+    width: 1190px;
+    height: 500px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.Container {
+    width: 1200px;
+    margin: 0 auto;
+    /*color: #5d5d5d;*/
+    font-size: 12px;
+    padding-bottom: 80px;
+}
+
+/* 面包屑 */
+.smallnavBorder {
+    width: 100%;
+    height: 16px;
+    margin: 10px 0;
+}
+
+
+.layui-timeline-axis {
+    position: absolute;
+    left: -5px;
+    top: 0;
+    z-index: 10;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    background-color: #fff;
+    color: #ccc;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.layui-timeline-axis:hover {
+    color: #ccc !important;
+}
+
+.tages {
+    display: inline-block;
+    border: 1px solid #fdaf40;
+    color: #fdaf40 !important;
+    background-color: #fff1ba;
+    border-radius: 3px;
+    padding: 0 5px;
+    margin: 0 5px;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block !important;
+}
+
+.layui-text ul li {
+    list-style-type: none;
+}
+
+/* 表单块*/
+.card {
+    border: 1px solid #eaeaea;
+    margin: 20px 0;
+    border-radius: 3px;
+    padding: 10px 0px;
+}
+
+.slideBtn {
+}
+.card-btn{
+    min-width: 50px;
+    float: right;
+    background-color: #fff;
+    color: #e9484f;
+    border: 1px solid #e9484f;
+    margin-right: 29px;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 0px 5px;
+    font-weight: initial;
+    line-height: 21px;
+}
+
+.card-height {
+    height: 22px;
+    overflow: hidden;
+}
+/* 执行结果 */
+.card .list {
+    margin: 20px 0 20px 70px;
+    width: 510px;
+}
+
+.card .list li {
+    display: inline-block;
+    width: 250px;
+    height: 30px;
+}
+
+
+/* 处理意见 */
+.CommonOp{
+    float: none;
+    position: relative;
+    top: 10px;
+    left: 90px;
+}
+card .layui-form {
+    margin: 15px 83px 20px 24px;
+}
+
+/* 按钮组 */
+.btnzu {
+    text-align: center;
+}
+
+.btnzu .save_btn {
+    background-color: #eb4b4b;
+    color: #fff;
+}
+
+.btnzu button {
+    width: 180px;
+    height: 36px;
+    border-radius: 3px;
+    border: 1px solid #eb4b4b;
+    background-color: #fff;
+    color: #eb4b4b;
+    margin-right: 6px;
+}
+/* 按钮组 */
+.last {
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    padding: 20px 0px ;
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+}
+.last .solid_btn{
+    color: #fff;
+    background: #e9484f;
+}
+.last .createbtn {
+    color: #fff;
+    background: #e9484f;
+}
+/*弹出框用的按钮*/
+.alertSubmitBtn {
+    background-color: #e9484f;
+    color: #fff;
+}
+.alertCancelBtn{
+    border: 1px solid #e9484f !important;
+    background-color: #fff;
+    color: #e9484f;
+    margin-right: 30px;
+    margin-left: 15px;
+}
+/* 表单权限控制-默认项 */
+.div-flow .card {
+    display: none;
+}
+
+.centered-title{
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px
+}
+.Right {
+    position: absolute;
+    right: 22px;
+    top: 0;
+}
+
+.uncommitted {
+    color: #fb8864;
+}
+.uncommitted input{
+    width: 190px;
+}
+/* icon放大镜 */
+.iconfdj {
+    position: absolute;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url(images/fangdajingred.png);
+    right: 8px;
+    top: 2px;
+    cursor: pointer;
+}
+.icon-inputSearch{
+    font-size: 20px;
+    color: #ff0000;
+    right: 4px;
+    position: absolute;
+    font-weight: bold;
+    cursor: pointer;
+}
+.icon-inputDel{
+    font-size: 20px;
+    color: #ff0000;
+    right: 30px;
+    position: absolute;
+    font-weight: bold;
+    cursor: pointer;
+}
+.icon-inputForm{
+    font-size: 18px;
+    color: #ff0000;
+    right: 30px;
+    position: absolute;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* 上传附件 start */
+.upload-btn{
+    line-height: 23px;
+    text-align: center;
+    border: 1px solid #ff0000;
+    background:url(images/icon/upload.png) no-repeat 2px center;
+    text-indent: 14px;
+    color: #ff0000;
+    cursor: pointer;
+    width: 82px;
+    display:inline-block;
+    overflow:hidden;
+    position: relative;
+    float: left;
+}
+.upload-btn input{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left:0;
+    top:0;
+    opacity: 0;
+    filter:alpha(opacity=0);
+    cursor:pointer;
+}
+/* 上传附件 end */
+
+.row-3-col .layui-input-block{
+    margin-left: 0px;
+}
+input{
+    border: 1px solid #E5E5E5;
+}
+input[type=button],button{
+    cursor: pointer;
+}
+
+input[type=button]:hover, button:hover {
+    color: #fff;
+    background: #e9484f;
+    box-shadow: 0 2px 2px 0 #e9484f, 0 2px 2px 0 #e98285;
+    border-color: #e9484f;
+}
+
+a {
+    color: #333333;
+    cursor: pointer;
+}
+.a-link{
+    color: #33AAFF;
+}
+a:hover {
+    color: #33AAFF;
+}
+/* 弹出列按钮 start */
+
+.layui-layer-btn{
+    border-top: 1px solid #eaeaea;
+}
+.layui-layer-btn .layui-layer-btn0{
+    background: #eb4b4b !important;
+    color: #fff !important;
+    border: 1px solid #eb4b4b !important;
+}
+.layui-layer-btn .layui-layer-btn1{
+    background: #fff;
+    color: #eb4b4b;
+    border: 1px solid #eb4b4b;
+}
+.layui-layer-btn .layui-layer-btn1:hover{
+    background: #eb4b4b;
+    color: #fff;
+    border: 1px solid #eb4b4b;
+}
+.layui-layer-content{
+    height: auto!important;
+}
+/* 上传附件 end */
+
+
+/*修改按钮hover样式错误的问题-开始*/
+body .queryForm .querybtn,
+body .last .createbtn{
+    border:none;
+    background-color:#eb4b4b;
+    color: #fff;
+}
+input[type=button].querybtn:hover,
+button.querybtn:hover,
+body .tableBtnGroup .declarationBtn:hover,
+body .tableBtnGroup .confirm-btn:hover,
+body .queryForm .querybtn:hover,
+body .alertSubmitBtn:hover,
+body .last .createbtn:hover,
+body .layui-layer-btn .layui-layer-btn0:hover,
+body .solid_btn:hover{
+    box-shadow:none;
+    background-color: #C53F3F;
+    border-color: #C53F3F;
+    color: #fff;
+}
+body .alertCancelBtn{
+    border:1px solid #eb4b4b;
+    background-color: #fff;
+    color: #eb4b4b;
+    border-radius: 3px;
+}
+/*修改按钮hover样式错误的问题-结束*/
+
+
+/*分页条数下拉框，没有右边框的问题修改-开始*/
+body .layui-laypage select{
+    padding: 3px 0;
+}
+/*分页条数下拉框，没有右边框的问题修改-结束*/
+
+/*查询条件输入框内容和左边框添加间距-开始*/
+body .span-input input{
+    padding-left: 5px;
+    width: 295px;
+}
+body .span-input .row-two-input{
+    width: 133px;
+}
+/*查询条件输入框内容和左边框添加间距-结束*/
+
+
+/*调整查询条件中select不对齐的问题-开始*/
+.span-input select{
+    /*width: 307px;*/
+}
+/*调整查询条件中select不对齐的问题-结束*/

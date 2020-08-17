@@ -1,0 +1,205 @@
+<!-- 数据字典配置-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组织机构用户管理</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/commonality.css">
+    <link rel="stylesheet" href="../../../css/listBase.css">
+    <link rel="stylesheet" href="../../../lib/zTree-zTree_v3-master/zTree_v3/css/zTreeStyle/zTreeStyle.css">
+    <link rel="stylesheet" href="../../../css/orguserquery.css">
+
+</head>
+<body>
+
+<div class="wp">
+    <div class="layui-col-md3">
+        <div class="center">
+            <div class="contenttitle">
+                <!--<div class="biaoqian"></div>-->
+                <span style="font-size: 16px"><strong>组织机构管理</strong></span>
+            </div>
+            <div class="tree-div">
+                <!--<input type="text" id="searchName" class="search-input" maxlength='80' placeholder="按节点名称查询"/>-->
+                <ul id="leftTree" class="ztree"></ul>
+            </div>
+        </div>
+    </div>
+    <!--右半部分-->
+    <div class="layui-col-md9">
+        <div class="center">
+            <div class="layui-tab hide"   lay-filter="orgInfoTab"  id="orgTab">
+                <ul class="layui-tab-title">
+                    <li class="layui-this" lay-id="1">基本信息</li>
+                    <li lay-id="2">下级机构</li>
+                    <li lay-id="2">员工信息</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <!-- 字典类型表格 -->
+                        <div id="orgInfo" class="info-div">
+                            <div class="layui-container" style="width: auto;">
+                                <div class="layui-row">
+                                    <div class="layui-col-md5 layui-col-md-offset1">
+                                        <label class="layui-form-label">机构名称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="orgName" value="" readonly class="borderNone">
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md5">
+                                        <label class="layui-form-label">机构代码</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="orgCode" value="" readonly class="borderNone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-row">
+                                    <div class="layui-col-md5 layui-col-md-offset1">
+                                        <label class="layui-form-label">上级机构</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="orgParentCodeName" value="" readonly class="borderNone">
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md5">
+                                        <label class="layui-form-label">机构类型</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="companyName" value="" readonly class="borderNone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-row">
+                                    <div class="layui-col-md5 layui-col-md-offset1">
+                                        <label class="layui-form-label">机构等级</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="orgLevel" value="" readonly class="borderNone">
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md5">
+                                        <label class="layui-form-label">机构状态:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="orgStatus" value="" readonly class="borderNone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-row">
+                                    <div class="layui-col-md10 layui-col-md-offset1">
+                                        <label class="layui-form-label">备注:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="orgRemarks" value="" readonly class="borderNone">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-tab-item">
+                        <!-- 下级机构列表 -->
+                        <table id="roleOrgListTable" class="layui-table" lay-filter="roleOrgListTable">
+                        </table>
+                    </div>
+                    <div class="layui-tab-item">
+                        <!-- 下属用户列表 -->
+                        <table id="initUserListTable" class="layui-table" lay-filter="initUserListTable">
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-tab hide"  lay-filter="userInfoTab"  id="userTab">
+                <ul class="layui-tab-title">
+                    <li class="layui-this" lay-id="1">人员信息</li>
+                    <li lay-id="2">权限查询</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <!-- 用户信息 -->
+                        <div id="userInfo" class="info-div userInfo">
+                            <div class="layui-container" style="width: auto;">
+                                <div class="layui-row">
+                                    <div class="layui-col-md5 layui-col-md-offset1">
+                                        <label class="layui-form-label">员工姓名:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="userName" value="" readonly class="borderNone">
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md5">
+                                        <label class="layui-form-label">员工代码:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="orgCode" value="" readonly class="borderNone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-row">
+                                    <div class="layui-col-md5 layui-col-md-offset1">
+                                        <label class="layui-form-label">性别:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="sex" value="" readonly class="borderNone">
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md5">
+                                        <label class="layui-form-label">出生日期:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="birthday" value="" readonly class="borderNone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-row">
+                                    <div class="layui-col-md5 layui-col-md-offset1">
+                                        <label class="layui-form-label">证件号码:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="identityCard" value="" readonly class="borderNone">
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md5">
+                                        <label class="layui-form-label">手机号码:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="mobile" value="" readonly class="borderNone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-row">
+                                    <div class="layui-col-md5 layui-col-md-offset1">
+                                        <label class="layui-form-label">用户登录名:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="userCode" value="" readonly class="borderNone">
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-md5 ">
+                                        <label class="layui-form-label">邮箱:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="email" value="" readonly class="borderNone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-row">
+                                    <div class="layui-col-md5 layui-col-md-offset1">
+                                        <label class="layui-form-label">用户状态:</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="flag" value="" readonly class="borderNone">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-tab-item">
+                        <div id="autoInfo" class="info-div">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../lib/zTree-zTree_v3-master/zTree_v3/js/jquery.ztree.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/listBase.js?v=fw1.6"></script>
+<script src="../../../js/systemconfig/orguserquery/orguserquery.js?v=fw1.6"></script>
+
+</body>
+</html>

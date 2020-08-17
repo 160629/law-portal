@@ -1,0 +1,285 @@
+body {
+	overflow: hidden;
+}
+
+.container {
+	width: 1190px;
+	margin: 0 auto;
+	color: #5d5d5d;
+	font-size: 12px;
+	padding: 5px 20px;
+}
+
+.longText {
+	min-width: 150px;
+	min-height: 31px;
+	padding: 0 10px;
+	line-height: 31px;
+	background: #fff;
+	border-radius: 5px;
+	text-align: center;
+	position: absolute;
+	top: -31px;
+	left: 0;
+	z-index: 50;
+	border: 1px solid #9F9F9F;
+	word-wrap: break-word
+}
+
+.container:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+
+/* 表格 */
+
+.tabbtn {
+	position: absolute;
+	left: -41px;
+	top: 50px;
+}
+
+.active {
+	color: #fff;
+	background: #e9484f !important;
+}
+
+.tabbtn li {
+	text-align: center;
+	width: 30px;
+	height: 30px;
+	background: #f5f5f5;
+	/* border: 1px solid #e9484f; */
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	margin-bottom: 5px;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.card-left {
+	position: relative;
+	float: left;
+	width: 795px;
+	height: 610px;
+}
+
+.card-right {
+	position: relative;
+	float: right;
+	width: 380px;
+}
+
+
+.card {
+	border: 1px solid #a8a8a8;
+	border-radius: 5px;
+}
+
+.layui-table {
+	width: 100%;
+	background-color: #fff;
+	color: #666;
+}
+
+.layui-table,
+.layui-table-view {
+	margin: 0;
+}
+
+.layui-table td,
+.layui-table th {
+	position: relative;
+	padding: 0px 0px;
+	height: 44px;
+	min-width: 40px;
+	text-align: center;
+	font-size: 14px;
+}
+
+.layui-table .td-title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+}
+.layui-table .index-task1{
+    width: 260px;
+}
+.layui-table .index-task2{
+     width: 490px;
+ }
+
+
+/* 快捷入口 */
+
+.tag {
+	font-family: MicrosoftYaHeiUI;
+	font-weight: bold;
+	font-size: 14px;
+	color: #424242;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.icon {
+	width: 6px;
+	height: 15px;
+	background-color: #e9484f;
+	border-radius: 5px;
+	float: left;
+	margin-right: 10px;
+	margin-top: 3px;
+}
+
+.hide {
+	display: none;
+}
+
+.card {
+	padding: 0px;
+	margin: 0px;
+}
+
+.card .mainul {
+	clear: both;
+	overflow: hidden;
+}
+
+.card .mainul li {
+	float: left;
+	list-style: none;
+	width: 120px;
+	text-align: center;
+	height: 80px;
+	box-sizing: border-box;
+	margin: 19px 2px;
+	cursor: pointer;
+}
+
+.card .mainul .lileft {
+	border-left: none;
+}
+
+.card .mainul .libottom {
+	border-bottom: none;
+}
+
+.card .mainul li img {
+	width: 48px;
+	height: 48px;
+	margin: 0 36px;
+}
+
+.card .mainul li div {
+	margin-top: 10px;
+}
+
+
+.div-table {
+	height: 496px;
+	overflow-y: auto;
+}
+
+.div-table .noDate {
+	line-height: 30px;
+	position: absolute;
+	left: 45%;
+	font-size: 14px;
+}
+
+
+/* 系统公告 */
+
+.layui-timeline {
+	padding-left: 10px;
+	height: 204px;
+	margin-top: 10px;
+}
+
+.layui-timeline-item {
+	position: relative;
+	padding-bottom: 11px;
+	width: 100%;
+}
+
+.layui-timeline-title {
+	position: relative;
+	margin-bottom: 10px;
+	top: 2px;
+	left: 20px;
+}
+
+.layui-timeline-item:first-child:before {
+	display: none;
+}
+
+.layui-timeline-axis {
+	position: absolute;
+	left: -5px;
+	top: 0;
+	z-index: 10;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	background-color: #fff;
+	color: #e9484f;
+	border-radius: 50%;
+	text-align: center;
+}
+
+.riqi {
+	position: absolute;
+	right: 30px;
+}
+
+.myWork {
+	height: 557px;
+}
+
+.quickEntry {
+	height: 282px;
+}
+.quickEntry .swiper-button{
+	color: #e6e6e6;
+}
+
+.quickEntry .swiper-button-next {
+	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23E6D4E6'%2F%3E%3C%2Fsvg%3E");
+}
+
+.quickEntry .swiper-button-prev {
+	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23E6D4E6'%2F%3E%3C%2Fsvg%3E");
+}
+.xitong {
+	margin-top: 10px;
+}
+.layui-timeline a{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 260px;
+    display: inline-block;
+}
+/* 查看更多 */
+
+.jumpxq {
+	position: relative;
+	width: 100%;
+	line-height: 40px;
+	border-top: 1px solid #e5e5e5;
+}
+
+.jumpxq a {
+	line-height: 30px;
+	display: block;
+	text-align: right;
+	margin-right: 20px;
+}
+
+a {
+	cursor: pointer;
+}

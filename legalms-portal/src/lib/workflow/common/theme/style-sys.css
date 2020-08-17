@@ -1,0 +1,58 @@
+/***datacell固定表头的css.*/
+.DATACELL_FIXHEAD tr
+{
+position: relative;
+/* expression is for WinIE 5.x only. Remove to validate and for pure CSS solution */
+top: expression(this.offsetParent.scrollTop);
+background-color:#eeeeee;
+ Z-INDEX: 5 ;
+}
+/***datacell固定列的css.*/
+.DATACELL_FIXCOL
+{
+	border:none;
+	z-index:5;
+    POSITION: relative;
+ LEFT: expression(this.parentElement.offsetParent.parentElement.scrollLeft);
+}
+/***datacell固定表头的列的css.*/
+.DATACELL_FIXHEADCOL
+{
+border:none;
+ Z-INDEX: 10 ;
+  POSITION: relative;
+ LEFT: expression(this.parentElement.offsetParent.scrollLeft);
+}
+
+.dialog_title_mid{
+	background-image: url('../images/title_mid.gif');
+	height: 29px;
+	overflow:hidden;
+	background-repeat:repeat-x;
+	background-color:#004bfb;color:#ffffff;
+	font-weight: bold;
+	border: 0;
+}
+.dialog_container{
+	width:100%;height:100%;
+}
+.dialog_body{
+	border-left: 3px solid #0D2FE0; border-right: 3px solid #0D2FE0; border-bottom: 3px solid #0D2FE0
+}
+.dialog_title_left{
+	background-image: url('../images/title_left.gif');
+	height: 29px;
+	width:7px;
+	background-repeat:no-repeat;
+	background-position:right;
+	overflow:hidden;
+}
+.dialog_title_right{
+	background-image: url('../images/title_right.gif');
+	height: 29px;
+	width:7px;
+	background-repeat:no-repeat;
+	background-position:left;
+	overflow:hidden;
+}
+

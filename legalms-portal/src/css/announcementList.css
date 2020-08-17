@@ -1,0 +1,15 @@
+.layui-form-label {
+	margin-top: 10px!important;
+	text-align: right;
+}
+.layui-row{
+	margin-top: 10px;
+}
+.upload-btn{
+	margin-left: 5px;
+}
+.bottomDiv{
+	margin-left: 5px;
+	width: 146px;
+	height: 17px;
+}

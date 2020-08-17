@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>中国铁塔-法务系统</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="src/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="src/css/login.css">
+
+    <style type="text/css">
+
+        .pic-left {
+            float: left;
+            width: 470px;
+            height: 520px;
+            background: url("src/css/images/login/pic.jpg") center top no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+<div class="wrap">
+    <div class="container">
+        <div class="pic-left"
+             style="background: rgba(0, 0, 0, 0) url(src/css/images/login/pic.jpg) no-repeat scroll center top;"></div>
+        <div class="right-form">
+            <div class="logo"></div>
+            <div class="sys">欢迎登录法务系统</div>
+            <div class="oalogin-tab">
+                <input class="input input-usr" type="text" id="loginAcct" name="loginAcct" placeholder="请输入用户名" value="">
+                <input class="input input-psw" type="password" id="password" name="password" placeholder="请输入密码" value="">
+                <i class="s_ico_login s_ico_eye" onclick="show(this);"></i>
+                <input id="btn" class="btn" type="button" value="登 录" >
+                <div id="errMsg" class="errMsg hide" style="">请输入密码！</div>
+            </div>
+        </div>
+    </div>
+    <div class="oafooter">Copyright 2020 中国铁塔股份有限公司 ALL Rights Reserved
+    </div>
+</div>
+
+
+<script src="src/lib/jquery-1.8.0.min.js"></script>
+<script src="src/lib/layui/layui.all.js"></script>
+<script src="src/lib/carhartl-jquery-cookie-v1.3.0-0-gdf3e07a/carhartl-jquery-cookie-bf24a03/jquery.cookie.js"></script>
+<script src="src/js/ajax.js?v=fw1.6"></script>
+
+
+<script >
+
+
+    var currentUser = {
+        token: '',
+        loginName: '', menuCode: 'CHNTLEGALMS', flag: 1
+    };
+
+    // 模拟登陆测试页
+    $("#btn").click(function loginFun() {
+        var password = $("#password").val();
+        var loginAcct = $("#loginAcct").val();
+        if (!loginAcct) {
+            $("#errMsg").html("请输入用户名").removeClass("hide");
+            return false;
+        }
+        if (!password) {
+            $("#errMsg").html("请输入密码").removeClass("hide");
+            return false;
+        }
+        getToken(function () {
+            currentUser.passWord = password;
+            currentUser.loginAcct = loginAcct;
+            currentUser.loginName = loginAcct;
+
+            login();
+        });
+
+    });
+    $("#password").on("input",(function () {
+        $("#errMsg").addClass("hide");
+    }));
+    $(document).keypress(function (e) {
+        // 回车键事件
+        if (e.which == 13) {
+            $("#btn").click();
+        }
+    });
+
+    function login() {
+        $.ajax({
+            url: baseUrl.index.reqEncryptUserMsgInfo,
+            type: 'get',
+            cache: false,
+            headers: {
+                'token': currentUser.token,
+                'loginAccount': currentUser.loginName,
+                'passWord':currentUser.passWord
+            },
+            success: function (res) {
+                if (res.resultStat == "SUCCESS") {
+                    // test 获取 pid
+                    setLocalInfo('pid', res.data.decryptUser);
+                    var userInfo = getUserData('pid');
+                    setLocalInfo('token', currentUser.token);
+                    setLocalInfo('loginAccount', currentUser.loginName);
+
+                    // console.info('以下是获取的userInfo');
+                    // console.info(userInfo);
+                    // 4atest.chinatowercom.cn:20061  测试环境地址
+                    // 120.52.96.35:18104             验收环境地址
+
+                    //123.126.34.157:1189             测试环境地址
+                    //120.52.136.3:10355              验收环境地址
+                    window.location.href = portalUrl + "/uac_oa/ssoMenuHead?" +
+                        "appCode=CHNTLEGALMS&" +
+                        "token=" + currentUser.token +
+                        "&saCode=" + currentUser.loginName + "&isHead=1&menuCode=CHNTLEGALMS&" +
+                        "url=http:%2F%2F" + nginxUrl + "%2Flegalms%2Flegalms-portal%2Findex.html";
+                } else {
+                    alert(res.mess);
+                    $("input[name=loginAcct]").val('');
+                }
+            },
+            error: function (err) {
+                // console.log(err)
+            },
+            complete: function (xhr) {
+                if (xhr.status == 401) {
+                    // console.log(xhr)
+                    setLocalInfo('pid', null);
+                    setLocalInfo('token', null);
+                    setLocalInfo('loginAccount', null);
+                    getToken();
+                    refreshCurren();
+                }
+            }
+        });
+    }
+
+    function getToken(fun) {
+        var loginAcct = $("input[name=loginAcct]").val();
+        var token;
+        var encode = getEncode();
+        ajax_req({
+            // http://123.126.34.176:20214/WS4A/token/createBwdaToken  测试环境地址
+            // http://120.52.96.35:8097/WS4A/token/createBwdaToken     验收环境地址
+            url: getTokenUrl + "?args=" + encode,
+            type: 'get',
+            async: false,
+            headers: {
+                accessIpAddr: '',
+                loginAcct: '',
+                token: '',
+                pid: ''
+            },
+            success: function (res) {
+                if (res.resultStat == "SUCCESS") {
+                    token = res;
+                    var data = eval("(" + token.data + ")");
+                    if (data.TOKEN) {
+                        currentUser.token = data.TOKEN;
+                        if (fun) {
+                            fun();
+                        }
+                    } else {
+                        alert(data.ERRDESC);
+                        $("input[name=loginAcct]").val('');
+                    }
+                } else {
+                    alert(res.mess);
+                    $("input[name=loginAcct]").val('');
+                }
+            }
+        });
+        return token;
+    }
+
+    function getEncode() {
+        var loginAcct = $("input[name=loginAcct]").val();
+        var encode;
+        //"http://123.126.34.157:1180/v1/oauth/getEncode",
+        ajax_req({
+            url: getEnCodeUrl,
+            type: 'post',
+            async: false,
+            headers: {
+                accessIpAddr: '',
+                loginAcct: loginAcct,
+                pid: ''
+            },
+            success: function (res) {
+                if (res.resultStat == "SUCCESS") {
+                    encode = res.data;
+                } else {
+                    alert(res.mess);
+                    $("input[name=loginAcct]").val('');
+                }
+            }
+        });
+        return encode;
+    }
+
+    function refreshCurren() {
+        var curWwwPath = window.document.location.href;
+        var pathName = window.document.location.pathname;
+        var pos = curWwwPath.indexOf(pathName);
+        var localhostPath = curWwwPath.substring(0, pos);
+        window.location.href = localhostPath + "/legalms/legalms-portal/login.html?token=" + currentUser.token + "&loginName=" + currentUser.loginName + "&menuCode=" + currentUser.menuCode + "&flag=" + currentUser.flag;
+        console.log(window.location + "&token=" + currentUser.token + "&loginName=" + currentUser.loginName + "&menuCode=" + currentUser.menuCode + "&flag=" + currentUser.flag)
+
+    }
+</script>
+
+</body>
+</html>

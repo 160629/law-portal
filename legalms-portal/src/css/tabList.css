@@ -1,0 +1,30 @@
+
+/* tab切换按钮 */
+.tabbtn {
+    position: absolute;
+    margin-left: -41px;
+}
+
+.tabbtn .bforeli {
+    line-height: 20px;
+}
+
+.tabbtn li {
+    cursor: pointer;
+    width: 30px;
+    height: 45px;
+    background-color: #f5f5f5;
+    margin-bottom: 5px;
+    padding: 5px;
+    color: #999999;
+    text-align: center;
+    line-height: 45px;
+    /* border-radius: 5px; */
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.active {
+    background: #e9484f !important;
+    color: #fff !important;
+}

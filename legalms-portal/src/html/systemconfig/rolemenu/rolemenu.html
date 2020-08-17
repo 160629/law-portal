@@ -1,0 +1,90 @@
+<!-- 数据字典配置-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>角色授权管理</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/commonality.css">
+    <link rel="stylesheet" href="../../../css/listBase.css">
+    <link rel="stylesheet" href="../../../lib/zTree-zTree_v3-master/zTree_v3/css/zTreeStyle/zTreeStyle.css">
+    <link rel="stylesheet" href="../../../css/rolemenu.css">
+
+</head>
+<body>
+
+<div class="wp">
+    <div class="layui-col-md6">
+        <div class="queryBorder queryBorderHeight">
+            <div class="contenttitle">
+                <!--<div class="biaoqian"></div>-->
+                <span style="font-size: 16px"><strong>角色权限</strong></span>
+            </div>
+            <!-- form表单 -->
+            <form id="queryForm" class="layui-container">
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <div class="layui-col-md5">
+                            <label>
+                                <span>角色代码</span><input type="text" maxlength='80' class="borderNone" name="roleCode" placeholder="请输入">
+                            </label>
+                        </div>
+                        <div class="layui-col-md5">
+                            <label>
+                                <span>角色名称</span><input type="text" maxlength='80' class="borderNone" name="roleName" placeholder="请输入">
+                            </label>
+                        </div>
+                        <!-- 按钮组 -->
+                        <div class="layui-col-md2">
+                            <ul class="query-ul">
+                                <li>
+                                    <button class="querybtn" type="button"
+                                            onclick="queryBtnFun()" id="querybtn">查询
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- 字典类型表格 -->
+            <table id="roleCodeTable" class="layui-table" lay-filter="roleCodeTable">
+            </table>
+        </div>
+    </div>
+    <!--右半部分-->
+    <div class="layui-col-md6">
+        <div class="queryBorder queryBorderHeight">
+            <div class="layui-tab hide"  lay-filter="roleInfoTab"   id="roleTab">
+                <ul class="layui-tab-title">
+                    <li class="layui-this" lay-id="1">功能</li>
+                    <li lay-id="2">员工</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <!-- 字典类型表格 -->
+                        <div id="roleMenuItem" class="tree-div">
+                            <ul id="leftTree" class="ztree"></ul>
+                        </div>
+                    </div>
+                    <div class="layui-tab-item">
+                        <!-- 字典类型表格 -->
+                        <table id="roleUserItem" class="layui-table" lay-filter="roleUserItemTable">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../lib/zTree-zTree_v3-master/zTree_v3/js/jquery.ztree.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/listBase.js?v=fw1.6"></script>
+<script src="../../../js/systemconfig/rolemenu/rolemenu.js?v=fw1.6"></script>
+
+</body>
+</html>

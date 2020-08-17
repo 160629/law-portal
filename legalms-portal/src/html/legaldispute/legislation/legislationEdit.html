@@ -1,0 +1,236 @@
+<!--法律文书办理1-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>法律文书办理的编辑页</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/form.css">
+    <link rel="stylesheet" href="../../../css/commonality.css">
+</head>
+
+<body>
+<div class="Container">
+
+    <form id="model_form" class="layui-form" action="">
+        <!--默认参数项----------->
+        <input type="hidden" name="id">
+        <input type="hidden" name="odd">
+        <!-- 标题 -->
+        <div class="card titleborder">
+            <div class="titles">
+                <span class="title-font">法律文书办理单</span>
+                <div class="Right">
+                    <span class="currentStatus">当前状态:</span>
+                    <span class="uncommitted">
+                        <label name="state">未提交</label>
+                    </span>
+                </div>
+            </div>
+            <div class="layui-container">
+                <div class="layui-row titleinput">
+                    <div class="layui-form-item layui-col-md12">
+                        <label class="layui-form-label"><b>*</b>标题</label>
+                        <div class="layui-input-block">
+                            <input type="text" maxlength='80' autocomplete="off" placeholder="请输入标题"  title='标题'  lay-verify="required|title|maxlength" name="title"
+                                   class="layui-input c-title"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 案件信息 -->
+        <div class="card">
+            <div class="tag">
+                <div class="icon"></div>
+                <span>案件信息</span>
+            </div>
+
+            <!-- 表单块 -->
+            <div  class="layui-container">
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label"><b>*</b>选择案件</label>
+                        <div class="layui-input-block">
+                            <i class="layui-icon layui-icon-search icon-inputSearch casePage" title="选择案件"></i>
+                            <i class="layui-icon layui-icon-form icon-inputForm openCasePage hide" title="查看案件"></i>
+                            <input type="text" name="caseTitle" placeholder="请选择案件" lay-verify="required" readonly class="layui-input casePage"/>
+                            <input type="hidden" name="caseId"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="hide" id="caseMain">
+                    <div class="layui-row">
+                        <div class="layui-col-md12">
+                            <label class="layui-form-label">我方执行主体名称</label>
+                            <div class="layui-input-block">
+                                <input type="hidden" name="ourLawsuitBody" readonly>
+                                <input type="text" name="ourLawsuitBodyName" readonly class="layui-input borderNone">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-row">
+                        <div class="layui-col-md12">
+                            <label class="layui-form-label">对方执行主体名称</label>
+                            <div class="layui-input-block">
+                                <input type="text" autocomplete="off" name="otherLawsuitBody" readonly
+                                       class="layui-input borderNone">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 上传附件 -->
+                <div class="duilie" id="thelist_executeBasis">
+                    <label class="layui-form-label"><b>*</b>执行依据</label>
+                    <div class="layui-input-block">
+                        <div class="upload-btn">
+                            上传附件
+                            <input name="file" type="file" class="inputfile" multiple id="file_executeBasis" lay-verify="required" title="执行依据" >
+                        </div>
+                        <div class="hint-msg"></div>
+                        <ul class="uploadlist">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 办理信息 -->
+        <div class="card height">
+            <div class="tag">
+                <div class="icon"></div>
+                <span>执行信息</span>
+            </div>
+            <div class="layui-container">
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label"><b>*</b>执行单位</label>
+                        <div class="layui-input-block">
+                            <i class="layui-icon layui-icon-search icon-inputSearch assistUnitPage" title="执行单位"></i>
+                            <input type="text" name="executeUnitName" placeholder="请选择执行单位" title='执行单位'
+                                   lay-verify="required" readonly class="layui-input assistUnitPage"/>
+                            <input type="hidden" name="executeUnitId"/>
+                            <input type="hidden" name="unitLevel"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label"><b>*</b>执行部门</label>
+                        <div class="layui-input-block">
+                            <i class="layui-icon layui-icon-search icon-inputSearch executiveArmPage" title="选择部门"></i>
+                            <input type="text" name="executiveArm" placeholder="请选择执行部门" title='执行部门'
+                                   lay-verify="required" readonly  class="executiveArmPage"/>
+                            <input type="hidden" name="executiveArmId"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label"><b>*</b>执行金额(元)</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="executionAmount" lay-verify="required|maxlength" maxlength=18
+                                   placeholder="例88888.88" title='执行金额'
+                                   class="layui-input priceipt numFormat">
+                            &nbsp;&nbsp;&nbsp;&nbsp;大写：
+                            <span class="aux"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label"><b>*</b>执行截止日期</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="executionTimeLimit" placeholder="请选择执行截止日期" title='执行截止日期'
+                                   lay-verify="required" class="layui-input ipt date_date" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label"><b>*</b>执行内容</label>
+                        <div class="layui-input-block">
+                            <textarea maxlength="5000" name="theContent" placeholder="请输入执行内容"
+                                      title='执行内容' lay-verify="required|maxlength" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- 上传附件 -->
+                <div class="duilie" id="thelist_executeInfo">
+                    <label class="layui-form-label">附件</label>
+                    <div class="layui-input-block">
+                        <div class="upload-btn">
+                            上传附件
+                            <input name="file" type="file" class="inputfile" multiple id="file">
+                        </div>
+                        <div class="hint-msg">（最多允许上传10个附件,单个附件不允许超过50M）</div>
+                        <ul class="uploadlist">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="div-flow">
+
+            <!-- 起草信息 -->
+            <div class="card">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>起草信息</span>
+                </div>
+                <div class="layui-container">
+                    <div class="layui-row">
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">起草人</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="loginName" value="" readonly class="borderNone">
+                            </div>
+                        </div>
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">联系电话</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="mobile" readonly value="" class="borderNone">
+                            </div>
+                        </div>
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">起草部门</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="deptName" readonly class="borderNone">
+                            </div>
+                        </div>
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">起草单位</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="orgName"  readonly class="borderNone">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 按钮组 -->
+            <div class="btnzu last">
+                <button type="button" class="closebtn" id="closebtn">关闭</button>
+                <button type="button" class="solid_btn hide" id="staging_btn">暂存</button>
+                <button type="button" class="solid_btn hide" id="abandon_btn">作废</button>
+                <button type="button" class="solid_btn hide" id="save_btn" lay-submit  lay-filter="saveForm">保存</button>
+                <button type="button" class="hide" id="return_btn">返回</button>
+                <button type="button" class="solid_btn hide" id="start_btn" lay-submit  lay-filter="startForm">下一步</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/formBase.js?v=fw1.6"></script>
+<script src="../../../js/workflow/formControl.js?v=fw1.6"></script>
+<script src="../../../../src/js/legaldispute/legislation/legislationEdit.js?v=fw1.6"></script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择公司</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/commonality.css?v=fw1.6">
+    <link rel="stylesheet" href="../../../css/listBase.css?v=fw1.6">
+    <link rel="stylesheet" href="../../../css/form.css?v=fw1.6">
+    <link rel="stylesheet" href="../../../css/openselect/selectList.css?v=fw1.6">
+    <link rel="stylesheet" href="../../../css/openselect/selectcompanyList.css?v=fw1.6">
+</head>
+<body>
+<!-- 穿梭框 -->
+<div class="alertBox radio-div">
+    <div class="contentbox">
+       <div class="left">
+           <!-- 做左 -->
+           <div class="center berder">
+               <!-- form表单 -->
+               <form id="queryForm" class="queryForm">
+                   <div class="layui-input-block">
+                       <label class="layui-form-label">
+                           主体名称
+                       </label>
+                       <input type="text" maxlength='80' name="bodyName" class="layui-input" placeholder="请输入我方主体名称">
+                       <input type="button" class="querybtn" id="querybtn" value="查询"/>
+                   </div>
+               </form>
+               <div class="div-line"></div>
+               <!-- 表格 -->
+               <div class="div-table">
+                   <table id="bus-table" class="layui-table" lay-size="sm">
+                       <thead>
+                       <tr>
+                           <th class="th-index">序号</th>
+                           <th>主体名称</th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                       </tbody>
+                   </table>
+               </div>
+               <!-- 分页 -->
+               <div id="pageContainer" class="pageContainer"></div>
+           </div>
+       </div>
+        <!-- 右 -->
+        <div class="right">
+            <div class="listtitle">已选项</div>
+            <div class="center berder">
+                <ul class="checkedlist">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 按钮组 -->
+    <div class="alertbtnbox">
+        <button class="alertCancelBtn" id="alertCancelBtn">关闭</button>
+        <button class="alertSubmitBtn" id="alertSubmitBtn">确定</button>
+    </div>
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/listBase.js?v=fw1.6"></script>
+<script src="../../../js/openselect/selectcompany/selectcompanyList.js?v=fw1.6"></script>
+
+</body>
+</html>

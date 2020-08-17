@@ -1,0 +1,169 @@
+*
+{
+
+font-size:9pt;
+}
+table, div, span, tr, td, th{
+color:#00414E;
+}
+body{
+scrollbar-highlight-color: white;
+scrollbar-3dlight-color: #F7FCFD;                                         
+scrollbar-face-color:#E7E7E7;
+scrollbar-arrow-color:#222222;
+scrollbar-shadow-color:#C0D2DB;
+scrollbar-darkshadow-color:#716F64;
+scrollbar-track-color:#F8F7F9;
+}
+a:link{
+text-decoration:underline;
+color:#00414E;
+}
+a:hover
+{
+text-decoration:underline;
+color:FE6C00;
+}
+a:visited
+{
+color:#588993;
+text-decoration:underline;
+}
+.button
+{
+height:20px;
+background: url(../images/button_bg.jpg);
+border-top:1px #4EA4B7 solid;
+border-right:1px #016F87 solid;
+border-bottom:1px #016F87 solid;
+border-left:1px #4EA4B7 solid;
+padding:2px 0px;
+}
+.textbox
+{
+border:1px solid #016F87;
+background:#fff;
+}
+.select
+{
+width:202px;
+}
+.time_select
+{
+width:98px;
+}
+hr  /* compart line's style */
+{
+color:#01B7DE;
+background:#fff;
+height:2px;
+border-bottom:1px solid #fff;
+width:98%;
+}
+
+
+/* work area's style*/
+.workarea
+{
+background:#F3F9FA;
+border:1px solid #75B5C3;
+}
+.workarea .workarea_title
+{
+background:#E3F0F2;
+height:27px;
+border-bottom:1px solid #75B5C3;
+padding-left:18px;
+}
+h3 /*the title's font style of current page*/
+{
+display:inline;
+font-weight:bold;
+color:#FE6C00;
+}
+.EOS_panel_head  /* the block title */
+{
+background:#4C96A6;
+height:22px;
+font-weight:bold;
+border:none;
+color:#fff;
+padding-left:20px;
+}
+
+/*the different table's style*/
+.EOS_panel_body       /* Query table and Result table share this table style */
+{
+background:#EAF0F1;
+}
+.EOS_table
+{
+background:#F7FCFD;
+border-collapse: collapse;
+border:1px solid #02C1EA;
+}
+.EOS_table tr td,.EOS_table tr th    /*  the common style of Result table's td and th */
+{
+border:1px solid #02C1EA;
+height:20px;
+padding:0px 3px;
+text-align:left;
+}
+.EOS_table tr th
+{
+height:25px;
+vertical-align:middle;
+padding-top:3px;
+background:#B3D2D5;
+filter:progid:DXImageTransform.Microsoft.gradient(enabled='enabled',startColorstr=#C7D9D9, endColorstr=#EEF4F4);
+text-align:center;
+}
+
+.EOS_table_row  /* the different background color between rows in result table */
+{
+background:#EBF3F5;
+}
+.EOS_table_selectRow /* the selected row's background color in result table */
+{
+background:#CBE3E5;
+}
+
+.command_sort_area /* the bottom of result table */
+{
+padding:2px 0;
+height:30px;
+background:#E7EDEE;
+}
+.command_sort_area h4 /*the pagination's style*/
+{
+margin-top:-12px;
+float:right;
+}
+.form_bottom /* the bottom of query table */
+{
+padding:2px 0;
+background:#E7EDEE;
+text-align:center;
+}
+.form_table
+{
+border-collapse: collapse;
+border:1px solid #02C1EA;
+background:#F7FDFD;
+padding-left:5px;
+}
+.form_table td
+{
+height:25px;
+border:1px solid #02C1EA;
+}
+.form_label
+{
+background:#EBF3F5;
+}
+.blockInfo_title
+{
+background:#D1EEF2;
+filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr=#C9EAEF, endColorstr=#F7FDFD);
+font-weight:bold;
+}

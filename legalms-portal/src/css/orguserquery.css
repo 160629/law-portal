@@ -1,0 +1,63 @@
+.tree-div {
+    height: 470px;
+    overflow: auto;
+}
+
+.info-div {
+    height: 447px;
+    width: auto;
+    overflow-y: auto;
+    border-top: solid 1px #e5e5e5;
+}
+.info-div ul li{
+    line-height: 40px;
+    margin-left: 40px;
+}
+.selectAuth{
+    line-height: 40px;
+    margin-left: 40px;
+}
+.selectAuth input{
+    margin-left:10px;
+    margin-right:20px
+}
+.info-div ul li input{
+    margin-left:10px;
+    margin-right:20px
+}
+.center{
+    position: relative;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: solid 1px #e5e5e5;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 520px;
+}
+.borderNone{
+    border: 1px solid #EAEAEA;
+    background-color: #f7f7f7;
+    height: 20px!important;
+    line-height: 20px;
+}
+.layui-form-label{
+    width: auto;
+}
+.layui-input-block{
+    padding: 9px 0px;
+}
+
+.search-input{
+    width: 100%;
+    font-size: 12px;
+    margin: 5px 0px 0px;
+    height: 25px;
+}
+.userInfo input {
+    border: 1px solid #E5E5E5;
+    height: 20px !important;
+    line-height: 20px;
+    width: 100%;
+}

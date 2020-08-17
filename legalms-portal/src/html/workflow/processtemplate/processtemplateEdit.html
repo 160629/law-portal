@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>流程节点新增</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/form.css">
+    <link rel="stylesheet" href="../../../css/commonality.css">
+    <link rel="stylesheet" href="../../../css/rolemenu.css">
+
+    <style>
+        .Container {
+            width: 950px;
+        }
+
+        .layui-container {
+            width: 950px;
+        }
+
+        .sugget li {
+            float: left;
+            margin: 5px 15px;
+            border-radius: 3px;
+            border: solid 1px #a2c1d7;
+            padding: 2px 2px;
+        }
+
+        .sugget label {
+            color: red;
+        }
+
+        .sugget {
+            margin-bottom: 30px;
+            padding: 10px;
+        }
+
+        span {
+            margin: 0px 5px;
+        }
+
+        textarea {
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Container">
+
+        <form id="model_form" class="layui-form" action="">
+            <input type="hidden" name="guideId">
+
+            <!-- 案件信息 -->
+            <div class="card">
+                <div class="tag">
+                    <div class="icon"></div>
+                    <span>基本信息</span>
+                </div>
+
+                <!-- 表单块 -->
+                <div class="layui-container">
+                    <div class="layui-row">
+                        <div class="layui-col-md6">
+                            <label class="layui-form-label">流程模板id</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="flowId" title='流程模板id' placeholder="请输入内容" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-row">
+                        <label class="layui-form-label">开始环节ID</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="beginId" title='开始环节ID' placeholder="请输入内容" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-row">
+                        <label class="layui-form-label">开始环节</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="beginName" title='开始环节' placeholder="请输入内容" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-row">
+                        <label class="layui-form-label">结束环节ID</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="endId" title='结束环节ID' placeholder="请输入内容" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-row">
+                        <div class="layui-col-md12">
+                            <label class="layui-form-label">结束环节</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="endName" title='结束环节' placeholder="请输入内容"
+                                    class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-row">
+                        <div class="layui-col-md12">
+                            <label class="layui-form-label">条件</label>
+                            <div class="layui-col-md3">
+                                <div class="layui-input-block">
+                                    <select name="condition" id="isSelect1">
+                                        <option type="0">不限制</option>
+                                        <option type="10">省限制</option>
+                                        <option type="1">同公司限制</option>
+                                        <option type="3">同部门限制</option>
+                                        <option type="4">同处室限制</option>
+                                        <option type="8">送分办部门领导限制</option>
+                                        <option type="5">返回经办</option>
+                                        <option type="6">送结束</option>
+                                        <option type="7">退回承办人</option>
+                                        <option type="1002">总送省限制</option>
+                                        <option type="2003">省送地限制</option>
+                                        <option type="3002">地送省限制</option>
+                                        <option type="2001">省送总限制</option>
+                                        <option type="11">协办部门限制</option>
+                                        <option type="12">各流程涉及回退节点限制</option>
+                                        <option type="13">送申报人确认限制</option>
+                                        <option type="14">送前某活动转办人限制</option>
+                                        <option type="15">法律文书执行部门限制</option>
+                                        <option type="2013">省份送地市限制取拟稿人公司</option>
+                                        <option type="14#cbbmng">14#cbbmng</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-row">
+                        <div class="layui-col-md12">
+                            <label class="layui-form-label">版本号</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="versionId" title='版本号' placeholder="请输入内容"
+                                    class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-row">
+                        <div class="layui-col-md12">
+                            <label class="layui-form-label">是否隐藏</label>
+                            <div class="layui-col-md3">
+                                <div class="layui-input-block">
+                                    <select name="isHide" id="isSelect2">
+                                        <option type="1">是</option>
+                                        <option type="0">否</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-row">
+                        <div class="layui-col-md12">
+                            <label class="layui-form-label">是否单选</label>
+                            <div class="layui-col-md3">
+                                <div class="layui-input-block">
+                                    <select name="isSingleChoice" id="isSelect3">
+                                        <option type="1">多选</option>
+                                        <option type="0">单选</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-row">
+                        <div class="layui-col-md12">
+                            <label class="layui-form-label">重要程度</label>
+                            <div class="layui-col-md3">
+                                <div class="layui-input-block">
+                                    <select name="importAnce" id="isSelect4">
+                                        <option type="share">简单支撑决策</option>
+                                        <option type="normal">一般支撑决策</option>
+                                        <option type="commonly">重大支撑决策</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-row">
+                        <div class="layui-col-md12">
+                            <label class="layui-form-label">是否为送会签</label>
+                            <div class="layui-col-md3">
+                                <div class="layui-input-block">
+                                    <select name="isJointlysign" id="isSelect5">
+                                        <option type="0">否</option>
+                                        <option type="1">是</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-row">
+                        <div class="layui-col-md12">
+                            <label class="layui-form-label">交办标志</label>
+                            <div class="layui-col-md3">
+                                <div class="layui-input-block">
+                                    <select name="assignment" id="isSelect6">
+                                        <option type="share">share</option>
+                                        <option type="02">省份</option>
+                                        <option type="03">地市</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-row">
+                        <div class="layui-col-md12">
+                            <label class="layui-form-label">是否回退线</label>
+                            <div class="layui-col-md3">
+                                <div class="layui-input-block">
+                                    <select name="isFallback" id="isSelect7">
+                                        <option type="0">否</option>
+                                        <option type="1">是</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 按钮组 -->
+                    <div class="btnzu last">
+                        <button type="button" class="closebtn" id="closebtn">关闭</button>
+                        <button type="button" class="save_btn " id="save_btn" lay-submit
+                            lay-filter="saveForm">保存</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="../../../lib/jquery-1.8.0.min.js"></script>
+    <script src="../../../lib/layui/layui.all.js"></script>
+    <script src="../../../js/ajax.js?v=fw1.6"></script>
+    <script src="../../../js/public/formBase.js?v=fw1.6"></script>
+    <script src="../../../js/workflow/formControl.js?v=fw1.6"></script>
+    <script src="../../../js/workflow/processtemplate/processtemplateEdit.js?v=fw1.6"></script>
+</body>
+
+</html>

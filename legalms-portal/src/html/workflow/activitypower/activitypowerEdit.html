@@ -1,0 +1,284 @@
+<!--引诉纠纷申报-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>流程节点新增</title>
+    <link rel="stylesheet" href="../../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/form.css">
+    <link rel="stylesheet" href="../../../css/commonality.css">
+    <link rel="stylesheet" href="../../../css/rolemenu.css">
+
+    <style>
+        .Container {
+            width: 950px;
+        }
+
+        .layui-container {
+            width: 950px;
+        }
+
+        .sugget li {
+            float: left;
+            margin: 5px 15px;
+            border-radius: 3px;
+            border: solid 1px #a2c1d7;
+            padding: 2px 2px;
+        }
+
+        .sugget label {
+            color: red;
+        }
+
+        .sugget {
+            margin-bottom: 30px;
+            padding: 10px;
+        }
+
+        span {
+            margin: 0px 5px;
+        }
+
+        textarea {
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="Container">
+
+    <form id="model_form" class="layui-form" action="">
+        <input type="hidden" name="guideId">
+
+        <!-- 案件信息 -->
+        <div class="card">
+            <div class="tag">
+                <div class="icon"></div>
+                <span>基本信息</span>
+            </div>
+
+            <!-- 表单块 -->
+            <div class="layui-container">
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label"><b>*</b>流程模板id</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="flowId" title='流程模板id'
+                                   placeholder="请输入内容" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <label class="layui-form-label"><b>*</b>模板版本</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="versionId" title='模板版本'
+                                   placeholder="请输入内容" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <label class="layui-form-label">流程模板名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="flowName" title='流程模板名称' placeholder="请输入内容"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <label class="layui-form-label"><b>*</b>活动定义id</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="actId" title='活动定义id'
+                               placeholder="请输入内容" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <label class="layui-form-label"><b>*</b>活动定义名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="actName" title='活动定义名称'
+                               placeholder="请输入内容" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label"><b>*</b>权限字段</label>
+                        <div class="layui-input-block">
+                        <textarea type="text" name="permissionJson" title='权限字段'
+                                  placeholder="请输入内容" class="layui-input"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-md12">
+                        <label class="layui-form-label"><b>*</b>参与者角色</label>
+                        <div class="layui-input-block">
+                            <i class="layui-icon layui-icon-search icon-inputSearch rolePage" title="选择参与者角色"></i>
+                            <input type="text" name="roleNames" placeholder="请选择" title='参与者角色' readonly
+                                   class="rolePage">
+                            <input type="text" name="roleIds" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <label class="layui-form-label">参与者组织</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="orgIds" title='参与者组织' placeholder="请输入内容"
+                               class="layui-input">
+                    </div>
+                </div>
+                <!-- 按钮组 -->
+                <div class="btnzu last">
+                    <button type="button" class="closebtn" id="closebtn">关闭</button>
+                    <button type="button" class="save_btn " id="save_btn" lay-submit lay-filter="saveForm">保存</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="card">
+        <div class="tag">
+            <div class="icon"></div>
+            <span>权限字典参考</span>
+        </div>
+        <!-- 表单块 -->
+        <div class="layui-col-md12">
+            <div class="sugget">
+
+                <div class="layui-row">按钮权限</div>
+                <ul>
+                    <li><label>staging_btn</label><span>暂存</span></li>
+                    <li><label>abandon_btn</label><span>作废</span></li>
+                    <li><label>btn_edit</label><span>编辑</span></li>
+                    <li><label>save_btn</label><span>保存</span><b>默认</b></li>
+                    <li><label>start_btn</label><span>开始</span><b>默认</b></li>
+                    <li><label>next_btn</label><span>下一步</span><b>默认</b></li>
+                    <li><label>back_btn</label><span>退回</span></li>
+                </ul>
+                <div class="layui-row">法律支撑可控字段和卡片</div>
+                <ul>
+                    <li>
+                        <label>r_businessType</label><span>咨询分类(读)</span><label>w_businessType</label><span>咨询分类(写)</span>
+                    </li>
+                    <li>
+                        <label>r_businessProblem</label><span>咨询答复(读)</span><label>w_businessProblem</label><span>咨询答复(写)</span>
+                    </li>
+                    <li><label>r_handleIdea</label><span>处理意见(读)</span><label>w_handleIdea</label><span>处理意见(读)</span>
+                    </li>
+                </ul>
+                <div class="layui-row">引诉可控字段和卡片</div>
+                <ul>
+                    <li>
+                        <label>r_guideSize</label><span>[form:重要程度(读)]</span><label>w_guideSize</label><span>[form:重要程度(写)]</span>
+                    </li>
+                    <li>
+                        <label>r_hisDisputeDeal</label><span>纠纷处理建议(读)</span><label>w_disputeIdea</label><span>纠纷处理建议(写)</span>
+                    </li>
+                    <li>
+                        <label>r_executeResult</label><span>执行结果(读)</span><label>w_executeResult</label><span>执行结果(写)</span>
+                    </li>
+                    <li><label>w_handleIdea</label><span>处理意见</span><label>w_handleIdea</label><span>处理意见</span></li>
+                </ul>
+                <div class="layui-row">纠纷处理可控字段和卡片</div>
+                <ul>
+                    <li><label>r_lawsuitSize</label><span>[form:重要程度(读)]</span><label>w_lawsuitSize</label><span>[form:重要程度(写)]</span>
+                    </li>
+                    <li><label>r_hisCaseAnalyze</label><span>纠纷处理方案(读)</span>
+                        <label>w_caseAnalyze</label><span>纠纷处理方案(写)</span></li>
+                    <li><label>w_handleIdea</label><span>处理意见</span><label>w_handleIdea</label><span>处理意见</span></li>
+                </ul>
+                <div class="layui-row">案件交办可控字段和卡片</div>
+                <ul>
+                    <li><label>w_handleIdea</label><span>处理意见</span><label>w_handleIdea</label><span>处理意见</span></li>
+                    <li>
+                        <label>w_assignInform</label><span>交办信息(写)</span><label>r_assignInform</label><span>交办信息(读)</span>
+                    </li>
+                    <li>
+                        <label>w_involve</label><span>涉案负责人信息(写)</span><label>r_involve</label><span>涉案负责人信息(读)</span>
+                    </li>
+                </ul>
+                <div class="layui-row">案件协办控字段和卡片</div>
+                <ul>
+                    <li>
+                        <label>w_jointlyUnit</label><span>[form:协办单位(写)]</span><label>r_jointlyUnit</label><span>[form:协办单位(读)]</span>
+                    </li>
+                    <li>
+                        <label>w_jointlyCase</label><span>协办案件(写)</span><label>r_jointlyCase</label><span>协办案件(读)</span>
+                    </li>
+                    <li><label>w_handleIdea</label><span>处理意见</span><label>w_handleIdea</label><span>处理意见</span></li>
+                    <li><label>w_feedbackLog</label><span>协办反馈(写)</span><label>r_feedbackLog</label><span>协办反馈(读)</span>
+                    </li>
+                    <li>
+                        <label>提取处理意见到反馈</label>
+                        <span>
+                            <textarea>
+                            customFun: {
+                               getHandleIdeaPullFeedback: function () {
+                                   $('#business_form').append("<input type='hidden' name='feedBack'>");
+                                   $('#w_handleIdea textarea[name=opinion]').change(function () {
+                                       $('#business_form input[name=feedBack]').val($(this).val());
+                                   })
+                               }
+                            }
+                            </textarea>
+                        </span>
+                    </li>
+                </ul>
+                <div class="layui-row">法律文书可控字段和卡片</div>
+                <ul>
+                    <li>
+                        <label>w_executeUnit</label><span>[form:执行单位(写)]</span><label>r_executeUnit</label><span>[form:执行单位(读)]</span>
+                    </li>
+                    <li>
+                        <label>w_executionAmount</label><span>[form:执行金额(写)]</span><label>r_executionAmount</label><span>[form:执行金额(读)]</span>
+                    </li>
+                    <li>
+                        <label>w_executionTimeLimit</label><span>[form:执行截止日期(写)]</span><label>r_executionTimeLimit</label><span>[form:执行截止日期(读)]</span>
+                    </li>
+                    <li>
+                        <label>w_executInfo</label><span>执行信息(写)</span><label>r_executInfo</label><span>执行信息(读)</span>
+                    </li>
+                    <li><label>w_handleIdea</label><span>处理意见</span><label>w_handleIdea</label><span>处理意见</span></li>
+                    <li>
+                        <label>w_feedbackLog</label><span>执行反馈(写)</span><label>r_feedbackLog</label><span>执行反馈(读)</span>
+                    </li>
+                    <li>
+                        <label>提取处理意见到反馈</label>
+                        <span>
+                            <textarea>
+                            customFun: {
+                               getHandleIdeaPullFeedback: function () {
+                                   $('#business_form').append("<input type='hidden' name='feedBack'>");
+                                   $('#w_handleIdea textarea[name=opinion]').change(function () {
+                                       $('#business_form input[name=feedBack]').val($(this).val());
+                                   })
+                               }
+                            }
+                            </textarea>
+                        </span>
+                    </li>
+                </ul>
+                <div class="layui-row">授权可控字段和卡片</div>
+                <ul>
+                    <li><label>w_handleIdea</label><span>处理意见</span><label>w_handleIdea</label><span>处理意见</span></li>
+                </ul>
+                <div class="layui-row">律师函转办可控字段和卡片</div>
+                <ul>
+                    <li><label>w_handleIdea</label><span>处理意见</span><label>w_handleIdea</label><span>处理意见</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../../lib/layui/layui.all.js"></script>
+<script src="../../../js/ajax.js?v=fw1.6"></script>
+<script src="../../../js/public/formBase.js?v=fw1.6"></script>
+<script src="../../../js/workflow/formControl.js?v=fw1.6"></script>
+<script src="../../../js/workflow/activitypower/activitypowerEdit.js?v=fw1.6"></script>
+</body>
+
+</html>

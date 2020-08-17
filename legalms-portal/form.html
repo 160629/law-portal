@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单中转页</title>
+</head>
+<body>
+
+<script src="src/lib/jquery-1.8.0.min.js"></script>
+<script src="src/lib/layui/layui.all.js"></script>
+<script src="src/js/ajax.js?v=fw1.6"></script>
+
+<script>
+    var activityInstId = getUrlParam("activityInstId");
+    var processInstId = getUrlParam("processInstId");
+    var mainProcessInstID = getUrlParam("processInstId");
+    var subProcessInstID = getUrlParam("subProcessInstID");
+    var userId = getUrlParam("userId");
+    var token = getUrlParam("token");
+    var appAcctId = getUrlParam("appAcctId");
+    var flag = getUrlParam("flag");
+    var moduleName = getUrlParam("moduleName");
+    var pageKey = getUrlParam("pageKey");
+    var pageType = getUrlParam("openType");
+
+    if (subProcessInstID && !isEmpty(subProcessInstID)) {
+        //门户过来的流程id是子流程id，转给实例
+        processInstId = subProcessInstID;
+    }
+    var paramObj = {
+        token: token,
+        userId: userId,
+        appAcctId: appAcctId,
+        activityInstId: activityInstId,
+        processInstId: processInstId,
+        mainProcessInstID:mainProcessInstID,
+        subProcessInstID:subProcessInstID
+    };
+    if (flag == 666) {
+        jumpDetails(moduleName, pageKey, pageType, "&token=" + paramObj.token + "&loginName=" + (paramObj.userId || paramObj.appAcctId) + "&moduleName=" + moduleName)
+    } else {
+        /**
+         * 123.126.34.157:1189/legalms/legalms-portal/form.html?
+         * activityInstId=100075985
+         * &processInstId=100022674
+         * &userId=liaozhh
+         * &token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJSRVMiLCJTRVJWSUNFSUQiOiJDSE5UTEVHQUxNUyIsImlzcyI6IkJXREFXUyIsImV4cCI6MTU3NTk4ODI4MywiaWF0IjoxNTc1OTg0NjgzLCJMT0dJTkFDQ1QiOiJsaWFvemhoIn0.r1rgtpc92bWnMHJg9GwXiyTwYpNvaRqFhpOAU0z_dxU
+         * &appAcctId=liaozhh
+         * &flag=1
+         * @type {string}
+         */
+        ajax_req({
+            url: baseUrl.token.checkToken,
+            type: 'post',
+            headers: {
+                'token': token
+            },
+            async: false,
+            contentType: 'application/x-www-form-urlencoded',
+            data: paramObj,
+            success: function (rs) {
+                if (rs.data != null && rs.data.taskList.length == 1) {
+                    var data = rs.data.taskList[0];
+                    var businessId = data.type.substr(data.type.indexOf('#') + 1);
+                    businessId = businessId.substr(0, businessId.indexOf('#'));
+                    moduleName = data.person;
+                    var param = "&formId=" + businessId
+                        + "&processInstId=" + processInstId
+                        + "&mainProcessInstID=" + mainProcessInstID
+                        + "&subProcessInstID=" + subProcessInstID
+                        + "&moduleName=" + moduleName
+                        + "&currActivityDefId=" + data.currActivityDefId
+                        + "&currActivityDefName="
+                        + encodeURI(data.currActivityDefName)
+                        + "&mode=task";
+                    pageKey = "view";
+                    jumpDetails(moduleName, pageKey, pageType, "&token=" + paramObj.token + "&loginName=" + (paramObj.userId || paramObj.appAcctId) + param)
+                } else {
+                    alert("跳转出错");
+                }
+
+            }
+        });
+
+    }
+
+    //跳转连接--表单
+    function jumpDetails(moduleName, pageKey, openType, param) {
+        if (moduleName && pageKey) {
+            var path =pageUrl.getBusinessUrl(moduleName, pageKey) + "?1=1" + (param || '');
+            if (path) {
+                window.location.href = path;
+            }
+        } else {
+            console.error(moduleName);
+            console.error(pageKey);
+            layer.msg("请求页面错误");
+        }
+    }
+</script>
+</body>
+</html>

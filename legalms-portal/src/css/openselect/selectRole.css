@@ -1,0 +1,133 @@
+/* 穿梭框 */
+
+.alertBox {
+    background:#fff;
+    position: absolute;
+    border-radius: 5px;
+}
+
+.contentbox {
+    /*width: 100%;*/
+    clear: both;
+    overflow: hidden;
+    padding: 20px 0px 20px 35px;
+}
+
+.alertbtnbox {
+    width: 100%;
+    text-align: center;
+}
+
+.alertbtnbox button {
+    width: 180px;
+    height: 38px;
+    border: none;
+    border-radius: 5px;
+}
+
+
+
+.listtitle {
+    width: 100%;
+    height: 30px;
+    color: rgb(117, 117, 117);
+    background-color: #f5f5f5;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.contentbox .left {
+    margin-right: 20px;
+}
+
+.contentbox .next {
+    width: 100%;
+    overflow-y: auto;
+    max-height: 278px;
+    /* overflow: hidden; */
+}
+.contentbox .next li:hover {
+    background-color: #f2f2f2;
+    color: black;
+ }
+
+ul.ztree {
+    margin-top: 0 !important;
+    background: #fff !important;
+    border: none !important;
+    width: 286px !important;
+    height: 268px !important;
+    overflow-y: scroll;
+    overflow-x: auto;
+}
+
+.contentbox .right {
+    width: 250px;
+}
+
+.contentbox .next li {
+    list-style: none;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #ccc;
+    text-indent: 10px;
+}
+ul.checkedlist{
+    margin-top: 0 !important;
+    background: #fff !important;
+    border: none !important;
+    height: 268px !important;
+    overflow-y: scroll;
+    overflow-x: auto;
+}
+.contentbox .checkedlist li {
+    list-style: none;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #ccc;
+    text-indent: 10px;
+}
+
+.contentbox .checkedlist li:hover{
+    background-color: #f2f2f2;
+}
+.contentbox .checkedlist li .option-icon {
+    display: none;
+    float: right;
+    height: 28px;
+}
+.contentbox .checkedlist li i{
+    color:#ff0000;
+    cursor: pointer;
+}
+.contentbox .checkedlist li i:hover{
+    border: 1px solid #e9484f;;
+}
+.contentbox .checkedlist li .del {
+    font-size: 25px;
+}
+.contentbox .checkedlist li .up {
+    font-size: 20px;
+}
+.contentbox .checkedlist li .down {
+    font-size: 20px;
+}
+.active {
+    background-color: #e9484f;
+    color: #fff;
+}
+
+.berder {
+    float: left;
+    width: 300px;
+    min-height: 310px;
+    /* height: 400px; */
+    border: 1px solid #e2e2e2;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-right: 20px;
+}

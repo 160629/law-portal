@@ -1,0 +1,163 @@
+<!-- 数据字典配置-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dictConfig</title>
+    <link rel="stylesheet" href="../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/commonality.css">
+    <link rel="stylesheet" href="../../css/listBase.css">
+</head>
+<body>
+<div class="wp">
+    <div class="layui-col-md6">
+        <div class="queryBorder queryBorderHeight" style="height: 520px;">
+            <div class="contenttitle">
+                <!--<div class="biaoqian"></div>-->
+                <span style="font-size: 16px"><strong>数据字典类型</strong></span>
+            </div>
+
+            <!-- form表单 -->
+            <form id="queryForm" class="layui-container">
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <div class="layui-col-md5">
+                            <label>
+                                <span>类型代码</span><input type="text" maxlength="40" class="borderNone" name="dictTypeCode" placeholder="请输入">
+                            </label>
+                        </div>
+                        <div class="layui-col-md5">
+                            <label>
+                                <span>类型名称</span><input type="text" maxlength="40" class="borderNone" name="dictTypeName" placeholder="请输入">
+                            </label>
+                        </div>
+                        <!-- 按钮组 -->
+                        <div class="layui-col-md2">
+                            <ul class="query-ul">
+                                <li>
+                                    <input class="querybtn" type="button"
+                                            onclick="queryDictType()" id="querybtn" value="查询"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div style="float: right;">
+                <input type="button" class="card-btn" id="delDictType" onclick="delDataType()" style="margin-right: 10px"  value="删除" />
+                <input type="button" class="card-btn" id="editDictType" onclick="editDataType()"  style="margin-right: 10px"  value="修改" />
+                <input type="button" class="card-btn" onclick="addDictType()" style="margin-right: 10px" value="添加" />
+
+            </div>
+            <!-- 字典类型表格 -->
+            <table id="dictType" class="layui-table" lay-filter="dictTypeFilter">
+            </table>
+        </div>
+        <!--弹出添加字典类型表单-->
+        <div style="width:100%;text-align:center;font-size: 12px;">
+            <form class="layui-form" id="addDictTypePanel" style="display: none;">
+                <div class="layui-form-item dictItem">
+                    <label class="layui-form-label">类型代码</label>
+                    <div class="layui-input-inline">
+                        <span style="color:red;float: left;padding-top: 12px">*</span><input type="text" maxlength="40" name="dictType"
+                                                                                             required lay-verify="required"
+                                                                                             autocomplete="off"
+                                                                                             class="layui-input dictFormItem">
+                    </div>
+                </div>
+                <div class="layui-form-item dictItem">
+                    <label class="layui-form-label">类型名称</label>
+                    <div class="layui-input-inline">
+                        <span style="color:red;float: left;padding-top: 12px">*</span> <input type="text" maxlength="40" name="dictName"
+                                                                                              required lay-verify="required"
+                                                                                              autocomplete="off"
+                                                                                              class="layui-input dictFormItem">
+                    </div>
+                </div>
+                <div class="layui-form-item dictItem">
+                    <label class="layui-form-label">备注</label>
+                    <div class="layui-input-inline">
+                        <input type="text" maxlength="20" name="remark" style="margin-top: 5px" required lay-verify="required"
+                               placeholder="限20个字" autocomplete="off" class="layui-input dictFormItem">
+                    </div>
+                </div>
+                <div class="layui-form-item dictItem">
+                    <button class="querybtn" type="button" onclick="saveOrUpdateFormTab()">保存</button>
+                    <button class="resetbtn" type="button" style="margin-right:95px;" onclick="closeFormTab()">关闭</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--右半部分-->
+    <div class="layui-col-md6" style="height: 550px;">
+        <div class="queryBorder queryBorderHeight" style="height: 520px;">
+            <div class="contenttitle">
+                <span style="font-size: 16px"><strong>数据字典项</strong></span>
+            </div>
+            <div style="float: right;">
+                <input type="button" class="card-btn" id="delDictItem" onclick="delDataItem()" style="margin-right: 10px"  value="删除" />
+                <input type="button" class="card-btn" id="editDictItem" onclick="editDataItem()"  style="margin-right: 10px"  value="修改" />
+                <input type="button" class="card-btn" onclick="addDictItem()" style="margin-right: 10px" value="添加" />
+            </div>
+            <!-- 字典类型表格 -->
+            <table id="dictItem" class="layui-table" lay-filter="dictItemFilter">
+            </table>
+        </div>
+    </div>
+    <!--弹出添加字典项表单-->
+    <div style="width:100%;text-align:center;font-size: 12px;">
+        <form class="layui-form" id="addDictItemPanel" style="display: none;">
+            <div class="layui-form-item dictItem">
+                <label class="layui-form-label">类型代码</label>
+                <div class="layui-input-inline">
+                    <input type="text" maxlength='80' name="dictParentName" readonly
+                           required lay-verify="required"
+                           autocomplete="off"
+                           class="layui-input dictSingleFormItem">
+                </div>
+            </div>
+            <div class="layui-form-item dictItem">
+                <label class="layui-form-label">字典项代码</label>
+                <div class="layui-input-inline">
+                    <span style="color:red;float: left;padding-top: 12px">*</span> <input type="text" maxlength='80' name="dictValue"
+                                                                                          required lay-verify="required"
+                                                                                          autocomplete="off"
+                                                                                          class="layui-input dictFormItem">
+                </div>
+            </div>
+            <div class="layui-form-item dictItem">
+                <label class="layui-form-label">字典项名称</label>
+                <div class="layui-input-inline">
+                    <span style="color:red;float: left;padding-top: 12px">*</span><input type="text" maxlength='80' name="dictCabel"
+                                                                                         required
+                                                                                         lay-verify="required"
+                                                                                         placeholder="限20个字"
+                                                                                         autocomplete="off"
+                                                                                         class="layui-input dictFormItem">
+                </div>
+            </div>
+            <div class="layui-form-item dictItem">
+                <label class="layui-form-label">排序</label>
+                <div class="layui-input-inline">
+                    <input type="number" name="dictSort" style="margin-top: 5px" required lay-verify="required"
+                           autocomplete="off" class="layui-input dictFormItem">
+                </div>
+            </div>
+            <input type="hidden" name="dictParentType" style="margin-top: 5px" >
+            <input type="hidden" name="dictCode" style="margin-top: 5px" >
+            <div class="layui-form-item dictItem">
+                <button class="querybtn" type="button" onclick="saveOrUpdateItemFormTab()">保存</button>
+                <button class="resetbtn" type="button" style="margin-right:95px;" onclick="closeFormItemTab()">关闭</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="../../lib/jquery-1.8.0.min.js"></script>
+<script src="../../lib/layui/layui.all.js"></script>
+<script src="../../js/ajax.js?v=fw1.6"></script>
+<script src="../../js/public/listBase.js?v=fw1.6"></script>
+<script src="../../../src/js/systemconfig/dictConfig.js?v=fw1.6"></script>
+</body>
+</html>

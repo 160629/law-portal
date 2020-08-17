@@ -1,0 +1,48 @@
+﻿.mini-supertree-leaf
+{
+    background-image:url(images/supertree/file.gif);
+}
+.mini-supertree-folder
+{
+    background-image:url(images/supertree/folder.gif);
+}
+.mini-supertree-expand .mini-supertree-folder
+{
+    background-image:url(images/supertree/folder-open.gif);
+}
+
+.mini-supertree-node
+{
+	position:absolute;
+	left:0;top:0;width:100%;height:100%;overflow:hidden;	
+}
+.mini-supertree-nodetext
+{
+	white-space:nowrap; 
+}
+.mini-supertree-ec-icon
+{
+	width:18px;height:18px;overflow:hidden;position:absolute;background:red;
+	top:1px;
+	background:no-repeat 50% 50%;
+}
+.mini-supertree-expand .mini-supertree-ec-icon
+{
+	background-image:url(images/supertree/expand.gif);
+}
+.mini-supertree-collapse .mini-supertree-ec-icon
+{
+	background-image:url(images/supertree/collapse.gif);
+}
+.mini-supertree-nodeicon
+{
+    width:18px;height:18px;overflow:hidden;    
+    position:absolute;
+    background-repeat:no-repeat;
+    background-position:50% 50%;
+}
+
+body .mini-supertree-loading .mini-supertree-ec-icon
+{
+    background:#fff url(images/tree/loading.gif) no-repeat scroll 50% 50%;
+}
